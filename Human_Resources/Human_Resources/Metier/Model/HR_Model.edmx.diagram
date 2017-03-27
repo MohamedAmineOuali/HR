@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b48fb99a448649d29f44a015202e940f" Name="Diagram1">
+        <EntityTypeShape EntityType="HumanResourcesModel.Avance" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.BulletinDePaie" Width="1.5" PointX="10.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Categorie" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.ChargePatronale" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.CNAM" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.CNRP" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.CNSS" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Compte" Width="1.5" PointX="13.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Conge" Width="1.5" PointX="10.5" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Contrat" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Departement" Width="1.5" PointX="13.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Employe" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Etablissement" Width="1.5" PointX="11.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.IGR" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.InfosBanque" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.LivreDePaie" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Prime_Categorie" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.PrimeFixe" Width="1.5" PointX="3.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.PrimesVariable" Width="1.5" PointX="10.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Role" Width="1.5" PointX="11.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.TypeConge" Width="1.5" PointX="8.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.TypeContrat" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="HumanResourcesModel.FK_EmployeCat" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_EmployeBDP" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK__Contrat__FK_Cate__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_Categorie" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_CompteEmploye" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK__Conge__FK_TypeCo__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_Employe" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK__Contrat__FK_Type__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_Contrat" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_Chef" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_Departement" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_Etablissement" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK__PrimesVar__FK_Em__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_InfosBanque" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesModel.FK_PrimeFixe" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
