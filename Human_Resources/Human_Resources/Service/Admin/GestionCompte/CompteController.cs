@@ -7,17 +7,19 @@ using System.Web.Http;
 
 namespace Human_Resources.Service.Admin.GestionCompte
 {
-    [Route("api/Compte")]
+    [RoutePrefix("api/Compte")]
     public class CompteController : ApiController
     {
         // GET: api/Compte
-        [HttpGet]
+        [Route("")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET: api/Compte/5
+        [Route("{id:int}")]
+        [HttpGet]
         public string Get(int id)
         {
             return "value";
