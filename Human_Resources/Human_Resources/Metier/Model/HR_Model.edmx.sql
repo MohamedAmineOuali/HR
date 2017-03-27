@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/27/2017 21:01:59
+-- Date Created: 03/27/2017 21:38:42
 -- Generated from EDMX file: D:\Windows Files\Phenix\Documents\ppp\Project\Human_Resources\Human_Resources\Metier\Model\HR_Model.edmx
 -- --------------------------------------------------
 
@@ -17,124 +17,124 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK__Conge__FK_TypeCo__35BCFE0A]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Conge] DROP CONSTRAINT [FK__Conge__FK_TypeCo__35BCFE0A];
+IF OBJECT_ID(N'[dbo].[FK_EmployeCat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Avances] DROP CONSTRAINT [FK_EmployeCat];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeBDP]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BulletinDePaies] DROP CONSTRAINT [FK_EmployeBDP];
 GO
 IF OBJECT_ID(N'[dbo].[FK__Contrat__FK_Cate__30F848ED]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Contrat] DROP CONSTRAINT [FK__Contrat__FK_Cate__30F848ED];
-GO
-IF OBJECT_ID(N'[dbo].[FK__Contrat__FK_Type__300424B4]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Contrat] DROP CONSTRAINT [FK__Contrat__FK_Type__300424B4];
-GO
-IF OBJECT_ID(N'[dbo].[FK__PrimesVar__FK_Em__48CFD27E]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PrimesVariables] DROP CONSTRAINT [FK__PrimesVar__FK_Em__48CFD27E];
+    ALTER TABLE [dbo].[Contrats] DROP CONSTRAINT [FK__Contrat__FK_Cate__30F848ED];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Categorie]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Prime_Categorie] DROP CONSTRAINT [FK_Categorie];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Chef]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Departement] DROP CONSTRAINT [FK_Chef];
-GO
 IF OBJECT_ID(N'[dbo].[FK_CompteEmploye]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Compte] DROP CONSTRAINT [FK_CompteEmploye];
+    ALTER TABLE [dbo].[Comptes] DROP CONSTRAINT [FK_CompteEmploye];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Contrat]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employe] DROP CONSTRAINT [FK_Contrat];
+IF OBJECT_ID(N'[dbo].[FK_Role]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Comptes] DROP CONSTRAINT [FK_Role];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Departement]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employe] DROP CONSTRAINT [FK_Departement];
+IF OBJECT_ID(N'[dbo].[FK__Conge__FK_TypeCo__35BCFE0A]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Conges] DROP CONSTRAINT [FK__Conge__FK_TypeCo__35BCFE0A];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Employe]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Conge] DROP CONSTRAINT [FK_Employe];
+    ALTER TABLE [dbo].[Conges] DROP CONSTRAINT [FK_Employe];
 GO
-IF OBJECT_ID(N'[dbo].[FK_EmployeBDP]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[BulletinDePaie] DROP CONSTRAINT [FK_EmployeBDP];
+IF OBJECT_ID(N'[dbo].[FK__Contrat__FK_Type__300424B4]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Contrats] DROP CONSTRAINT [FK__Contrat__FK_Type__300424B4];
 GO
-IF OBJECT_ID(N'[dbo].[FK_EmployeCat]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Avance] DROP CONSTRAINT [FK_EmployeCat];
+IF OBJECT_ID(N'[dbo].[FK_Contrat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employes] DROP CONSTRAINT [FK_Contrat];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Chef]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Departements] DROP CONSTRAINT [FK_Chef];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Departement]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employes] DROP CONSTRAINT [FK_Departement];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Etablissement]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Departement] DROP CONSTRAINT [FK_Etablissement];
+    ALTER TABLE [dbo].[Departements] DROP CONSTRAINT [FK_Etablissement];
+GO
+IF OBJECT_ID(N'[dbo].[FK__PrimesVar__FK_Em__48CFD27E]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PrimesVariables] DROP CONSTRAINT [FK__PrimesVar__FK_Em__48CFD27E];
 GO
 IF OBJECT_ID(N'[dbo].[FK_InfosBanque]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employe] DROP CONSTRAINT [FK_InfosBanque];
+    ALTER TABLE [dbo].[Employes] DROP CONSTRAINT [FK_InfosBanque];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PrimeFixe]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Prime_Categorie] DROP CONSTRAINT [FK_PrimeFixe];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Role]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Compte] DROP CONSTRAINT [FK_Role];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Avance]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Avance];
+IF OBJECT_ID(N'[dbo].[Avances]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Avances];
 GO
-IF OBJECT_ID(N'[dbo].[BulletinDePaie]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[BulletinDePaie];
+IF OBJECT_ID(N'[dbo].[BulletinDePaies]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BulletinDePaies];
 GO
-IF OBJECT_ID(N'[dbo].[Categorie]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Categorie];
+IF OBJECT_ID(N'[dbo].[Categories]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Categories];
 GO
-IF OBJECT_ID(N'[dbo].[ChargePatronale]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ChargePatronale];
+IF OBJECT_ID(N'[dbo].[ChargePatronales]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ChargePatronales];
 GO
-IF OBJECT_ID(N'[dbo].[CNAM]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CNAM];
+IF OBJECT_ID(N'[dbo].[CNAMs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CNAMs];
 GO
 IF OBJECT_ID(N'[dbo].[CNRPS]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CNRPS];
 GO
-IF OBJECT_ID(N'[dbo].[CNSS]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CNSS];
+IF OBJECT_ID(N'[dbo].[CNSSes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CNSSes];
 GO
-IF OBJECT_ID(N'[dbo].[Compte]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Compte];
+IF OBJECT_ID(N'[dbo].[Comptes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Comptes];
 GO
-IF OBJECT_ID(N'[dbo].[Conge]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Conge];
+IF OBJECT_ID(N'[dbo].[Conges]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Conges];
 GO
-IF OBJECT_ID(N'[dbo].[Contrat]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Contrat];
+IF OBJECT_ID(N'[dbo].[Contrats]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Contrats];
 GO
-IF OBJECT_ID(N'[dbo].[Departement]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Departement];
+IF OBJECT_ID(N'[dbo].[Departements]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Departements];
 GO
-IF OBJECT_ID(N'[dbo].[Employe]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Employe];
+IF OBJECT_ID(N'[dbo].[Employes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Employes];
 GO
-IF OBJECT_ID(N'[dbo].[Etablissement]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Etablissement];
+IF OBJECT_ID(N'[dbo].[Etablissements]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Etablissements];
 GO
-IF OBJECT_ID(N'[dbo].[IGR]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[IGR];
+IF OBJECT_ID(N'[dbo].[IGRs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[IGRs];
 GO
-IF OBJECT_ID(N'[dbo].[InfosBanque]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[InfosBanque];
+IF OBJECT_ID(N'[dbo].[InfosBanques]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[InfosBanques];
 GO
-IF OBJECT_ID(N'[dbo].[LivreDePaie]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[LivreDePaie];
+IF OBJECT_ID(N'[dbo].[LivreDePaies]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[LivreDePaies];
 GO
 IF OBJECT_ID(N'[dbo].[Prime_Categorie]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Prime_Categorie];
 GO
-IF OBJECT_ID(N'[dbo].[PrimeFixe]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PrimeFixe];
+IF OBJECT_ID(N'[dbo].[PrimeFixes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PrimeFixes];
 GO
 IF OBJECT_ID(N'[dbo].[PrimesVariables]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PrimesVariables];
 GO
-IF OBJECT_ID(N'[dbo].[Role]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Role];
+IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Roles];
 GO
-IF OBJECT_ID(N'[dbo].[TypeConge]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[TypeConge];
+IF OBJECT_ID(N'[dbo].[TypeConges]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TypeConges];
 GO
-IF OBJECT_ID(N'[dbo].[TypeContrat]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[TypeContrat];
+IF OBJECT_ID(N'[dbo].[TypeContrats]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TypeContrats];
 GO
 
 -- --------------------------------------------------
