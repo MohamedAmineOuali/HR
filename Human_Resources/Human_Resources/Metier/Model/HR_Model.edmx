@@ -4,525 +4,524 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HumanResourcesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Avance">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="DateVersement" Type="date" />
-          <Property Name="Mois" Type="date" />
-          <Property Name="Montant" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="FK_Employe" Type="int" />
-        </EntityType>
-        <EntityType Name="BulletinDePaie">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="CNSS" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="Conges" Type="int" />
-          <Property Name="DatePrime" Type="date" />
-          <Property Name="HeuresDeTravail" Type="int" />
-          <Property Name="Nb_H_Ajout" Type="int" />
-          <Property Name="Nb_H_Retard" Type="int" />
-          <Property Name="Net_A_Payer" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="Prime_Presence" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="Salaire_Base" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="Salaire_Brute" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="Statut" Type="nvarchar" MaxLength="50" />
-          <Property Name="FK_Employe" Type="int" />
-        </EntityType>
-        <EntityType Name="Categorie">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Informations" Type="nvarchar" MaxLength="50" />
-          <Property Name="Libelle" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="ChargePatronale">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="CNRPS" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="CNSS" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="IGR" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="Mois" Type="date" />
-          <Property Name="Salaires" Type="numeric" Precision="18" Scale="0" />
-        </EntityType>
-        <EntityType Name="CNAM">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="TauxPatronal" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="TauxSalarial" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="CNRPS">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="TauxPatronal" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="TauxSalarial" Type="decimal" Precision="18" Scale="0" />
-        </EntityType>
-        <EntityType Name="CNSS">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="PlafondSalarial" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="TauxPatronal" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="TauxSalarial" Type="decimal" Precision="18" Scale="0" />
-        </EntityType>
-        <EntityType Name="Compte">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Login" Type="nvarchar(max)" />
-          <Property Name="Password" Type="nvarchar(max)" />
-          <Property Name="FK_Employe" Type="int" />
-          <Property Name="FK_Role" Type="int" />
-        </EntityType>
-        <EntityType Name="Conge">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="DateDebut" Type="date" />
-          <Property Name="DateDemande" Type="date" />
-          <Property Name="NbreJours" Type="int" />
-          <Property Name="Etat" Type="nvarchar" MaxLength="50" />
-          <Property Name="FK_TypeConge" Type="int" />
-          <Property Name="FK_Employe" Type="int" />
-        </EntityType>
-        <EntityType Name="Contrat">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Numero" Type="nchar" MaxLength="10" />
-          <Property Name="DateDebut" Type="date" />
-          <Property Name="DateFin" Type="date" />
-          <Property Name="FK_TypeContrat" Type="int" />
-          <Property Name="FK_Categorie" Type="int" />
-        </EntityType>
-        <EntityType Name="Departement">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" />
-          <Property Name="Libelle" Type="nvarchar" MaxLength="50" />
-          <Property Name="NbreEmployes" Type="image" />
-          <Property Name="Numero" Type="int" />
-          <Property Name="FK_Etablissement" Type="int" />
-          <Property Name="FK_Chef" Type="int" />
-        </EntityType>
-        <EntityType Name="Employe">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Nom" Type="nvarchar" MaxLength="50" />
-          <Property Name="Addresse" Type="nvarchar" MaxLength="50" />
-          <Property Name="Prenom" Type="nvarchar" MaxLength="50" />
-          <Property Name="NbreEnfants" Type="int" />
-          <Property Name="LieuDeNaissance" Type="nvarchar" MaxLength="50" />
-          <Property Name="DateDeNaissance" Type="date" />
-          <Property Name="CIN" Type="int" />
-          <Property Name="Matricule" Type="int" />
-          <Property Name="StatutSocial" Type="nvarchar" MaxLength="50" />
-          <Property Name="Telephone" Type="int" />
-          <Property Name="Natonalite" Type="nchar" MaxLength="10" />
-          <Property Name="Num_SecuriteSociale" Type="int" />
-          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
-          <Property Name="Genre" Type="nvarchar" MaxLength="50" />
-          <Property Name="Etat" Type="nvarchar" MaxLength="50" />
-          <Property Name="FK_InfosBanque" Type="int" />
-          <Property Name="FK_Contrat" Type="int" />
-          <Property Name="FK_Departement" Type="int" />
-        </EntityType>
-        <EntityType Name="Etablissement">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Localite" Type="nvarchar" MaxLength="50" />
-          <Property Name="NbreEmploye" Type="int" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="IGR">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="SalaireMax" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="SalaireMin" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="Taux" Type="decimal" Precision="18" Scale="0" />
-        </EntityType>
-        <EntityType Name="InfosBanque">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="NumeroCompte" Type="nvarchar" MaxLength="50" />
-          <Property Name="TelBanque" Type="int" />
-          <Property Name="CodeBanque" Type="int" />
-          <Property Name="Domiciliation" Type="nvarchar" MaxLength="50" />
-          <Property Name="CodeGuichet" Type="int" />
-          <Property Name="ReglementPar" Type="nvarchar(max)" />
-          <Property Name="CleRIB" Type="int" />
-          <Property Name="IBAN" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="LivreDePaie">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Mois" Type="date" />
-          <Property Name="Reference" Type="nvarchar" MaxLength="50" />
-          <Property Name="Details" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="Prime_Categorie">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="FK_Categorie" Type="int" />
-          <Property Name="FK_PrimeFixe" Type="int" />
-        </EntityType>
-        <EntityType Name="PrimeFixe">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Libelle" Type="nvarchar" MaxLength="50" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
-          <Property Name="Valeur" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="Exoneres" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="PrimesVariables">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Libelle" Type="nvarchar" MaxLength="50" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
-          <Property Name="Valeur" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="Exoneres" Type="nvarchar" MaxLength="50" />
-          <Property Name="DateAffectation" Type="date" />
-          <Property Name="FK_Employe" Type="int" />
-        </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Libelle" Type="nvarchar" MaxLength="50" />
-          <Property Name="Privileges" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="TypeConge">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Libelle" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="TypeContrat">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Details" Type="nvarchar" MaxLength="50" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <Association Name="FK__Conge__FK_TypeCo__35BCFE0A">
-          <End Role="TypeConge" Type="Self.TypeConge" Multiplicity="0..1" />
-          <End Role="Conge" Type="Self.Conge" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeConge">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Conge">
-              <PropertyRef Name="FK_TypeConge" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Contrat__FK_Cate__30F848ED">
-          <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
-          <End Role="Contrat" Type="Self.Contrat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categorie">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Contrat">
-              <PropertyRef Name="FK_Categorie" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Contrat__FK_Type__300424B4">
-          <End Role="TypeContrat" Type="Self.TypeContrat" Multiplicity="0..1" />
-          <End Role="Contrat" Type="Self.Contrat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeContrat">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Contrat">
-              <PropertyRef Name="FK_TypeContrat" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PrimesVar__FK_Em__48CFD27E">
-          <End Role="Employe" Type="Self.Employe" Multiplicity="0..1" />
-          <End Role="PrimesVariables" Type="Self.PrimesVariables" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employe">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PrimesVariables">
-              <PropertyRef Name="FK_Employe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Categorie">
-          <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
-          <End Role="Prime_Categorie" Type="Self.Prime_Categorie" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categorie">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Prime_Categorie">
-              <PropertyRef Name="FK_Categorie" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Chef">
-          <End Role="Employe" Type="Self.Employe" Multiplicity="0..1" />
-          <End Role="Departement" Type="Self.Departement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employe">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Departement">
-              <PropertyRef Name="FK_Chef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CompteEmploye">
-          <End Role="Employe" Type="Self.Employe" Multiplicity="0..1" />
-          <End Role="Compte" Type="Self.Compte" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employe">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Compte">
-              <PropertyRef Name="FK_Employe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Contrat">
-          <End Role="Contrat" Type="Self.Contrat" Multiplicity="0..1" />
-          <End Role="Employe" Type="Self.Employe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Contrat">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Employe">
-              <PropertyRef Name="FK_Contrat" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Departement">
-          <End Role="Departement" Type="Self.Departement" Multiplicity="0..1" />
-          <End Role="Employe" Type="Self.Employe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Departement">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Employe">
-              <PropertyRef Name="FK_Departement" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employe">
-          <End Role="Employe" Type="Self.Employe" Multiplicity="0..1" />
-          <End Role="Conge" Type="Self.Conge" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employe">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Conge">
-              <PropertyRef Name="FK_Employe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeBDP">
-          <End Role="Employe" Type="Self.Employe" Multiplicity="0..1" />
-          <End Role="BulletinDePaie" Type="Self.BulletinDePaie" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employe">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BulletinDePaie">
-              <PropertyRef Name="FK_Employe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeCat">
-          <End Role="Employe" Type="Self.Employe" Multiplicity="0..1" />
-          <End Role="Avance" Type="Self.Avance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employe">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Avance">
-              <PropertyRef Name="FK_Employe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Etablissement">
-          <End Role="Etablissement" Type="Self.Etablissement" Multiplicity="0..1" />
-          <End Role="Departement" Type="Self.Departement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Etablissement">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Departement">
-              <PropertyRef Name="FK_Etablissement" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InfosBanque">
-          <End Role="InfosBanque" Type="Self.InfosBanque" Multiplicity="0..1" />
-          <End Role="Employe" Type="Self.Employe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InfosBanque">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Employe">
-              <PropertyRef Name="FK_InfosBanque" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PrimeFixe">
-          <End Role="PrimeFixe" Type="Self.PrimeFixe" Multiplicity="0..1" />
-          <End Role="Prime_Categorie" Type="Self.Prime_Categorie" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PrimeFixe">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Prime_Categorie">
-              <PropertyRef Name="FK_PrimeFixe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
-          <End Role="Compte" Type="Self.Compte" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Compte">
-              <PropertyRef Name="FK_Role" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="HumanResourcesModelStoreContainer">
-          <EntitySet Name="Avance" EntityType="Self.Avance" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BulletinDePaie" EntityType="Self.BulletinDePaie" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ChargePatronale" EntityType="Self.ChargePatronale" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CNAM" EntityType="Self.CNAM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CNRPS" EntityType="Self.CNRPS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CNSS" EntityType="Self.CNSS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Compte" EntityType="Self.Compte" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Conge" EntityType="Self.Conge" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Contrat" EntityType="Self.Contrat" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Departement" EntityType="Self.Departement" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Employe" EntityType="Self.Employe" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Etablissement" EntityType="Self.Etablissement" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="IGR" EntityType="Self.IGR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="InfosBanque" EntityType="Self.InfosBanque" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LivreDePaie" EntityType="Self.LivreDePaie" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Prime_Categorie" EntityType="Self.Prime_Categorie" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PrimeFixe" EntityType="Self.PrimeFixe" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PrimesVariables" EntityType="Self.PrimesVariables" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TypeConge" EntityType="Self.TypeConge" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TypeContrat" EntityType="Self.TypeContrat" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Conge__FK_TypeCo__35BCFE0A" Association="Self.FK__Conge__FK_TypeCo__35BCFE0A">
-            <End Role="TypeConge" EntitySet="TypeConge" />
-            <End Role="Conge" EntitySet="Conge" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Contrat__FK_Cate__30F848ED" Association="Self.FK__Contrat__FK_Cate__30F848ED">
-            <End Role="Categorie" EntitySet="Categorie" />
-            <End Role="Contrat" EntitySet="Contrat" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Contrat__FK_Type__300424B4" Association="Self.FK__Contrat__FK_Type__300424B4">
-            <End Role="TypeContrat" EntitySet="TypeContrat" />
-            <End Role="Contrat" EntitySet="Contrat" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PrimesVar__FK_Em__48CFD27E" Association="Self.FK__PrimesVar__FK_Em__48CFD27E">
-            <End Role="Employe" EntitySet="Employe" />
-            <End Role="PrimesVariables" EntitySet="PrimesVariables" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Categorie" Association="Self.FK_Categorie">
-            <End Role="Categorie" EntitySet="Categorie" />
-            <End Role="Prime_Categorie" EntitySet="Prime_Categorie" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Chef" Association="Self.FK_Chef">
-            <End Role="Employe" EntitySet="Employe" />
-            <End Role="Departement" EntitySet="Departement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CompteEmploye" Association="Self.FK_CompteEmploye">
-            <End Role="Employe" EntitySet="Employe" />
-            <End Role="Compte" EntitySet="Compte" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contrat" Association="Self.FK_Contrat">
-            <End Role="Contrat" EntitySet="Contrat" />
-            <End Role="Employe" EntitySet="Employe" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Departement" Association="Self.FK_Departement">
-            <End Role="Departement" EntitySet="Departement" />
-            <End Role="Employe" EntitySet="Employe" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employe" Association="Self.FK_Employe">
-            <End Role="Employe" EntitySet="Employe" />
-            <End Role="Conge" EntitySet="Conge" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeBDP" Association="Self.FK_EmployeBDP">
-            <End Role="Employe" EntitySet="Employe" />
-            <End Role="BulletinDePaie" EntitySet="BulletinDePaie" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeCat" Association="Self.FK_EmployeCat">
-            <End Role="Employe" EntitySet="Employe" />
-            <End Role="Avance" EntitySet="Avance" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Etablissement" Association="Self.FK_Etablissement">
-            <End Role="Etablissement" EntitySet="Etablissement" />
-            <End Role="Departement" EntitySet="Departement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InfosBanque" Association="Self.FK_InfosBanque">
-            <End Role="InfosBanque" EntitySet="InfosBanque" />
-            <End Role="Employe" EntitySet="Employe" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PrimeFixe" Association="Self.FK_PrimeFixe">
-            <End Role="PrimeFixe" EntitySet="PrimeFixe" />
-            <End Role="Prime_Categorie" EntitySet="Prime_Categorie" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Role" Association="Self.FK_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="Compte" EntitySet="Compte" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="HumanResourcesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="HumanResourcesModelStoreContainer">
+    <EntitySet Name="Avances" EntityType="HumanResourcesModel.Store.Avances" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BulletinDePaies" EntityType="HumanResourcesModel.Store.BulletinDePaies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Categories" EntityType="HumanResourcesModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChargePatronales" EntityType="HumanResourcesModel.Store.ChargePatronales" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CNAMs" EntityType="HumanResourcesModel.Store.CNAMs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CNRPS" EntityType="HumanResourcesModel.Store.CNRPS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CNSSes" EntityType="HumanResourcesModel.Store.CNSSes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comptes" EntityType="HumanResourcesModel.Store.Comptes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Conges" EntityType="HumanResourcesModel.Store.Conges" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contrats" EntityType="HumanResourcesModel.Store.Contrats" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departements" EntityType="HumanResourcesModel.Store.Departements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employes" EntityType="HumanResourcesModel.Store.Employes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Etablissements" EntityType="HumanResourcesModel.Store.Etablissements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IGRs" EntityType="HumanResourcesModel.Store.IGRs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InfosBanques" EntityType="HumanResourcesModel.Store.InfosBanques" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LivreDePaies" EntityType="HumanResourcesModel.Store.LivreDePaies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Prime_Categorie" EntityType="HumanResourcesModel.Store.Prime_Categorie" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PrimeFixes" EntityType="HumanResourcesModel.Store.PrimeFixes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PrimesVariables" EntityType="HumanResourcesModel.Store.PrimesVariables" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="HumanResourcesModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypeConges" EntityType="HumanResourcesModel.Store.TypeConges" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypeContrats" EntityType="HumanResourcesModel.Store.TypeContrats" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_EmployeCat" Association="HumanResourcesModel.Store.FK_EmployeCat">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="Avance" EntitySet="Avances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeBDP" Association="HumanResourcesModel.Store.FK_EmployeBDP">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="BulletinDePaie" EntitySet="BulletinDePaies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contrat__FK_Cate__30F848ED" Association="HumanResourcesModel.Store.FK__Contrat__FK_Cate__30F848ED">
+      <End Role="Categorie" EntitySet="Categories" />
+      <End Role="Contrat" EntitySet="Contrats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categorie" Association="HumanResourcesModel.Store.FK_Categorie">
+      <End Role="Categorie" EntitySet="Categories" />
+      <End Role="Prime_Categorie" EntitySet="Prime_Categorie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompteEmploye" Association="HumanResourcesModel.Store.FK_CompteEmploye">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="Compte" EntitySet="Comptes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role" Association="HumanResourcesModel.Store.FK_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Compte" EntitySet="Comptes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Conge__FK_TypeCo__35BCFE0A" Association="HumanResourcesModel.Store.FK__Conge__FK_TypeCo__35BCFE0A">
+      <End Role="TypeConge" EntitySet="TypeConges" />
+      <End Role="Conge" EntitySet="Conges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employe" Association="HumanResourcesModel.Store.FK_Employe">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="Conge" EntitySet="Conges" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contrat__FK_Type__300424B4" Association="HumanResourcesModel.Store.FK__Contrat__FK_Type__300424B4">
+      <End Role="TypeContrat" EntitySet="TypeContrats" />
+      <End Role="Contrat" EntitySet="Contrats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contrat" Association="HumanResourcesModel.Store.FK_Contrat">
+      <End Role="Contrat" EntitySet="Contrats" />
+      <End Role="Employe" EntitySet="Employes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chef" Association="HumanResourcesModel.Store.FK_Chef">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="Departement" EntitySet="Departements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departement" Association="HumanResourcesModel.Store.FK_Departement">
+      <End Role="Departement" EntitySet="Departements" />
+      <End Role="Employe" EntitySet="Employes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Etablissement" Association="HumanResourcesModel.Store.FK_Etablissement">
+      <End Role="Etablissement" EntitySet="Etablissements" />
+      <End Role="Departement" EntitySet="Departements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PrimesVar__FK_Em__48CFD27E" Association="HumanResourcesModel.Store.FK__PrimesVar__FK_Em__48CFD27E">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="PrimesVariables" EntitySet="PrimesVariables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InfosBanque" Association="HumanResourcesModel.Store.FK_InfosBanque">
+      <End Role="InfosBanque" EntitySet="InfosBanques" />
+      <End Role="Employe" EntitySet="Employes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrimeFixe" Association="HumanResourcesModel.Store.FK_PrimeFixe">
+      <End Role="PrimeFixe" EntitySet="PrimeFixes" />
+      <End Role="Prime_Categorie" EntitySet="Prime_Categorie" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Avances">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DateVersement" Type="datetime" Nullable="true" />
+    <Property Name="Mois" Type="datetime" Nullable="true" />
+    <Property Name="Montant" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="FK_Employe" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="BulletinDePaies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CNSS" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Conges" Type="int" Nullable="true" />
+    <Property Name="DatePrime" Type="datetime" Nullable="true" />
+    <Property Name="HeuresDeTravail" Type="int" Nullable="true" />
+    <Property Name="Nb_H_Ajout" Type="int" Nullable="true" />
+    <Property Name="Nb_H_Retard" Type="int" Nullable="true" />
+    <Property Name="Net_A_Payer" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Prime_Presence" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Salaire_Base" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Salaire_Brute" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Statut" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="FK_Employe" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Informations" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Libelle" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ChargePatronales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CNRPS" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="CNSS" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="IGR" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Mois" Type="datetime" Nullable="true" />
+    <Property Name="Salaires" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="CNAMs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TauxPatronal" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="TauxSalarial" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Type" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CNRPS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TauxPatronal" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="TauxSalarial" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="CNSSes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PlafondSalarial" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="TauxPatronal" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="TauxSalarial" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Comptes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="FK_Employe" Type="int" Nullable="true" />
+    <Property Name="FK_Role" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Conges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DateDebut" Type="datetime" Nullable="true" />
+    <Property Name="DateDemande" Type="datetime" Nullable="true" />
+    <Property Name="NbreJours" Type="int" Nullable="true" />
+    <Property Name="Etat" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="FK_TypeConge" Type="int" Nullable="true" />
+    <Property Name="FK_Employe" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Contrats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Numero" Type="nchar" Nullable="true" MaxLength="10" />
+    <Property Name="DateDebut" Type="datetime" Nullable="true" />
+    <Property Name="DateFin" Type="datetime" Nullable="true" />
+    <Property Name="FK_TypeContrat" Type="int" Nullable="true" />
+    <Property Name="FK_Categorie" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Departements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Libelle" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="NbreEmployes" Type="varbinary(max)" Nullable="true" />
+    <Property Name="Numero" Type="int" Nullable="true" />
+    <Property Name="FK_Etablissement" Type="int" Nullable="true" />
+    <Property Name="FK_Chef" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Employes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Addresse" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Prenom" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="NbreEnfants" Type="int" Nullable="true" />
+    <Property Name="LieuDeNaissance" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DateDeNaissance" Type="datetime" Nullable="true" />
+    <Property Name="CIN" Type="int" Nullable="true" />
+    <Property Name="Matricule" Type="int" Nullable="true" />
+    <Property Name="StatutSocial" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Telephone" Type="int" Nullable="true" />
+    <Property Name="Natonalite" Type="nchar" Nullable="true" MaxLength="10" />
+    <Property Name="Num_SecuriteSociale" Type="int" Nullable="true" />
+    <Property Name="Grade" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Genre" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Etat" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="FK_InfosBanque" Type="int" Nullable="true" />
+    <Property Name="FK_Contrat" Type="int" Nullable="true" />
+    <Property Name="FK_Departement" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Etablissements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Localite" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="NbreEmploye" Type="int" Nullable="true" />
+    <Property Name="Type" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="IGRs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="SalaireMax" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="SalaireMin" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Taux" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="InfosBanques">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="NumeroCompte" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="TelBanque" Type="int" Nullable="true" />
+    <Property Name="CodeBanque" Type="int" Nullable="true" />
+    <Property Name="Domiciliation" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CodeGuichet" Type="int" Nullable="true" />
+    <Property Name="ReglementPar" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CleRIB" Type="int" Nullable="true" />
+    <Property Name="IBAN" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LivreDePaies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Mois" Type="datetime" Nullable="true" />
+    <Property Name="Reference" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Details" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Prime_Categorie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FK_Categorie" Type="int" Nullable="true" />
+    <Property Name="FK_PrimeFixe" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PrimeFixes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Libelle" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Valeur" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Exoneres" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PrimesVariables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Libelle" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Valeur" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Exoneres" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DateAffectation" Type="datetime" Nullable="true" />
+    <Property Name="FK_Employe" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Libelle" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Privileges" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TypeConges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Libelle" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TypeContrats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_EmployeCat">
+    <End Role="Employe" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
+    <End Role="Avance" Type="HumanResourcesModel.Store.Avances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avance">
+        <PropertyRef Name="FK_Employe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeBDP">
+    <End Role="Employe" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
+    <End Role="BulletinDePaie" Type="HumanResourcesModel.Store.BulletinDePaies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BulletinDePaie">
+        <PropertyRef Name="FK_Employe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contrat__FK_Cate__30F848ED">
+    <End Role="Categorie" Type="HumanResourcesModel.Store.Categories" Multiplicity="0..1" />
+    <End Role="Contrat" Type="HumanResourcesModel.Store.Contrats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contrat">
+        <PropertyRef Name="FK_Categorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categorie">
+    <End Role="Categorie" Type="HumanResourcesModel.Store.Categories" Multiplicity="0..1" />
+    <End Role="Prime_Categorie" Type="HumanResourcesModel.Store.Prime_Categorie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Prime_Categorie">
+        <PropertyRef Name="FK_Categorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompteEmploye">
+    <End Role="Employe" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
+    <End Role="Compte" Type="HumanResourcesModel.Store.Comptes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Compte">
+        <PropertyRef Name="FK_Employe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role">
+    <End Role="Role" Type="HumanResourcesModel.Store.Roles" Multiplicity="0..1" />
+    <End Role="Compte" Type="HumanResourcesModel.Store.Comptes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Compte">
+        <PropertyRef Name="FK_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Conge__FK_TypeCo__35BCFE0A">
+    <End Role="TypeConge" Type="HumanResourcesModel.Store.TypeConges" Multiplicity="0..1" />
+    <End Role="Conge" Type="HumanResourcesModel.Store.Conges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeConge">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Conge">
+        <PropertyRef Name="FK_TypeConge" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employe">
+    <End Role="Employe" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
+    <End Role="Conge" Type="HumanResourcesModel.Store.Conges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Conge">
+        <PropertyRef Name="FK_Employe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contrat__FK_Type__300424B4">
+    <End Role="TypeContrat" Type="HumanResourcesModel.Store.TypeContrats" Multiplicity="0..1" />
+    <End Role="Contrat" Type="HumanResourcesModel.Store.Contrats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeContrat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contrat">
+        <PropertyRef Name="FK_TypeContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contrat">
+    <End Role="Contrat" Type="HumanResourcesModel.Store.Contrats" Multiplicity="0..1" />
+    <End Role="Employe" Type="HumanResourcesModel.Store.Employes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contrat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employe">
+        <PropertyRef Name="FK_Contrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chef">
+    <End Role="Employe" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
+    <End Role="Departement" Type="HumanResourcesModel.Store.Departements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departement">
+        <PropertyRef Name="FK_Chef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departement">
+    <End Role="Departement" Type="HumanResourcesModel.Store.Departements" Multiplicity="0..1" />
+    <End Role="Employe" Type="HumanResourcesModel.Store.Employes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employe">
+        <PropertyRef Name="FK_Departement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Etablissement">
+    <End Role="Etablissement" Type="HumanResourcesModel.Store.Etablissements" Multiplicity="0..1" />
+    <End Role="Departement" Type="HumanResourcesModel.Store.Departements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etablissement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departement">
+        <PropertyRef Name="FK_Etablissement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PrimesVar__FK_Em__48CFD27E">
+    <End Role="Employe" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
+    <End Role="PrimesVariables" Type="HumanResourcesModel.Store.PrimesVariables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrimesVariables">
+        <PropertyRef Name="FK_Employe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InfosBanque">
+    <End Role="InfosBanque" Type="HumanResourcesModel.Store.InfosBanques" Multiplicity="0..1" />
+    <End Role="Employe" Type="HumanResourcesModel.Store.Employes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InfosBanque">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employe">
+        <PropertyRef Name="FK_InfosBanque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrimeFixe">
+    <End Role="PrimeFixe" Type="HumanResourcesModel.Store.PrimeFixes" Multiplicity="0..1" />
+    <End Role="Prime_Categorie" Type="HumanResourcesModel.Store.Prime_Categorie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrimeFixe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Prime_Categorie">
+        <PropertyRef Name="FK_PrimeFixe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HumanResourcesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1078,269 +1077,268 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HumanResourcesModelStoreContainer" CdmEntityContainer="HumanResourcesEntities">
-          <EntitySetMapping Name="Avances">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Avance">
-              <MappingFragment StoreEntitySet="Avance">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="DateVersement" ColumnName="DateVersement" />
-                <ScalarProperty Name="Mois" ColumnName="Mois" />
-                <ScalarProperty Name="Montant" ColumnName="Montant" />
-                <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BulletinDePaies">
-            <EntityTypeMapping TypeName="HumanResourcesModel.BulletinDePaie">
-              <MappingFragment StoreEntitySet="BulletinDePaie">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CNSS" ColumnName="CNSS" />
-                <ScalarProperty Name="Conges" ColumnName="Conges" />
-                <ScalarProperty Name="DatePrime" ColumnName="DatePrime" />
-                <ScalarProperty Name="HeuresDeTravail" ColumnName="HeuresDeTravail" />
-                <ScalarProperty Name="Nb_H_Ajout" ColumnName="Nb_H_Ajout" />
-                <ScalarProperty Name="Nb_H_Retard" ColumnName="Nb_H_Retard" />
-                <ScalarProperty Name="Net_A_Payer" ColumnName="Net_A_Payer" />
-                <ScalarProperty Name="Prime_Presence" ColumnName="Prime_Presence" />
-                <ScalarProperty Name="Salaire_Base" ColumnName="Salaire_Base" />
-                <ScalarProperty Name="Salaire_Brute" ColumnName="Salaire_Brute" />
-                <ScalarProperty Name="Statut" ColumnName="Statut" />
-                <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Categorie">
-              <MappingFragment StoreEntitySet="Categorie">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Informations" ColumnName="Informations" />
-                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ChargePatronales">
-            <EntityTypeMapping TypeName="HumanResourcesModel.ChargePatronale">
-              <MappingFragment StoreEntitySet="ChargePatronale">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CNRPS" ColumnName="CNRPS" />
-                <ScalarProperty Name="CNSS" ColumnName="CNSS" />
-                <ScalarProperty Name="IGR" ColumnName="IGR" />
-                <ScalarProperty Name="Mois" ColumnName="Mois" />
-                <ScalarProperty Name="Salaires" ColumnName="Salaires" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CNAMs">
-            <EntityTypeMapping TypeName="HumanResourcesModel.CNAM">
-              <MappingFragment StoreEntitySet="CNAM">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="TauxPatronal" ColumnName="TauxPatronal" />
-                <ScalarProperty Name="TauxSalarial" ColumnName="TauxSalarial" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CNRPS">
-            <EntityTypeMapping TypeName="HumanResourcesModel.CNRP">
-              <MappingFragment StoreEntitySet="CNRPS">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="TauxPatronal" ColumnName="TauxPatronal" />
-                <ScalarProperty Name="TauxSalarial" ColumnName="TauxSalarial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CNSSes">
-            <EntityTypeMapping TypeName="HumanResourcesModel.CNSS">
-              <MappingFragment StoreEntitySet="CNSS">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PlafondSalarial" ColumnName="PlafondSalarial" />
-                <ScalarProperty Name="TauxPatronal" ColumnName="TauxPatronal" />
-                <ScalarProperty Name="TauxSalarial" ColumnName="TauxSalarial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Comptes">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Compte">
-              <MappingFragment StoreEntitySet="Compte">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
-                <ScalarProperty Name="FK_Role" ColumnName="FK_Role" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Conges">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Conge">
-              <MappingFragment StoreEntitySet="Conge">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
-                <ScalarProperty Name="DateDemande" ColumnName="DateDemande" />
-                <ScalarProperty Name="NbreJours" ColumnName="NbreJours" />
-                <ScalarProperty Name="Etat" ColumnName="Etat" />
-                <ScalarProperty Name="FK_TypeConge" ColumnName="FK_TypeConge" />
-                <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Contrats">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Contrat">
-              <MappingFragment StoreEntitySet="Contrat">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Numero" ColumnName="Numero" />
-                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
-                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
-                <ScalarProperty Name="FK_TypeContrat" ColumnName="FK_TypeContrat" />
-                <ScalarProperty Name="FK_Categorie" ColumnName="FK_Categorie" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Departements">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Departement">
-              <MappingFragment StoreEntitySet="Departement">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-                <ScalarProperty Name="NbreEmployes" ColumnName="NbreEmployes" />
-                <ScalarProperty Name="Numero" ColumnName="Numero" />
-                <ScalarProperty Name="FK_Etablissement" ColumnName="FK_Etablissement" />
-                <ScalarProperty Name="FK_Chef" ColumnName="FK_Chef" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Employes">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Employe">
-              <MappingFragment StoreEntitySet="Employe">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nom" ColumnName="Nom" />
-                <ScalarProperty Name="Addresse" ColumnName="Addresse" />
-                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
-                <ScalarProperty Name="NbreEnfants" ColumnName="NbreEnfants" />
-                <ScalarProperty Name="LieuDeNaissance" ColumnName="LieuDeNaissance" />
-                <ScalarProperty Name="DateDeNaissance" ColumnName="DateDeNaissance" />
-                <ScalarProperty Name="CIN" ColumnName="CIN" />
-                <ScalarProperty Name="Matricule" ColumnName="Matricule" />
-                <ScalarProperty Name="StatutSocial" ColumnName="StatutSocial" />
-                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-                <ScalarProperty Name="Natonalite" ColumnName="Natonalite" />
-                <ScalarProperty Name="Num_SecuriteSociale" ColumnName="Num_SecuriteSociale" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="Genre" ColumnName="Genre" />
-                <ScalarProperty Name="Etat" ColumnName="Etat" />
-                <ScalarProperty Name="FK_InfosBanque" ColumnName="FK_InfosBanque" />
-                <ScalarProperty Name="FK_Contrat" ColumnName="FK_Contrat" />
-                <ScalarProperty Name="FK_Departement" ColumnName="FK_Departement" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Etablissements">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Etablissement">
-              <MappingFragment StoreEntitySet="Etablissement">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Localite" ColumnName="Localite" />
-                <ScalarProperty Name="NbreEmploye" ColumnName="NbreEmploye" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="IGRs">
-            <EntityTypeMapping TypeName="HumanResourcesModel.IGR">
-              <MappingFragment StoreEntitySet="IGR">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="SalaireMax" ColumnName="SalaireMax" />
-                <ScalarProperty Name="SalaireMin" ColumnName="SalaireMin" />
-                <ScalarProperty Name="Taux" ColumnName="Taux" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InfosBanques">
-            <EntityTypeMapping TypeName="HumanResourcesModel.InfosBanque">
-              <MappingFragment StoreEntitySet="InfosBanque">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="NumeroCompte" ColumnName="NumeroCompte" />
-                <ScalarProperty Name="TelBanque" ColumnName="TelBanque" />
-                <ScalarProperty Name="CodeBanque" ColumnName="CodeBanque" />
-                <ScalarProperty Name="Domiciliation" ColumnName="Domiciliation" />
-                <ScalarProperty Name="CodeGuichet" ColumnName="CodeGuichet" />
-                <ScalarProperty Name="ReglementPar" ColumnName="ReglementPar" />
-                <ScalarProperty Name="CleRIB" ColumnName="CleRIB" />
-                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LivreDePaies">
-            <EntityTypeMapping TypeName="HumanResourcesModel.LivreDePaie">
-              <MappingFragment StoreEntitySet="LivreDePaie">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Mois" ColumnName="Mois" />
-                <ScalarProperty Name="Reference" ColumnName="Reference" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Prime_Categorie">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Prime_Categorie">
-              <MappingFragment StoreEntitySet="Prime_Categorie">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FK_Categorie" ColumnName="FK_Categorie" />
-                <ScalarProperty Name="FK_PrimeFixe" ColumnName="FK_PrimeFixe" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PrimeFixes">
-            <EntityTypeMapping TypeName="HumanResourcesModel.PrimeFixe">
-              <MappingFragment StoreEntitySet="PrimeFixe">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Valeur" ColumnName="Valeur" />
-                <ScalarProperty Name="Exoneres" ColumnName="Exoneres" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PrimesVariables">
-            <EntityTypeMapping TypeName="HumanResourcesModel.PrimesVariable">
-              <MappingFragment StoreEntitySet="PrimesVariables">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Valeur" ColumnName="Valeur" />
-                <ScalarProperty Name="Exoneres" ColumnName="Exoneres" />
-                <ScalarProperty Name="DateAffectation" ColumnName="DateAffectation" />
-                <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Role">
-              <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-                <ScalarProperty Name="Privileges" ColumnName="Privileges" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TypeConges">
-            <EntityTypeMapping TypeName="HumanResourcesModel.TypeConge">
-              <MappingFragment StoreEntitySet="TypeConge">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TypeContrats">
-            <EntityTypeMapping TypeName="HumanResourcesModel.TypeContrat">
-              <MappingFragment StoreEntitySet="TypeContrat">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HumanResourcesModelStoreContainer" CdmEntityContainer="HumanResourcesEntities">
+    <EntitySetMapping Name="Avances">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Avance)">
+        <MappingFragment StoreEntitySet="Avances">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateVersement" ColumnName="DateVersement" />
+          <ScalarProperty Name="Mois" ColumnName="Mois" />
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BulletinDePaies">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.BulletinDePaie)">
+        <MappingFragment StoreEntitySet="BulletinDePaies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CNSS" ColumnName="CNSS" />
+          <ScalarProperty Name="Conges" ColumnName="Conges" />
+          <ScalarProperty Name="DatePrime" ColumnName="DatePrime" />
+          <ScalarProperty Name="HeuresDeTravail" ColumnName="HeuresDeTravail" />
+          <ScalarProperty Name="Nb_H_Ajout" ColumnName="Nb_H_Ajout" />
+          <ScalarProperty Name="Nb_H_Retard" ColumnName="Nb_H_Retard" />
+          <ScalarProperty Name="Net_A_Payer" ColumnName="Net_A_Payer" />
+          <ScalarProperty Name="Prime_Presence" ColumnName="Prime_Presence" />
+          <ScalarProperty Name="Salaire_Base" ColumnName="Salaire_Base" />
+          <ScalarProperty Name="Salaire_Brute" ColumnName="Salaire_Brute" />
+          <ScalarProperty Name="Statut" ColumnName="Statut" />
+          <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Categorie)">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Informations" ColumnName="Informations" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChargePatronales">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.ChargePatronale)">
+        <MappingFragment StoreEntitySet="ChargePatronales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CNRPS" ColumnName="CNRPS" />
+          <ScalarProperty Name="CNSS" ColumnName="CNSS" />
+          <ScalarProperty Name="IGR" ColumnName="IGR" />
+          <ScalarProperty Name="Mois" ColumnName="Mois" />
+          <ScalarProperty Name="Salaires" ColumnName="Salaires" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNAMs">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.CNAM)">
+        <MappingFragment StoreEntitySet="CNAMs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TauxPatronal" ColumnName="TauxPatronal" />
+          <ScalarProperty Name="TauxSalarial" ColumnName="TauxSalarial" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNRPS">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.CNRP)">
+        <MappingFragment StoreEntitySet="CNRPS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TauxPatronal" ColumnName="TauxPatronal" />
+          <ScalarProperty Name="TauxSalarial" ColumnName="TauxSalarial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNSSes">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.CNSS)">
+        <MappingFragment StoreEntitySet="CNSSes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PlafondSalarial" ColumnName="PlafondSalarial" />
+          <ScalarProperty Name="TauxPatronal" ColumnName="TauxPatronal" />
+          <ScalarProperty Name="TauxSalarial" ColumnName="TauxSalarial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comptes">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Compte)">
+        <MappingFragment StoreEntitySet="Comptes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
+          <ScalarProperty Name="FK_Role" ColumnName="FK_Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conges">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Conge)">
+        <MappingFragment StoreEntitySet="Conges">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="DateDemande" ColumnName="DateDemande" />
+          <ScalarProperty Name="NbreJours" ColumnName="NbreJours" />
+          <ScalarProperty Name="Etat" ColumnName="Etat" />
+          <ScalarProperty Name="FK_TypeConge" ColumnName="FK_TypeConge" />
+          <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contrats">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Contrat)">
+        <MappingFragment StoreEntitySet="Contrats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="FK_TypeContrat" ColumnName="FK_TypeContrat" />
+          <ScalarProperty Name="FK_Categorie" ColumnName="FK_Categorie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departements">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Departement)">
+        <MappingFragment StoreEntitySet="Departements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="NbreEmployes" ColumnName="NbreEmployes" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="FK_Etablissement" ColumnName="FK_Etablissement" />
+          <ScalarProperty Name="FK_Chef" ColumnName="FK_Chef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employes">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Employe)">
+        <MappingFragment StoreEntitySet="Employes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Addresse" ColumnName="Addresse" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="NbreEnfants" ColumnName="NbreEnfants" />
+          <ScalarProperty Name="LieuDeNaissance" ColumnName="LieuDeNaissance" />
+          <ScalarProperty Name="DateDeNaissance" ColumnName="DateDeNaissance" />
+          <ScalarProperty Name="CIN" ColumnName="CIN" />
+          <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+          <ScalarProperty Name="StatutSocial" ColumnName="StatutSocial" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Natonalite" ColumnName="Natonalite" />
+          <ScalarProperty Name="Num_SecuriteSociale" ColumnName="Num_SecuriteSociale" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="Etat" ColumnName="Etat" />
+          <ScalarProperty Name="FK_InfosBanque" ColumnName="FK_InfosBanque" />
+          <ScalarProperty Name="FK_Contrat" ColumnName="FK_Contrat" />
+          <ScalarProperty Name="FK_Departement" ColumnName="FK_Departement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etablissements">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Etablissement)">
+        <MappingFragment StoreEntitySet="Etablissements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Localite" ColumnName="Localite" />
+          <ScalarProperty Name="NbreEmploye" ColumnName="NbreEmploye" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IGRs">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.IGR)">
+        <MappingFragment StoreEntitySet="IGRs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SalaireMax" ColumnName="SalaireMax" />
+          <ScalarProperty Name="SalaireMin" ColumnName="SalaireMin" />
+          <ScalarProperty Name="Taux" ColumnName="Taux" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InfosBanques">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.InfosBanque)">
+        <MappingFragment StoreEntitySet="InfosBanques">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumeroCompte" ColumnName="NumeroCompte" />
+          <ScalarProperty Name="TelBanque" ColumnName="TelBanque" />
+          <ScalarProperty Name="CodeBanque" ColumnName="CodeBanque" />
+          <ScalarProperty Name="Domiciliation" ColumnName="Domiciliation" />
+          <ScalarProperty Name="CodeGuichet" ColumnName="CodeGuichet" />
+          <ScalarProperty Name="ReglementPar" ColumnName="ReglementPar" />
+          <ScalarProperty Name="CleRIB" ColumnName="CleRIB" />
+          <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LivreDePaies">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.LivreDePaie)">
+        <MappingFragment StoreEntitySet="LivreDePaies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Mois" ColumnName="Mois" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prime_Categorie">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Prime_Categorie)">
+        <MappingFragment StoreEntitySet="Prime_Categorie">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FK_Categorie" ColumnName="FK_Categorie" />
+          <ScalarProperty Name="FK_PrimeFixe" ColumnName="FK_PrimeFixe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrimeFixes">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.PrimeFixe)">
+        <MappingFragment StoreEntitySet="PrimeFixes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+          <ScalarProperty Name="Exoneres" ColumnName="Exoneres" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrimesVariables">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.PrimesVariable)">
+        <MappingFragment StoreEntitySet="PrimesVariables">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+          <ScalarProperty Name="Exoneres" ColumnName="Exoneres" />
+          <ScalarProperty Name="DateAffectation" ColumnName="DateAffectation" />
+          <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="Privileges" ColumnName="Privileges" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeConges">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.TypeConge)">
+        <MappingFragment StoreEntitySet="TypeConges">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeContrats">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.TypeContrat)">
+        <MappingFragment StoreEntitySet="TypeContrats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -1354,7 +1352,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
       </DesignerInfoPropertySet>
     </Options>
