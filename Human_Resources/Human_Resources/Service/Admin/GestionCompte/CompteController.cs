@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Human_Resources.Metier.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,6 +11,8 @@ namespace Human_Resources.Service.Admin.GestionCompte
     [RoutePrefix("api/Compte")]
     public class CompteController : ApiController
     {
+
+
         // GET: api/Compte
         [Route("")]
         public IEnumerable<string> Get()
