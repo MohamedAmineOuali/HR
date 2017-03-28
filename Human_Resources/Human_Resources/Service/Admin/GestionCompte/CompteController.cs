@@ -1,43 +1,98 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using Human_Resources.Metier.Model;
+using System.Security.Claims;
 
 namespace Human_Resources.Service.Admin.GestionCompte
 {
     [RoutePrefix("api/Compte")]
     public class CompteController : ApiController
     {
-        // GET: api/Compte
+        [Authorize(Roles = "admin")]
         [Route("")]
-        public IEnumerable<string> Get()
+        public IEnumerable<Compte> Get()
         {
-            return new string[] { "value1", "value2" };
+            using (HumanResourcesEntities db = new HumanResourcesEntities())
+            {
+                return db.Comptes.ToList();
+            }
         }
 
         // GET: api/Compte/5
+        //[Authorize(Roles = "admin")]
         [Route("{id:int}")]
         [HttpGet]
-        public string Get(int id)
+        public Compte Get(int id)
         {
-            return "value";
+            using (HumanResourcesEntities db = new HumanResourcesEntities())
+            {var a=db.Comptes.Where(p => p.Id == id).First() ;
+                return a;
+            }
         }
 
+        //[Authorize(Roles = "admin")]
         // POST: api/Compte
-        public void Post([FromBody]string value)
+        [Route("")]
+        [HttpPost]
+        public void Post(Compte c)
         {
+            using (HumanResourcesEntities db = new HumanResourcesEntities())
+            {
+                 db.Comptes.Add(c);
+                db.SaveChanges();
+                return;
+            }
         }
 
+        //[Authorize(Roles = "admin")]
         // PUT: api/Compte/5
-        public void Put(int id, [FromBody]string value)
+        [Route("{id:int}")]
+        [HttpPut]
+        public void Put(int id, [FromBody]Compte c)
         {
+            using (HumanResourcesEntities db = new HumanResourcesEntities())
+            {
+                var compte = db.Comptes.SingleOrDefault(b => b.Id == id);
+                if (compte != null)
+                {
+                    try
+                    {
+                        compte.Login = c.Login;
+                        compte.Role = c.Role;
+                        compte.Password = c.Password;
+                        db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+            }
+
         }
 
+        //[Authorize(Roles = "admin")]
         // DELETE: api/Compte/5
+        [Route("{id:int}")]
+        [HttpDelete]
         public void Delete(int id)
         {
+            using (HumanResourcesEntities db = new HumanResourcesEntities())
+            {
+                try
+                {
+                    var compte = new Compte { Id = id };
+                    db.Comptes.Attach(compte);
+                    db.Comptes.Remove(compte);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
         }
     }
 }
