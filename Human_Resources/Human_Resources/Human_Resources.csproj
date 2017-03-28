@@ -285,13 +285,16 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Admin\GestionCompte\CompteController.cs" />
+    <Compile Include="Service\Responsable\AvancesController.cs" />
+    <Compile Include="Service\Responsable\CongesController.cs" />
+    <Compile Include="Service\Responsable\PrimesVariablesController.cs" />
+    <Compile Include="Service\Responsable\Prime_CategorieController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Metier\Traitement\" />
-    <Folder Include="Service\User\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
