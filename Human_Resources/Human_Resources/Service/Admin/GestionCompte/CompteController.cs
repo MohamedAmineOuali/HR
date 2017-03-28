@@ -10,7 +10,7 @@ namespace Human_Resources.Service.Admin.GestionCompte
     [RoutePrefix("api/Compte")]
     public class CompteController : ApiController
     {
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [Route("")]
         public IEnumerable<Compte> Get()
         {
