@@ -190,7 +190,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Metier\Model\HR_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HR_Model.edmx</DependentUpon>
+      <LastGenOutput>HR_Model.Context.cs</LastGenOutput>
+    </Content>
     <Content Include="Metier\Model\HR_Model.edmx.sql" />
+    <Content Include="Metier\Model\HR_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HR_Model.edmx</DependentUpon>
+      <LastGenOutput>HR_Model.cs</LastGenOutput>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -210,22 +220,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Metier\Model\HR_Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HR_Model.edmx</DependentUpon>
-      <LastGenOutput>HR_Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Metier\Model\HR_Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HR_Model.edmx</DependentUpon>
-      <LastGenOutput>HR_Model.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Authentification\Startup.OAuth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Authentification\AuthorizeAttribute.cs" />
@@ -236,7 +237,7 @@
     <Compile Include="Metier\Model\Avance.cs">
       <DependentUpon>HR_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Metier\Model\BulletinDePaie.cs">
+    <Compile Include="Metier\Model\BulletinDePay.cs">
       <DependentUpon>HR_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Metier\Model\Categorie.cs">
@@ -293,10 +294,10 @@
     <Compile Include="Metier\Model\InfosBanque.cs">
       <DependentUpon>HR_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Metier\Model\LivreDePaie.cs">
+    <Compile Include="Metier\Model\LivreDePay.cs">
       <DependentUpon>HR_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Metier\Model\PrimeFixe.cs">
+    <Compile Include="Metier\Model\PrimeFix.cs">
       <DependentUpon>HR_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Metier\Model\PrimesVariable.cs">
@@ -316,19 +317,20 @@
     </Compile>
     <Compile Include="Metier\Traitement\Authentification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\Admin\GestionCompte\CompteController.cs" />
-	<Compile Include="Service\Responsable\AvancesController.cs" />
+    <Compile Include="Service\Admin\ComptesController.cs" />
+    <Compile Include="Service\Admin\EtablissementsController.cs" />
+    <Compile Include="Service\Responsable\AvancesController.cs" />
     <Compile Include="Service\Responsable\CongesController.cs" />
+    <Compile Include="Service\Responsable\Gestion Des Employes\EmployesController.cs" />
+    <Compile Include="Service\Responsable\Gestion Des Employes\InfosBanquesController.cs" />
     <Compile Include="Service\Responsable\PrimesVariablesController.cs" />
     <Compile Include="Service\Responsable\Prime_CategorieController.cs" />
+    <Compile Include="Model\UserCompte.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Metier\Traitement\" />
-    <Folder Include="Service\User\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
