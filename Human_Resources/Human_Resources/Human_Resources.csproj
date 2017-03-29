@@ -285,7 +285,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Admin\GestionCompte\CompteController.cs" />
-    <Compile Include="Service\User\Gestion Des Employes\EmployeesController.cs" />
+    <Compile Include="Service\Responsable\Gestion Des Employes\EmployesController.cs" />
+    <Compile Include="Service\Responsable\Gestion Des Employes\InfosBanquesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

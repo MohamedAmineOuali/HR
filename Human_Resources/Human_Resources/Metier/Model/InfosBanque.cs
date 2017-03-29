@@ -11,7 +11,7 @@ namespace Human_Resources.Metier.Model
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class InfosBanque
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +19,7 @@ namespace Human_Resources.Metier.Model
         {
             this.Employes = new HashSet<Employe>();
         }
-    
+
         public int Id { get; set; }
         public string NumeroCompte { get; set; }
         public Nullable<int> TelBanque { get; set; }
