@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b48fb99a448649d29f44a015202e940f" Name="Diagram1">
+      <Diagram DiagramId="0c0e360a9b1241aaa1ed8cbd780052d8" Name="Diagram1" ZoomLevel="29">
         <EntityTypeShape EntityType="HumanResourcesModel.Avance" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.BulletinDePaie" Width="1.5" PointX="10.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.BulletinDePay" Width="1.5" PointX="10.5" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.Categorie" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.ChargePatronale" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.CNAM" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
@@ -20,9 +20,9 @@
         <EntityTypeShape EntityType="HumanResourcesModel.Etablissement" Width="1.5" PointX="11.25" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.IGR" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.InfosBanque" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.LivreDePaie" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.LivreDePay" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.Prime_Categorie" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.PrimeFixe" Width="1.5" PointX="3.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.PrimeFix" Width="1.5" PointX="3.75" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.PrimesVariable" Width="1.5" PointX="10.5" PointY="26.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.Role" Width="1.5" PointX="11.25" PointY="20.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.TypeConge" Width="1.5" PointX="8.25" PointY="17.625" IsExpanded="true" />
