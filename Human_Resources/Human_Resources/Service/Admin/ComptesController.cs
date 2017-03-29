@@ -13,13 +13,13 @@ using System.Security.Claims;
 using Human_Resources.Model;
 namespace Human_Resources.Service.Admin
 {
+
     [RoutePrefix("api/Comptes")]
     public class ComptesController : ApiController
     {
         private HumanResourcesEntities db = new HumanResourcesEntities();
 
-        // GET: api/Comptes
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [Route("")]
         public IQueryable<Compte> GetComptes()
         {

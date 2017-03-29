@@ -18,7 +18,7 @@ namespace Human_Resources.Metier.Model
         public int FK_Categorie { get; set; }
         public int FK_PrimeFixe { get; set; }
     
-        public virtual Categorie Categorie { get; set; }
+        public virtual Categories Categorie { get; set; }
         public virtual PrimeFix PrimeFix { get; set; }
     }
 }

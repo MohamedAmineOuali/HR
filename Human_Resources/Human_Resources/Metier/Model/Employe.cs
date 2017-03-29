@@ -43,7 +43,7 @@ namespace Human_Resources.Metier.Model
         public string Etat { get; set; }
         public int FK_InfosBanque { get; set; }
         public int FK_Contrat { get; set; }
-        public int FK_Departement { get; set; }
+        public Nullable<int> FK_Departement { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Avance> Avances { get; set; }

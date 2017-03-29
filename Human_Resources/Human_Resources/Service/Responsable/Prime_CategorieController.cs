@@ -26,7 +26,7 @@ namespace Human_Resources.Service.Responsable
         [Route("api/Prime_Categorie/ByCategory/{idCat}")]
         public IHttpActionResult GetPrimeByCategory(int idCat)
         {
-            var result = db.Prime_Categorie.Where(e => e.FK_Categorie == idCat).Select(e=>e.Categorie).ToList<Categorie>();
+            var result = db.Prime_Categorie.Where(e => e.FK_Categorie == idCat).Select(e=>e.Categorie).ToList<Categories>();
             if (result.Count == 0)
                 return NotFound();
             else
@@ -48,7 +48,7 @@ namespace Human_Resources.Service.Responsable
 
         }
         //recuperer les category qui ont prime x : 
-        [HttpGet] 
+      /*  [HttpGet] 
         [ Route()]
         public IHttpActionResult GetCategoryByPrime(int prime)
         {
@@ -58,7 +58,7 @@ namespace Human_Resources.Service.Responsable
             else
                 return Ok(result); 
 
-        }
+        }*/
         // GET: api/Prime_Categorie/5
         [ResponseType(typeof(Prime_Categorie))]
         public IHttpActionResult GetPrime_Categorie(int id)
