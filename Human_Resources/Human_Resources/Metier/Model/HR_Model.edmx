@@ -8,7 +8,7 @@
   <EntityContainer Name="HumanResourcesModelStoreContainer">
     <EntitySet Name="Avances" EntityType="HumanResourcesModel.Store.Avances" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BulletinDePaies" EntityType="HumanResourcesModel.Store.BulletinDePaies" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Categories1" EntityType="HumanResourcesModel.Store.Categories1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Categories" EntityType="HumanResourcesModel.Store.Categories" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ChargePatronales" EntityType="HumanResourcesModel.Store.ChargePatronales" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CNAMs" EntityType="HumanResourcesModel.Store.CNAMs" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CNRPS" EntityType="HumanResourcesModel.Store.CNRPS" store:Type="Tables" Schema="dbo" />
@@ -37,11 +37,11 @@
       <End Role="BulletinDePaies" EntitySet="BulletinDePaies" />
     </AssociationSet>
     <AssociationSet Name="FK__Contrat__FK_Cate__30F848ED" Association="HumanResourcesModel.Store.FK__Contrat__FK_Cate__30F848ED">
-      <End Role="Categories1" EntitySet="Categories1" />
+      <End Role="Categories1" EntitySet="Categories" />
       <End Role="Contrats" EntitySet="Contrats" />
     </AssociationSet>
     <AssociationSet Name="FK_Categorie" Association="HumanResourcesModel.Store.FK_Categorie">
-      <End Role="Categories1" EntitySet="Categories1" />
+      <End Role="Categories1" EntitySet="Categories" />
       <End Role="Prime_Categorie" EntitySet="Prime_Categorie" />
     </AssociationSet>
     <AssociationSet Name="FK_CompteEmploye" Association="HumanResourcesModel.Store.FK_CompteEmploye">
@@ -121,7 +121,7 @@
     <Property Name="Statut" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="FK_Employe" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Categories1">
+  <EntityType Name="Categories">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -206,7 +206,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="Libelle" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="NbreEmployes" Type="varbinary(max)" Nullable="true" />
     <Property Name="Numero" Type="int" Nullable="true" />
     <Property Name="FK_Etablissement" Type="int" Nullable="false" />
     <Property Name="FK_Chef" Type="int" Nullable="true" />
@@ -354,7 +353,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Contrat__FK_Cate__30F848ED">
-    <End Role="Categories1" Type="HumanResourcesModel.Store.Categories1" Multiplicity="1" />
+    <End Role="Categories1" Type="HumanResourcesModel.Store.Categories" Multiplicity="1" />
     <End Role="Contrats" Type="HumanResourcesModel.Store.Contrats" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Categories1">
@@ -366,7 +365,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Categorie">
-    <End Role="Categories1" Type="HumanResourcesModel.Store.Categories1" Multiplicity="1" />
+    <End Role="Categories1" Type="HumanResourcesModel.Store.Categories" Multiplicity="1" />
     <End Role="Prime_Categorie" Type="HumanResourcesModel.Store.Prime_Categorie" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Categories1">
@@ -555,7 +554,7 @@
           <Property Name="FK_Employe" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Employe" Relationship="Self.FK_EmployeBDP" FromRole="BulletinDePaies" ToRole="Employes" />
         </EntityType>
-        <EntityType Name="Categorie">
+        <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -638,7 +637,7 @@
           <Property Name="DateFin" Type="DateTime" Precision="0" />
           <Property Name="FK_TypeContrat" Type="Int32" Nullable="false" />
           <Property Name="FK_Categorie" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Categories1" Relationship="Self.FK__Contrat__FK_Cate__30F848ED" FromRole="Contrats" ToRole="Categories1" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK__Contrat__FK_Cate__30F848ED" FromRole="Contrats" ToRole="Categories1" />
           <NavigationProperty Name="TypeContrat" Relationship="Self.FK__Contrat__FK_Type__300424B4" FromRole="Contrats" ToRole="TypeContrats" />
           <NavigationProperty Name="Employes" Relationship="Self.FK_Contrat" FromRole="Contrats" ToRole="Employes" />
         </EntityType>
@@ -649,7 +648,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NbreEmployes" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Numero" Type="Int32" />
           <Property Name="FK_Etablissement" Type="Int32" Nullable="false" />
           <Property Name="FK_Chef" Type="Int32" />
@@ -818,7 +816,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Contrat__FK_Cate__30F848ED">
-          <End Role="Categories1" Type="HumanResourcesModel.Categorie" Multiplicity="1" />
+          <End Role="Categories1" Type="HumanResourcesModel.Categories" Multiplicity="1" />
           <End Role="Contrats" Type="Self.Contrat" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories1">
@@ -830,7 +828,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Categorie">
-          <End Role="Categories1" Type="HumanResourcesModel.Categorie" Multiplicity="1" />
+          <End Role="Categories1" Type="HumanResourcesModel.Categories" Multiplicity="1" />
           <End Role="Prime_Categorie" Type="Self.Prime_Categorie" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories1">
@@ -988,7 +986,7 @@
         <EntityContainer Name="HumanResourcesEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Avances" EntityType="Self.Avance" />
           <EntitySet Name="BulletinDePaies" EntityType="Self.BulletinDePay" />
-          <EntitySet Name="Categories1" EntityType="HumanResourcesModel.Categorie" />
+          <EntitySet Name="Categories" EntityType="HumanResourcesModel.Categories" />
           <EntitySet Name="ChargePatronales" EntityType="Self.ChargePatronale" />
           <EntitySet Name="CNAMs" EntityType="Self.CNAM" />
           <EntitySet Name="CNRPS" EntityType="Self.CNRP" />
@@ -1017,11 +1015,11 @@
             <End Role="BulletinDePaies" EntitySet="BulletinDePaies" />
           </AssociationSet>
           <AssociationSet Name="FK__Contrat__FK_Cate__30F848ED" Association="Self.FK__Contrat__FK_Cate__30F848ED">
-            <End Role="Categories1" EntitySet="Categories1" />
+            <End Role="Categories1" EntitySet="Categories" />
             <End Role="Contrats" EntitySet="Contrats" />
           </AssociationSet>
           <AssociationSet Name="FK_Categorie" Association="Self.FK_Categorie">
-            <End Role="Categories1" EntitySet="Categories1" />
+            <End Role="Categories1" EntitySet="Categories" />
             <End Role="Prime_Categorie" EntitySet="Prime_Categorie" />
           </AssociationSet>
           <AssociationSet Name="FK_CompteEmploye" Association="Self.FK_CompteEmploye">
@@ -1109,9 +1107,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Categories1">
-      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Categorie)">
-        <MappingFragment StoreEntitySet="Categories1">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Categories)">
+        <MappingFragment StoreEntitySet="Categories">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Informations" ColumnName="Informations" />
           <ScalarProperty Name="Libelle" ColumnName="Libelle" />
@@ -1201,7 +1199,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-          <ScalarProperty Name="NbreEmployes" ColumnName="NbreEmployes" />
           <ScalarProperty Name="Numero" ColumnName="Numero" />
           <ScalarProperty Name="FK_Etablissement" ColumnName="FK_Etablissement" />
           <ScalarProperty Name="FK_Chef" ColumnName="FK_Chef" />

@@ -23,7 +23,6 @@ namespace Human_Resources.Metier.Model
         public int Id { get; set; }
         public string Description { get; set; }
         public string Libelle { get; set; }
-        public byte[] NbreEmployes { get; set; }
         public Nullable<int> Numero { get; set; }
         public int FK_Etablissement { get; set; }
         public Nullable<int> FK_Chef { get; set; }

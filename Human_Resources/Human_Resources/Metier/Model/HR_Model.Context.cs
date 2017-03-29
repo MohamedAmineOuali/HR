@@ -27,7 +27,7 @@ namespace Human_Resources.Metier.Model
     
         public virtual DbSet<Avance> Avances { get; set; }
         public virtual DbSet<BulletinDePay> BulletinDePaies { get; set; }
-        public virtual DbSet<Categorie> Categories1 { get; set; }
+        public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<ChargePatronale> ChargePatronales { get; set; }
         public virtual DbSet<CNAM> CNAMs { get; set; }
         public virtual DbSet<CNRP> CNRPS { get; set; }
