@@ -317,15 +317,21 @@
     </Compile>
     <Compile Include="Metier\Traitement\Authentification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\UserCompte.cs" />
+    <Compile Include="Service\Admin\CategoriesController.cs" />
     <Compile Include="Service\Admin\ComptesController.cs" />
+    <Compile Include="Service\Admin\configuration des formules\CNAMsController.cs" />
+    <Compile Include="Service\Admin\configuration des formules\CNRPsController.cs" />
+    <Compile Include="Service\Admin\configuration des formules\CNSSesController.cs" />
+    <Compile Include="Service\Admin\configuration des formules\IGRsController.cs" />
     <Compile Include="Service\Admin\EtablissementsController.cs" />
     <Compile Include="Service\Responsable\AvancesController.cs" />
     <Compile Include="Service\Responsable\CongesController.cs" />
+    <Compile Include="Service\Responsable\DepartementsController.cs" />
     <Compile Include="Service\Responsable\Gestion Des Employes\EmployesController.cs" />
     <Compile Include="Service\Responsable\Gestion Des Employes\InfosBanquesController.cs" />
     <Compile Include="Service\Responsable\PrimesVariablesController.cs" />
     <Compile Include="Service\Responsable\Prime_CategorieController.cs" />
-    <Compile Include="Model\UserCompte.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

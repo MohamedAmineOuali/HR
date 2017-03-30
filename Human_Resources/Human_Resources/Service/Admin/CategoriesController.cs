@@ -23,15 +23,15 @@ namespace Human_Resources.Service.Admin
         [HttpGet]
         public IQueryable<Categorie> GetCategories1()
         {
-            return db.Categories1;
+            return db.Categories;
         }
-        [Route("{lib:string}")]
+        [Route("{lib}")]
         [HttpGet]
         [ResponseType(typeof(Categorie))]
         public IHttpActionResult GetCategorieByLibelle(string lib)
         {
             
-            Categorie categorie = db.Categories1.Where(e => e.Libelle == lib).FirstOrDefault();
+            Categorie categorie = db.Categories.Where(e => e.Libelle == lib).FirstOrDefault();
             if (categorie == null)
             {
                 return NotFound();
@@ -48,7 +48,7 @@ namespace Human_Resources.Service.Admin
         [ResponseType(typeof(Categorie))]
         public IHttpActionResult GetCategorie(int id)
         {
-            Categorie categorie = db.Categories1.Find(id);
+            Categorie categorie = db.Categories.Find(id);
             if (categorie == null)
             {
                 return NotFound();
@@ -107,7 +107,7 @@ namespace Human_Resources.Service.Admin
                 return BadRequest(ModelState);
             }
 
-            db.Categories1.Add(categorie);
+            db.Categories.Add(categorie);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = categorie.Id }, categorie);
@@ -120,13 +120,13 @@ namespace Human_Resources.Service.Admin
         [ResponseType(typeof(Categorie))]
         public IHttpActionResult DeleteCategorie(int id)
         {
-            Categorie categorie = db.Categories1.Find(id);
+            Categorie categorie = db.Categories.Find(id);
             if (categorie == null)
             {
                 return NotFound();
             }
 
-            db.Categories1.Remove(categorie);
+            db.Categories.Remove(categorie);
             db.SaveChanges();
 
             return Ok(categorie);
@@ -144,7 +144,7 @@ namespace Human_Resources.Service.Admin
 
         private bool CategorieExists(int id)
         {
-            return db.Categories1.Count(e => e.Id == id) > 0;
+            return db.Categories.Count(e => e.Id == id) > 0;
         }
     }
 
