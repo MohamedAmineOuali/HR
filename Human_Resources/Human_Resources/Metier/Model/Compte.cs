@@ -17,8 +17,8 @@ namespace Human_Resources.Metier.Model
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public int FK_Employe { get; set; }
-        public int FK_Role { get; set; }
+        public Nullable<int> FK_Employe { get; set; }
+        public Nullable<int> FK_Role { get; set; }
     
         public virtual Employe Employe { get; set; }
         public virtual Role Role { get; set; }

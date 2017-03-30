@@ -12,10 +12,10 @@ namespace Human_Resources.Metier.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Categories
+    public partial class Categorie
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categories()
+        public Categorie()
         {
             this.Contrats = new HashSet<Contrat>();
             this.Prime_Categorie = new HashSet<Prime_Categorie>();

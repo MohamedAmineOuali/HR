@@ -37,11 +37,11 @@
       <End Role="BulletinDePaies" EntitySet="BulletinDePaies" />
     </AssociationSet>
     <AssociationSet Name="FK__Contrat__FK_Cate__30F848ED" Association="HumanResourcesModel.Store.FK__Contrat__FK_Cate__30F848ED">
-      <End Role="Categories1" EntitySet="Categories" />
+      <End Role="Categories" EntitySet="Categories" />
       <End Role="Contrats" EntitySet="Contrats" />
     </AssociationSet>
     <AssociationSet Name="FK_Categorie" Association="HumanResourcesModel.Store.FK_Categorie">
-      <End Role="Categories1" EntitySet="Categories" />
+      <End Role="Categories" EntitySet="Categories" />
       <End Role="Prime_Categorie" EntitySet="Prime_Categorie" />
     </AssociationSet>
     <AssociationSet Name="FK_CompteEmploye" Association="HumanResourcesModel.Store.FK_CompteEmploye">
@@ -101,7 +101,7 @@
     <Property Name="DateVersement" Type="datetime" Nullable="true" />
     <Property Name="Mois" Type="datetime" Nullable="true" />
     <Property Name="Montant" Type="decimal" Nullable="true" Precision="18" Scale="0" />
-    <Property Name="FK_Employe" Type="int" Nullable="false" />
+    <Property Name="FK_Employe" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="BulletinDePaies">
     <Key>
@@ -119,7 +119,7 @@
     <Property Name="Salaire_Base" Type="decimal" Nullable="true" Precision="18" Scale="0" />
     <Property Name="Salaire_Brute" Type="decimal" Nullable="true" Precision="18" Scale="0" />
     <Property Name="Statut" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="FK_Employe" Type="int" Nullable="false" />
+    <Property Name="FK_Employe" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Categories">
     <Key>
@@ -173,8 +173,8 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Login" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="FK_Employe" Type="int" Nullable="false" />
-    <Property Name="FK_Role" Type="int" Nullable="false" />
+    <Property Name="FK_Employe" Type="int" Nullable="true" />
+    <Property Name="FK_Role" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Conges">
     <Key>
@@ -185,8 +185,8 @@
     <Property Name="DateDemande" Type="datetime" Nullable="true" />
     <Property Name="NbreJours" Type="int" Nullable="true" />
     <Property Name="Etat" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="FK_TypeConge" Type="int" Nullable="false" />
-    <Property Name="FK_Employe" Type="int" Nullable="false" />
+    <Property Name="FK_TypeConge" Type="int" Nullable="true" />
+    <Property Name="FK_Employe" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Contrats">
     <Key>
@@ -196,8 +196,8 @@
     <Property Name="Numero" Type="nchar" Nullable="true" MaxLength="10" />
     <Property Name="DateDebut" Type="datetime" Nullable="true" />
     <Property Name="DateFin" Type="datetime" Nullable="true" />
-    <Property Name="FK_TypeContrat" Type="int" Nullable="false" />
-    <Property Name="FK_Categorie" Type="int" Nullable="false" />
+    <Property Name="FK_TypeContrat" Type="int" Nullable="true" />
+    <Property Name="FK_Categorie" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Departements">
     <Key>
@@ -207,7 +207,7 @@
     <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="Libelle" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="Numero" Type="int" Nullable="true" />
-    <Property Name="FK_Etablissement" Type="int" Nullable="false" />
+    <Property Name="FK_Etablissement" Type="int" Nullable="true" />
     <Property Name="FK_Chef" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Employes">
@@ -230,8 +230,8 @@
     <Property Name="Grade" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="Genre" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="Etat" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="FK_InfosBanque" Type="int" Nullable="false" />
-    <Property Name="FK_Contrat" Type="int" Nullable="false" />
+    <Property Name="FK_InfosBanque" Type="int" Nullable="true" />
+    <Property Name="FK_Contrat" Type="int" Nullable="true" />
     <Property Name="FK_Departement" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Etablissements">
@@ -280,8 +280,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FK_Categorie" Type="int" Nullable="false" />
-    <Property Name="FK_PrimeFixe" Type="int" Nullable="false" />
+    <Property Name="FK_Categorie" Type="int" Nullable="true" />
+    <Property Name="FK_PrimeFixe" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="PrimeFixes">
     <Key>
@@ -303,7 +303,7 @@
     <Property Name="Valeur" Type="decimal" Nullable="true" Precision="18" Scale="0" />
     <Property Name="Exoneres" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="DateAffectation" Type="datetime" Nullable="true" />
-    <Property Name="FK_Employe" Type="int" Nullable="false" />
+    <Property Name="FK_Employe" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -329,7 +329,7 @@
     <Property Name="Type" Type="nvarchar" Nullable="true" MaxLength="50" />
   </EntityType>
   <Association Name="FK_EmployeCat">
-    <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="1" />
+    <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
     <End Role="Avances" Type="HumanResourcesModel.Store.Avances" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employes">
@@ -341,7 +341,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_EmployeBDP">
-    <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="1" />
+    <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
     <End Role="BulletinDePaies" Type="HumanResourcesModel.Store.BulletinDePaies" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employes">
@@ -353,10 +353,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Contrat__FK_Cate__30F848ED">
-    <End Role="Categories1" Type="HumanResourcesModel.Store.Categories" Multiplicity="1" />
+    <End Role="Categories" Type="HumanResourcesModel.Store.Categories" Multiplicity="0..1" />
     <End Role="Contrats" Type="HumanResourcesModel.Store.Contrats" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Categories1">
+      <Principal Role="Categories">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Contrats">
@@ -365,10 +365,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Categorie">
-    <End Role="Categories1" Type="HumanResourcesModel.Store.Categories" Multiplicity="1" />
+    <End Role="Categories" Type="HumanResourcesModel.Store.Categories" Multiplicity="0..1" />
     <End Role="Prime_Categorie" Type="HumanResourcesModel.Store.Prime_Categorie" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Categories1">
+      <Principal Role="Categories">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Prime_Categorie">
@@ -377,7 +377,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_CompteEmploye">
-    <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="1" />
+    <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
     <End Role="Comptes" Type="HumanResourcesModel.Store.Comptes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employes">
@@ -389,7 +389,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Role">
-    <End Role="Roles" Type="HumanResourcesModel.Store.Roles" Multiplicity="1" />
+    <End Role="Roles" Type="HumanResourcesModel.Store.Roles" Multiplicity="0..1" />
     <End Role="Comptes" Type="HumanResourcesModel.Store.Comptes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
@@ -401,7 +401,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Conge__FK_TypeCo__35BCFE0A">
-    <End Role="TypeConges" Type="HumanResourcesModel.Store.TypeConges" Multiplicity="1" />
+    <End Role="TypeConges" Type="HumanResourcesModel.Store.TypeConges" Multiplicity="0..1" />
     <End Role="Conges" Type="HumanResourcesModel.Store.Conges" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TypeConges">
@@ -413,7 +413,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Employe">
-    <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="1" />
+    <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
     <End Role="Conges" Type="HumanResourcesModel.Store.Conges" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employes">
@@ -425,7 +425,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Contrat__FK_Type__300424B4">
-    <End Role="TypeContrats" Type="HumanResourcesModel.Store.TypeContrats" Multiplicity="1" />
+    <End Role="TypeContrats" Type="HumanResourcesModel.Store.TypeContrats" Multiplicity="0..1" />
     <End Role="Contrats" Type="HumanResourcesModel.Store.Contrats" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TypeContrats">
@@ -437,7 +437,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Contrat">
-    <End Role="Contrats" Type="HumanResourcesModel.Store.Contrats" Multiplicity="1" />
+    <End Role="Contrats" Type="HumanResourcesModel.Store.Contrats" Multiplicity="0..1" />
     <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Contrats">
@@ -473,7 +473,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Etablissement">
-    <End Role="Etablissements" Type="HumanResourcesModel.Store.Etablissements" Multiplicity="1" />
+    <End Role="Etablissements" Type="HumanResourcesModel.Store.Etablissements" Multiplicity="0..1" />
     <End Role="Departements" Type="HumanResourcesModel.Store.Departements" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Etablissements">
@@ -485,7 +485,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__PrimesVar__FK_Em__48CFD27E">
-    <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="1" />
+    <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="0..1" />
     <End Role="PrimesVariables" Type="HumanResourcesModel.Store.PrimesVariables" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employes">
@@ -497,7 +497,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_InfosBanque">
-    <End Role="InfosBanques" Type="HumanResourcesModel.Store.InfosBanques" Multiplicity="1" />
+    <End Role="InfosBanques" Type="HumanResourcesModel.Store.InfosBanques" Multiplicity="0..1" />
     <End Role="Employes" Type="HumanResourcesModel.Store.Employes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="InfosBanques">
@@ -509,7 +509,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PrimeFixe">
-    <End Role="PrimeFixes" Type="HumanResourcesModel.Store.PrimeFixes" Multiplicity="1" />
+    <End Role="PrimeFixes" Type="HumanResourcesModel.Store.PrimeFixes" Multiplicity="0..1" />
     <End Role="Prime_Categorie" Type="HumanResourcesModel.Store.Prime_Categorie" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PrimeFixes">
@@ -529,10 +529,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateVersement" Type="DateTime" Precision="0" />
-          <Property Name="Mois" Type="DateTime" Precision="0" />
+          <Property Name="DateVersement" Type="DateTime" Precision="3" />
+          <Property Name="Mois" Type="DateTime" Precision="3" />
           <Property Name="Montant" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="FK_Employe" Type="Int32" Nullable="false" />
+          <Property Name="FK_Employe" Type="Int32" />
           <NavigationProperty Name="Employe" Relationship="Self.FK_EmployeCat" FromRole="Avances" ToRole="Employes" />
         </EntityType>
         <EntityType Name="BulletinDePay">
@@ -542,7 +542,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CNSS" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Conges" Type="Int32" />
-          <Property Name="DatePrime" Type="DateTime" Precision="0" />
+          <Property Name="DatePrime" Type="DateTime" Precision="3" />
           <Property Name="HeuresDeTravail" Type="Int32" />
           <Property Name="Nb_H_Ajout" Type="Int32" />
           <Property Name="Nb_H_Retard" Type="Int32" />
@@ -551,18 +551,18 @@
           <Property Name="Salaire_Base" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Salaire_Brute" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Statut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FK_Employe" Type="Int32" Nullable="false" />
+          <Property Name="FK_Employe" Type="Int32" />
           <NavigationProperty Name="Employe" Relationship="Self.FK_EmployeBDP" FromRole="BulletinDePaies" ToRole="Employes" />
         </EntityType>
-        <EntityType Name="Categories">
+        <EntityType Name="Categorie">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Informations" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Contrats" Relationship="Self.FK__Contrat__FK_Cate__30F848ED" FromRole="Categories1" ToRole="Contrats" />
-          <NavigationProperty Name="Prime_Categorie" Relationship="Self.FK_Categorie" FromRole="Categories1" ToRole="Prime_Categorie" />
+          <NavigationProperty Name="Contrats" Relationship="Self.FK__Contrat__FK_Cate__30F848ED" FromRole="Categories" ToRole="Contrats" />
+          <NavigationProperty Name="Prime_Categorie" Relationship="Self.FK_Categorie" FromRole="Categories" ToRole="Prime_Categorie" />
         </EntityType>
         <EntityType Name="ChargePatronale">
           <Key>
@@ -572,7 +572,7 @@
           <Property Name="CNRPS" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="CNSS" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="IGR" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Mois" Type="DateTime" Precision="0" />
+          <Property Name="Mois" Type="DateTime" Precision="3" />
           <Property Name="Salaires" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="CNAM">
@@ -608,8 +608,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FK_Employe" Type="Int32" Nullable="false" />
-          <Property Name="FK_Role" Type="Int32" Nullable="false" />
+          <Property Name="FK_Employe" Type="Int32" />
+          <Property Name="FK_Role" Type="Int32" />
           <NavigationProperty Name="Employe" Relationship="Self.FK_CompteEmploye" FromRole="Comptes" ToRole="Employes" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Role" FromRole="Comptes" ToRole="Roles" />
         </EntityType>
@@ -618,12 +618,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateDebut" Type="DateTime" Precision="0" />
-          <Property Name="DateDemande" Type="DateTime" Precision="0" />
+          <Property Name="DateDebut" Type="DateTime" Precision="3" />
+          <Property Name="DateDemande" Type="DateTime" Precision="3" />
           <Property Name="NbreJours" Type="Int32" />
           <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FK_TypeConge" Type="Int32" Nullable="false" />
-          <Property Name="FK_Employe" Type="Int32" Nullable="false" />
+          <Property Name="FK_TypeConge" Type="Int32" />
+          <Property Name="FK_Employe" Type="Int32" />
           <NavigationProperty Name="TypeConge" Relationship="Self.FK__Conge__FK_TypeCo__35BCFE0A" FromRole="Conges" ToRole="TypeConges" />
           <NavigationProperty Name="Employe" Relationship="Self.FK_Employe" FromRole="Conges" ToRole="Employes" />
         </EntityType>
@@ -633,11 +633,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Numero" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="DateDebut" Type="DateTime" Precision="0" />
-          <Property Name="DateFin" Type="DateTime" Precision="0" />
-          <Property Name="FK_TypeContrat" Type="Int32" Nullable="false" />
-          <Property Name="FK_Categorie" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Categorie" Relationship="Self.FK__Contrat__FK_Cate__30F848ED" FromRole="Contrats" ToRole="Categories1" />
+          <Property Name="DateDebut" Type="DateTime" Precision="3" />
+          <Property Name="DateFin" Type="DateTime" Precision="3" />
+          <Property Name="FK_TypeContrat" Type="Int32" />
+          <Property Name="FK_Categorie" Type="Int32" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK__Contrat__FK_Cate__30F848ED" FromRole="Contrats" ToRole="Categories" />
           <NavigationProperty Name="TypeContrat" Relationship="Self.FK__Contrat__FK_Type__300424B4" FromRole="Contrats" ToRole="TypeContrats" />
           <NavigationProperty Name="Employes" Relationship="Self.FK_Contrat" FromRole="Contrats" ToRole="Employes" />
         </EntityType>
@@ -649,7 +649,7 @@
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Numero" Type="Int32" />
-          <Property Name="FK_Etablissement" Type="Int32" Nullable="false" />
+          <Property Name="FK_Etablissement" Type="Int32" />
           <Property Name="FK_Chef" Type="Int32" />
           <NavigationProperty Name="Employe" Relationship="Self.FK_Chef" FromRole="Departements" ToRole="Employes" />
           <NavigationProperty Name="Employes" Relationship="Self.FK_Departement" FromRole="Departements" ToRole="Employes" />
@@ -665,7 +665,7 @@
           <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NbreEnfants" Type="Int32" />
           <Property Name="LieuDeNaissance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateDeNaissance" Type="DateTime" Precision="0" />
+          <Property Name="DateDeNaissance" Type="DateTime" Precision="3" />
           <Property Name="CIN" Type="Int32" />
           <Property Name="Matricule" Type="Int32" />
           <Property Name="StatutSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -675,8 +675,8 @@
           <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Genre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FK_InfosBanque" Type="Int32" Nullable="false" />
-          <Property Name="FK_Contrat" Type="Int32" Nullable="false" />
+          <Property Name="FK_InfosBanque" Type="Int32" />
+          <Property Name="FK_Contrat" Type="Int32" />
           <Property Name="FK_Departement" Type="Int32" />
           <NavigationProperty Name="Avances" Relationship="Self.FK_EmployeCat" FromRole="Employes" ToRole="Avances" />
           <NavigationProperty Name="BulletinDePaies" Relationship="Self.FK_EmployeBDP" FromRole="Employes" ToRole="BulletinDePaies" />
@@ -727,7 +727,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Mois" Type="DateTime" Precision="0" />
+          <Property Name="Mois" Type="DateTime" Precision="3" />
           <Property Name="Reference" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -736,9 +736,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FK_Categorie" Type="Int32" Nullable="false" />
-          <Property Name="FK_PrimeFixe" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Categorie" Relationship="Self.FK_Categorie" FromRole="Prime_Categorie" ToRole="Categories1" />
+          <Property Name="FK_Categorie" Type="Int32" />
+          <Property Name="FK_PrimeFixe" Type="Int32" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK_Categorie" FromRole="Prime_Categorie" ToRole="Categories" />
           <NavigationProperty Name="PrimeFix" Relationship="Self.FK_PrimeFixe" FromRole="Prime_Categorie" ToRole="PrimeFixes" />
         </EntityType>
         <EntityType Name="PrimeFix">
@@ -761,8 +761,8 @@
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Valeur" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Exoneres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateAffectation" Type="DateTime" Precision="0" />
-          <Property Name="FK_Employe" Type="Int32" Nullable="false" />
+          <Property Name="DateAffectation" Type="DateTime" Precision="3" />
+          <Property Name="FK_Employe" Type="Int32" />
           <NavigationProperty Name="Employe" Relationship="Self.FK__PrimesVar__FK_Em__48CFD27E" FromRole="PrimesVariables" ToRole="Employes" />
         </EntityType>
         <EntityType Name="Role">
@@ -792,7 +792,7 @@
           <NavigationProperty Name="Contrats" Relationship="Self.FK__Contrat__FK_Type__300424B4" FromRole="TypeContrats" ToRole="Contrats" />
         </EntityType>
         <Association Name="FK_EmployeCat">
-          <End Role="Employes" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Employes" Type="Self.Employe" Multiplicity="0..1" />
           <End Role="Avances" Type="Self.Avance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employes">
@@ -804,7 +804,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmployeBDP">
-          <End Role="Employes" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Employes" Type="Self.Employe" Multiplicity="0..1" />
           <End Role="BulletinDePaies" Type="Self.BulletinDePay" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employes">
@@ -816,10 +816,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Contrat__FK_Cate__30F848ED">
-          <End Role="Categories1" Type="HumanResourcesModel.Categories" Multiplicity="1" />
+          <End Role="Categories" Type="HumanResourcesModel.Categorie" Multiplicity="0..1" />
           <End Role="Contrats" Type="Self.Contrat" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Categories1">
+            <Principal Role="Categories">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Contrats">
@@ -828,10 +828,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Categorie">
-          <End Role="Categories1" Type="HumanResourcesModel.Categories" Multiplicity="1" />
+          <End Role="Categories" Type="HumanResourcesModel.Categorie" Multiplicity="0..1" />
           <End Role="Prime_Categorie" Type="Self.Prime_Categorie" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Categories1">
+            <Principal Role="Categories">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Prime_Categorie">
@@ -840,7 +840,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CompteEmploye">
-          <End Role="Employes" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Employes" Type="Self.Employe" Multiplicity="0..1" />
           <End Role="Comptes" Type="Self.Compte" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employes">
@@ -852,7 +852,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Role">
-          <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+          <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
           <End Role="Comptes" Type="Self.Compte" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
@@ -864,7 +864,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Conge__FK_TypeCo__35BCFE0A">
-          <End Role="TypeConges" Type="Self.TypeConge" Multiplicity="1" />
+          <End Role="TypeConges" Type="Self.TypeConge" Multiplicity="0..1" />
           <End Role="Conges" Type="Self.Conge" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeConges">
@@ -876,7 +876,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employe">
-          <End Role="Employes" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Employes" Type="Self.Employe" Multiplicity="0..1" />
           <End Role="Conges" Type="Self.Conge" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employes">
@@ -888,7 +888,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Contrat__FK_Type__300424B4">
-          <End Role="TypeContrats" Type="Self.TypeContrat" Multiplicity="1" />
+          <End Role="TypeContrats" Type="Self.TypeContrat" Multiplicity="0..1" />
           <End Role="Contrats" Type="Self.Contrat" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeContrats">
@@ -900,7 +900,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Contrat">
-          <End Role="Contrats" Type="Self.Contrat" Multiplicity="1" />
+          <End Role="Contrats" Type="Self.Contrat" Multiplicity="0..1" />
           <End Role="Employes" Type="Self.Employe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contrats">
@@ -936,7 +936,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Etablissement">
-          <End Role="Etablissements" Type="Self.Etablissement" Multiplicity="1" />
+          <End Role="Etablissements" Type="Self.Etablissement" Multiplicity="0..1" />
           <End Role="Departements" Type="Self.Departement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Etablissements">
@@ -948,7 +948,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PrimesVar__FK_Em__48CFD27E">
-          <End Role="Employes" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Employes" Type="Self.Employe" Multiplicity="0..1" />
           <End Role="PrimesVariables" Type="Self.PrimesVariable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employes">
@@ -960,7 +960,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_InfosBanque">
-          <End Role="InfosBanques" Type="Self.InfosBanque" Multiplicity="1" />
+          <End Role="InfosBanques" Type="Self.InfosBanque" Multiplicity="0..1" />
           <End Role="Employes" Type="Self.Employe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="InfosBanques">
@@ -972,7 +972,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PrimeFixe">
-          <End Role="PrimeFixes" Type="Self.PrimeFix" Multiplicity="1" />
+          <End Role="PrimeFixes" Type="Self.PrimeFix" Multiplicity="0..1" />
           <End Role="Prime_Categorie" Type="Self.Prime_Categorie" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PrimeFixes">
@@ -986,7 +986,7 @@
         <EntityContainer Name="HumanResourcesEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Avances" EntityType="Self.Avance" />
           <EntitySet Name="BulletinDePaies" EntityType="Self.BulletinDePay" />
-          <EntitySet Name="Categories" EntityType="HumanResourcesModel.Categories" />
+          <EntitySet Name="Categories" EntityType="HumanResourcesModel.Categorie" />
           <EntitySet Name="ChargePatronales" EntityType="Self.ChargePatronale" />
           <EntitySet Name="CNAMs" EntityType="Self.CNAM" />
           <EntitySet Name="CNRPS" EntityType="Self.CNRP" />
@@ -1015,11 +1015,11 @@
             <End Role="BulletinDePaies" EntitySet="BulletinDePaies" />
           </AssociationSet>
           <AssociationSet Name="FK__Contrat__FK_Cate__30F848ED" Association="Self.FK__Contrat__FK_Cate__30F848ED">
-            <End Role="Categories1" EntitySet="Categories" />
+            <End Role="Categories" EntitySet="Categories" />
             <End Role="Contrats" EntitySet="Contrats" />
           </AssociationSet>
           <AssociationSet Name="FK_Categorie" Association="Self.FK_Categorie">
-            <End Role="Categories1" EntitySet="Categories" />
+            <End Role="Categories" EntitySet="Categories" />
             <End Role="Prime_Categorie" EntitySet="Prime_Categorie" />
           </AssociationSet>
           <AssociationSet Name="FK_CompteEmploye" Association="Self.FK_CompteEmploye">
@@ -1108,7 +1108,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Categories">
-      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Categories)">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Categorie)">
         <MappingFragment StoreEntitySet="Categories">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Informations" ColumnName="Informations" />

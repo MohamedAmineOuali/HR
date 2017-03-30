@@ -41,8 +41,8 @@ namespace Human_Resources.Metier.Model
         public string Grade { get; set; }
         public string Genre { get; set; }
         public string Etat { get; set; }
-        public int FK_InfosBanque { get; set; }
-        public int FK_Contrat { get; set; }
+        public Nullable<int> FK_InfosBanque { get; set; }
+        public Nullable<int> FK_Contrat { get; set; }
         public Nullable<int> FK_Departement { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

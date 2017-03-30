@@ -27,7 +27,6 @@ namespace Human_Resources.Service.Admin
         {
             return db.Etablissements;
         }
-        
 
         // GET: api/Etablissements/5
         //[Authorize]

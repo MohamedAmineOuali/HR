@@ -24,7 +24,7 @@ namespace Human_Resources.Metier.Model
         public string Description { get; set; }
         public string Libelle { get; set; }
         public Nullable<int> Numero { get; set; }
-        public int FK_Etablissement { get; set; }
+        public Nullable<int> FK_Etablissement { get; set; }
         public Nullable<int> FK_Chef { get; set; }
     
         public virtual Employe Employe { get; set; }

@@ -19,8 +19,8 @@ namespace Human_Resources.Metier.Model
         public Nullable<System.DateTime> DateDemande { get; set; }
         public Nullable<int> NbreJours { get; set; }
         public string Etat { get; set; }
-        public int FK_TypeConge { get; set; }
-        public int FK_Employe { get; set; }
+        public Nullable<int> FK_TypeConge { get; set; }
+        public Nullable<int> FK_Employe { get; set; }
     
         public virtual TypeConge TypeConge { get; set; }
         public virtual Employe Employe { get; set; }
