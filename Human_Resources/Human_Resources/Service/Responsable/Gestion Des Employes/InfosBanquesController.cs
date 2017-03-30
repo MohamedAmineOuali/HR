@@ -17,40 +17,44 @@ namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
     {
         private HumanResourcesEntities db = new HumanResourcesEntities();
 
-        [Route("GetInfosBanqueByCIN/{cin:int}")]
+
+        [Route("Add")]
         [HttpPost]
-        public IHttpActionResult GetInfosBanqueByCIN(InfosBanque ib, int cin)
+        public IHttpActionResult GetInfosBa(InfosBanque ib)
         {
             db.InfosBanques.Add(ib);
+            db.SaveChanges();
+            return Ok();
+        }
+
+
+        [Route("GetByCIN/{cin:int}")]
+        [HttpGet]
+        public IHttpActionResult GetInfosBanqueByCIN(int cin)
+        {
             Employe emp = db.Employes.Where(e => e.CIN == cin).FirstOrDefault();
-            emp.InfosBanque = ib;
+            var ib = from i in db.InfosBanques
+                             where (i.Id == emp.FK_InfosBanque)
+                             select i;
             db.SaveChanges();
 
-            return Ok();
+            return Ok(ib);
         }
 
-        //Add InfosBanque to EmployeeByID
-        [Route("AddByID/{id:int}")]
-        [HttpPost]
-        public IHttpActionResult AddInfosBanqueByID(InfosBanque ib, int id)
+        [Route("GetByMat/{mat:int}")]
+        [HttpGet]
+        public IHttpActionResult GetInfosBanqueByMat(int mat)
         {
-            /*db.InfosBanques.Add(new InfosBanque {
-                CleRIB=ib.CleRIB,
-                CodeBanque=ib.CodeBanque,
-                CodeGuichet=ib.CodeGuichet,
-                Domiciliation=ib.Domiciliation,
-                IBAN=ib.IBAN,
-                NumeroCompte=ib.NumeroCompte,
-                ReglementPar=ib.ReglementPar,
-                TelBanque=ib.TelBanque
-            });*/
-            db.InfosBanques.Add(ib);
-            Employe emp = db.Employes.Where(e => e.Id == id).FirstOrDefault();
-            emp.InfosBanque = ib;
+            Employe emp = db.Employes.Where(e => e.Matricule == mat).FirstOrDefault();
+            var ib = from i in db.InfosBanques
+                     where (i.Id == emp.FK_InfosBanque)
+                     select i;
             db.SaveChanges();
 
-            return Ok();
+            return Ok(ib);
         }
+
+
 
         [Route("AddByCIN/{cin:int}")]
         [HttpPost]
@@ -75,6 +79,31 @@ namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
 
             return Ok();
         }
+
+        [Route("Update")]
+        [HttpPost]
+        public IHttpActionResult UpdateInfosBanque(InfosBanque ib)
+        {
+            var ibq = (from i in db.InfosBanques
+                      where i.Id == ib.Id
+                      select i).FirstOrDefault();
+            if (ib == null || ibq == null)
+                return BadRequest();
+            ibq.TelBanque = ib.TelBanque;
+            ibq.ReglementPar = ib.ReglementPar;
+            ibq.IBAN = ib.IBAN;
+            ibq.NumeroCompte = ib.NumeroCompte;
+            ibq.CleRIB = ib.CleRIB;
+            ibq.CodeBanque = ib.CodeBanque;
+            ibq.Domiciliation = ib.Domiciliation;
+            ibq.CodeGuichet = ib.CodeGuichet;
+            
+            db.SaveChanges();
+
+            return Ok();
+        }
+
+
 
 
 

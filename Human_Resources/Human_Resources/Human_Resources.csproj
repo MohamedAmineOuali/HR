@@ -328,6 +328,7 @@
     <Compile Include="Service\Responsable\AvancesController.cs" />
     <Compile Include="Service\Responsable\CongesController.cs" />
     <Compile Include="Service\Responsable\DepartementsController.cs" />
+    <Compile Include="Service\Responsable\Gestion Des Employes\ContratsController.cs" />
     <Compile Include="Service\Responsable\Gestion Des Employes\EmployesController.cs" />
     <Compile Include="Service\Responsable\Gestion Des Employes\InfosBanquesController.cs" />
     <Compile Include="Service\Responsable\PrimesVariablesController.cs" />
