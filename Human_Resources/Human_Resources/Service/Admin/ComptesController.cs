@@ -16,6 +16,8 @@ namespace Human_Resources.Service.Admin
     [RoutePrefix("api/Comptes")]
     public class ComptesController : ApiController
     {
+        private HumanResourcesEntities db = new HumanResourcesEntities();
+
         [Authorize(Roles = "admin")]
         [Route("")]
         public IQueryable<Compte> GetComptes()
