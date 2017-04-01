@@ -13,6 +13,7 @@ using System.Security.Claims;
 using Human_Resources.Model;
 namespace Human_Resources.Service.Admin
 {
+
     [RoutePrefix("api/Comptes")]
     public class ComptesController : ApiController
     {

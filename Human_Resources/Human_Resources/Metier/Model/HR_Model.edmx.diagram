@@ -4,29 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0c0e360a9b1241aaa1ed8cbd780052d8" Name="Diagram1" ZoomLevel="29">
-        <EntityTypeShape EntityType="HumanResourcesModel.Avance" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.BulletinDePay" Width="1.5" PointX="10.5" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.Categorie" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+      <Diagram DiagramId="e28b3801fb6f46d8b15bc4d538afadac" Name="Diagram1">
+        <EntityTypeShape EntityType="HumanResourcesModel.Avance" Width="1.5" PointX="10.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.BulletinDePay" Width="1.5" PointX="10.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Categorie" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.ChargePatronale" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.CNAM" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.CNRP" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.CNSS" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.Compte" Width="1.5" PointX="13.5" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.Conge" Width="1.5" PointX="10.5" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.Contrat" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Compte" Width="1.5" PointX="13.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Conge" Width="1.5" PointX="10.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Contrat" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.Departement" Width="1.5" PointX="13.5" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.Employe" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.Etablissement" Width="1.5" PointX="11.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Employe" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Etablissement" Width="1.5" PointX="11.25" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.IGR" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.InfosBanque" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.InfosBanque" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.LivreDePay" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.Prime_Categorie" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.PrimeFix" Width="1.5" PointX="3.75" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.PrimesVariable" Width="1.5" PointX="10.5" PointY="26.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.Role" Width="1.5" PointX="11.25" PointY="20.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.TypeConge" Width="1.5" PointX="8.25" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.TypeContrat" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Prime_Categorie" Width="1.5" PointX="6" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.PrimeFix" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.PrimesVariable" Width="1.5" PointX="10.5" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Role" Width="1.5" PointX="11.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.TypeConge" Width="1.5" PointX="8.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.TypeContrat" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
         <AssociationConnector Association="HumanResourcesModel.FK_EmployeCat" ManuallyRouted="false" />
         <AssociationConnector Association="HumanResourcesModel.FK_EmployeBDP" ManuallyRouted="false" />
         <AssociationConnector Association="HumanResourcesModel.FK__Contrat__FK_Cate__30F848ED" ManuallyRouted="false" />

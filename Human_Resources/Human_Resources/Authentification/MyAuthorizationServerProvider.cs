@@ -34,8 +34,7 @@ namespace Human_Resources
 
                  context.Validated(identity);
             }
-            
-            
         }
+
     }
 }

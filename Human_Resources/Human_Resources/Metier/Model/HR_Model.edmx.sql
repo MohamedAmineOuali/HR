@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/29/2017 15:58:44
--- Generated from EDMX file: C:\Users\Phenix\Documents\Visual Studio 2015\Projects\PPP\Human_resources\Human_Resources\Metier\Model\HR_Model.edmx
+-- Date Created: 03/30/2017 01:11:32
+-- Generated from EDMX file: D:\Windows Files\Phenix\Documents\ppp\Project\Human_Resources\Human_Resources\Metier\Model\HR_Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -144,10 +144,10 @@ GO
 -- Creating table 'Avances'
 CREATE TABLE [dbo].[Avances] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [DateVersement] date  NULL,
-    [Mois] date  NULL,
+    [DateVersement] datetime  NULL,
+    [Mois] datetime  NULL,
     [Montant] decimal(18,0)  NULL,
-    [FK_Employe] int  NOT NULL
+    [FK_Employe] int  NULL
 );
 GO
 
@@ -156,7 +156,7 @@ CREATE TABLE [dbo].[BulletinDePaies] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [CNSS] decimal(18,0)  NULL,
     [Conges] int  NULL,
-    [DatePrime] date  NULL,
+    [DatePrime] datetime  NULL,
     [HeuresDeTravail] int  NULL,
     [Nb_H_Ajout] int  NULL,
     [Nb_H_Retard] int  NULL,
@@ -165,12 +165,12 @@ CREATE TABLE [dbo].[BulletinDePaies] (
     [Salaire_Base] decimal(18,0)  NULL,
     [Salaire_Brute] decimal(18,0)  NULL,
     [Statut] nvarchar(50)  NULL,
-    [FK_Employe] int  NOT NULL
+    [FK_Employe] int  NULL
 );
 GO
 
--- Creating table 'Categories1'
-CREATE TABLE [dbo].[Categories1] (
+-- Creating table 'Categories'
+CREATE TABLE [dbo].[Categories] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Informations] nvarchar(50)  NULL,
     [Libelle] nvarchar(50)  NULL
@@ -183,7 +183,7 @@ CREATE TABLE [dbo].[ChargePatronales] (
     [CNRPS] decimal(18,0)  NULL,
     [CNSS] decimal(18,0)  NULL,
     [IGR] decimal(18,0)  NULL,
-    [Mois] date  NULL,
+    [Mois] datetime  NULL,
     [Salaires] decimal(18,0)  NULL
 );
 GO
@@ -219,20 +219,20 @@ CREATE TABLE [dbo].[Comptes] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Login] nvarchar(max)  NULL,
     [Password] nvarchar(max)  NULL,
-    [FK_Employe] int  NOT NULL,
-    [FK_Role] int  NOT NULL
+    [FK_Employe] int  NULL,
+    [FK_Role] int  NULL
 );
 GO
 
 -- Creating table 'Conges'
 CREATE TABLE [dbo].[Conges] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [DateDebut] date  NULL,
-    [DateDemande] date  NULL,
+    [DateDebut] datetime  NULL,
+    [DateDemande] datetime  NULL,
     [NbreJours] int  NULL,
     [Etat] nvarchar(50)  NULL,
-    [FK_TypeConge] int  NOT NULL,
-    [FK_Employe] int  NOT NULL
+    [FK_TypeConge] int  NULL,
+    [FK_Employe] int  NULL
 );
 GO
 
@@ -240,10 +240,10 @@ GO
 CREATE TABLE [dbo].[Contrats] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Numero] nchar(10)  NULL,
-    [DateDebut] date  NULL,
-    [DateFin] date  NULL,
-    [FK_TypeContrat] int  NOT NULL,
-    [FK_Categorie] int  NOT NULL
+    [DateDebut] datetime  NULL,
+    [DateFin] datetime  NULL,
+    [FK_TypeContrat] int  NULL,
+    [FK_Categorie] int  NULL
 );
 GO
 
@@ -252,10 +252,9 @@ CREATE TABLE [dbo].[Departements] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Description] nvarchar(50)  NULL,
     [Libelle] nvarchar(50)  NULL,
-    [NbreEmployes] varbinary(max)  NULL,
     [Numero] int  NULL,
-    [FK_Etablissement] int  NOT NULL,
-    [FK_Chef] int  NOT NULL
+    [FK_Etablissement] int  NULL,
+    [FK_Chef] int  NULL
 );
 GO
 
@@ -267,7 +266,7 @@ CREATE TABLE [dbo].[Employes] (
     [Prenom] nvarchar(50)  NULL,
     [NbreEnfants] int  NULL,
     [LieuDeNaissance] nvarchar(50)  NULL,
-    [DateDeNaissance] date  NULL,
+    [DateDeNaissance] datetime  NULL,
     [CIN] int  NULL,
     [Matricule] int  NULL,
     [StatutSocial] nvarchar(50)  NULL,
@@ -277,9 +276,9 @@ CREATE TABLE [dbo].[Employes] (
     [Grade] nvarchar(50)  NULL,
     [Genre] nvarchar(50)  NULL,
     [Etat] nvarchar(50)  NULL,
-    [FK_InfosBanque] int  NOT NULL,
-    [FK_Contrat] int  NOT NULL,
-    [FK_Departement] int  NOT NULL
+    [FK_InfosBanque] int  NULL,
+    [FK_Contrat] int  NULL,
+    [FK_Departement] int  NULL
 );
 GO
 
@@ -318,7 +317,7 @@ GO
 -- Creating table 'LivreDePaies'
 CREATE TABLE [dbo].[LivreDePaies] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Mois] date  NULL,
+    [Mois] datetime  NULL,
     [Reference] nvarchar(50)  NULL,
     [Details] nvarchar(max)  NULL
 );
@@ -327,8 +326,8 @@ GO
 -- Creating table 'Prime_Categorie'
 CREATE TABLE [dbo].[Prime_Categorie] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [FK_Categorie] int  NOT NULL,
-    [FK_PrimeFixe] int  NOT NULL
+    [FK_Categorie] int  NULL,
+    [FK_PrimeFixe] int  NULL
 );
 GO
 
@@ -349,8 +348,8 @@ CREATE TABLE [dbo].[PrimesVariables] (
     [Type] nvarchar(50)  NULL,
     [Valeur] decimal(18,0)  NULL,
     [Exoneres] nvarchar(50)  NULL,
-    [DateAffectation] date  NULL,
-    [FK_Employe] int  NOT NULL
+    [DateAffectation] datetime  NULL,
+    [FK_Employe] int  NULL
 );
 GO
 
@@ -393,9 +392,9 @@ ADD CONSTRAINT [PK_BulletinDePaies]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Categories1'
-ALTER TABLE [dbo].[Categories1]
-ADD CONSTRAINT [PK_Categories1]
+-- Creating primary key on [Id] in table 'Categories'
+ALTER TABLE [dbo].[Categories]
+ADD CONSTRAINT [PK_Categories]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -551,7 +550,7 @@ GO
 ALTER TABLE [dbo].[Contrats]
 ADD CONSTRAINT [FK__Contrat__FK_Cate__30F848ED]
     FOREIGN KEY ([FK_Categorie])
-    REFERENCES [dbo].[Categories1]
+    REFERENCES [dbo].[Categories]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -566,7 +565,7 @@ GO
 ALTER TABLE [dbo].[Prime_Categorie]
 ADD CONSTRAINT [FK_Categorie]
     FOREIGN KEY ([FK_Categorie])
-    REFERENCES [dbo].[Categories1]
+    REFERENCES [dbo].[Categories]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
