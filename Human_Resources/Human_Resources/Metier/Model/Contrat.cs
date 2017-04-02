@@ -27,7 +27,7 @@ namespace Human_Resources.Metier.Model
         public int FK_TypeContrat { get; set; }
         public int FK_Categorie { get; set; }
     
-        public virtual Categories Categorie { get; set; }
+        public virtual Categorie Categorie { get; set; }
         public virtual TypeContrat TypeContrat { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employe> Employes { get; set; }

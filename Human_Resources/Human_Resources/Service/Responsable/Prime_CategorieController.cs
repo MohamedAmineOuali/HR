@@ -26,7 +26,7 @@ namespace Human_Resources.Service.Responsable
         [Route("api/Prime_Categorie/ByCategory/{idCat}")]
         public IHttpActionResult GetPrimeByCategory(int idCat)
         {
-            var result = db.Prime_Categorie.Where(e => e.FK_Categorie == idCat).Select(e=>e.Categorie).ToList<Categories>();
+            var result = db.Prime_Categorie.Where(e => e.FK_Categorie == idCat).Select(e=>e.Categorie).ToList<Categorie>();
             if (result.Count == 0)
                 return NotFound();
             else

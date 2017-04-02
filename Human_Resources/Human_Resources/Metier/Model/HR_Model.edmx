@@ -554,7 +554,7 @@
           <Property Name="FK_Employe" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Employe" Relationship="Self.FK_EmployeBDP" FromRole="BulletinDePaies" ToRole="Employes" />
         </EntityType>
-        <EntityType Name="Categories">
+        <EntityType Name="Categorie">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -816,7 +816,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Contrat__FK_Cate__30F848ED">
-          <End Role="Categories1" Type="HumanResourcesModel.Categories" Multiplicity="1" />
+          <End Role="Categories1" Type="HumanResourcesModel.Categorie" Multiplicity="1" />
           <End Role="Contrats" Type="Self.Contrat" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories1">
@@ -828,7 +828,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Categorie">
-          <End Role="Categories1" Type="HumanResourcesModel.Categories" Multiplicity="1" />
+          <End Role="Categories1" Type="HumanResourcesModel.Categorie" Multiplicity="1" />
           <End Role="Prime_Categorie" Type="Self.Prime_Categorie" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories1">
@@ -986,7 +986,7 @@
         <EntityContainer Name="HumanResourcesEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Avances" EntityType="Self.Avance" />
           <EntitySet Name="BulletinDePaies" EntityType="Self.BulletinDePay" />
-          <EntitySet Name="Categories" EntityType="HumanResourcesModel.Categories" />
+          <EntitySet Name="Categories" EntityType="HumanResourcesModel.Categorie" />
           <EntitySet Name="ChargePatronales" EntityType="Self.ChargePatronale" />
           <EntitySet Name="CNAMs" EntityType="Self.CNAM" />
           <EntitySet Name="CNRPS" EntityType="Self.CNRP" />
@@ -1108,7 +1108,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Categories">
-      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Categories)">
+      <EntityTypeMapping TypeName="IsTypeOf(HumanResourcesModel.Categorie)">
         <MappingFragment StoreEntitySet="Categories">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Informations" ColumnName="Informations" />

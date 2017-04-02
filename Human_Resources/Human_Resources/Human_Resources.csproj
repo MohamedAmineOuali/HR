@@ -240,7 +240,7 @@
     <Compile Include="Metier\Model\BulletinDePay.cs">
       <DependentUpon>HR_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Metier\Model\Categories.cs">
+    <Compile Include="Metier\Model\Categorie.cs">
       <DependentUpon>HR_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Metier\Model\ChargePatronale.cs">
