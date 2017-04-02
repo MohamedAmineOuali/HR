@@ -10,6 +10,8 @@ var myApp = angular.module('myApp', [
   'myApp.controllers',
   'myApp.ComptesControllor',
   'myApp.ComptesFactories',
+  'myApp.EmployeesControllor',
+  'myApp.EmployeesFactory',
   'myApp.factories',
   'myApp.interceptor'
 ]).config(['$locationProvider', function($locationProvider) {
@@ -18,6 +20,7 @@ var myApp = angular.module('myApp', [
     $routeProvider.when('/', { templateUrl: 'public/views/Home.html', controller: 'MainControllor' });
     $routeProvider.when('/login', { templateUrl: 'public/views/Login.html', controller: 'LoginControllor' });
     $routeProvider.when('/comptes', { templateUrl: 'public/views/Comptes/Comptes.html', controller: 'Main.Comptes' });
+    $routeProvider.when('/employes', { templateUrl: 'public/views/Employes/Employes.html', controller: 'Main.Employees' });
     $routeProvider.otherwise({ redirectTo: '/login' });
 }]);
 

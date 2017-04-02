@@ -35,7 +35,16 @@ namespace Human_Resources.Service.Responsable
             return Ok();
         }
 
-        
+        [Route("GetAll")]
+        [HttpGet]
+        public IHttpActionResult GetAllEmployees()
+        {
+            var emp = db.Employes.ToList();
+            
+            return Ok(emp);
+        }
+
+
         [Route("DeleteEmployeeByID/{id:int}")]
         [ResponseType(typeof(Employe))]
         [HttpPost]
@@ -171,6 +180,8 @@ namespace Human_Resources.Service.Responsable
             db.SaveChanges();
             return Ok();
         }
+
+
 
 
 
