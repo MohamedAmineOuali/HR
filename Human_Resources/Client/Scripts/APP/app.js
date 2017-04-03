@@ -11,13 +11,18 @@ var myApp = angular.module('myApp', [
   'myApp.ComptesControllor',
   'myApp.ComptesFactories',
   'myApp.factories',
-  'myApp.interceptor'
+  'myApp.interceptor',
+  'myApp.CongesServices',
+  'myApp.CongesController'
 ]).config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
 }]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', { templateUrl: 'public/views/Home.html', controller: 'MainControllor' });
     $routeProvider.when('/login', { templateUrl: 'public/views/Login.html', controller: 'LoginControllor' });
     $routeProvider.when('/comptes', { templateUrl: 'public/views/Comptes/Comptes.html', controller: 'Main.Comptes' });
+    $routeProvider.when('/conges', { templateUrl: 'public/views/Conges/Conges.html', controller: 'Conges.Main' });
+    $routeProvider.when('/addconges', { templateUrl: 'public/views/Conges/Add-Conges.html', controller: 'Conges.Main' });
+
     $routeProvider.otherwise({ redirectTo: '/login' });
 }]);
 

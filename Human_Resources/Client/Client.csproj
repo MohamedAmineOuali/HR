@@ -99,8 +99,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="public\views\Comptes\Comptes.html" />
+    <Content Include="public\views\Conges\Add-Conges.html" />
+    <Content Include="public\views\Conges\Conges.html" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesFactories.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\Gestion Congé\CongesController.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\Gestion Congé\CongesService.js" />
     <Content Include="Scripts\Vendor\angularjs\version.json" />
     <Content Include="Scripts\Vendor\angularjs\errors.json" />
     <Content Include="Scripts\Vendor\angularjs\angular.min.js.map" />

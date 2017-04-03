@@ -340,6 +340,7 @@
     <Compile Include="Service\Responsable\Gestion Des Employes\InfosBanquesController.cs" />
     <Compile Include="Service\Responsable\PrimesVariablesController.cs" />
     <Compile Include="Service\Responsable\Prime_CategorieController.cs" />
+    <Compile Include="Service\Responsable\TypeCongesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
