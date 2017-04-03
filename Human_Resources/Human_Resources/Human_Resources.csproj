@@ -332,6 +332,7 @@
     <Compile Include="Service\Admin\configuration des formules\CNSSesController.cs" />
     <Compile Include="Service\Admin\configuration des formules\IGRsController.cs" />
     <Compile Include="Service\Admin\EtablissementsController.cs" />
+    <Compile Include="Service\Admin\PrimeFixesController.cs" />
     <Compile Include="Service\Responsable\AvancesController.cs" />
     <Compile Include="Service\Responsable\CongesController.cs" />
     <Compile Include="Service\Responsable\DepartementsController.cs" />
