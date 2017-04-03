@@ -18,17 +18,24 @@ namespace Human_Resources.Service.Responsable
     {
         private HumanResourcesEntities db = new HumanResourcesEntities();
 
-
-        [Route("AddEmployee")]
+        [Route("AddEmployee/{departement}")]
         [HttpPost]
-        public IHttpActionResult AddEmployee(Employe e)
+        public IHttpActionResult AddEmployee(Employe e , string departement)
         {
+
+            //Departement Foreign Key
+            int fk_dep = (from d in db.Departements
+                          where (d.Libelle == departement)
+                          select d.Id).FirstOrDefault();
+
+            e.FK_Departement = fk_dep;
+            
             db.Employes.Add(e);
             db.SaveChanges();
             return Ok();
         }
 
-        //var result = db.Avances.Where(e => e.FK_Employe == emp).ToList<Avance>();
+        
         [Route("DeleteEmployeeByID/{id:int}")]
         [ResponseType(typeof(Employe))]
         [HttpPost]

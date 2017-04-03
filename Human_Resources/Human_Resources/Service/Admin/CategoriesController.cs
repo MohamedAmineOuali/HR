@@ -24,9 +24,8 @@ namespace Human_Resources.Service.Admin
         public IQueryable<Categorie> GetCategories1()
         {
             return db.Categories;
-
         }
-        [Route("{lib:string}")]
+        [Route("{lib}")]
         [HttpGet]
         [ResponseType(typeof(Categorie))]
         public IHttpActionResult GetCategorieByLibelle(string lib)

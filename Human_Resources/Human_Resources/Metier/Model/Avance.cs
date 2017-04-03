@@ -18,7 +18,7 @@ namespace Human_Resources.Metier.Model
         public Nullable<System.DateTime> DateVersement { get; set; }
         public Nullable<System.DateTime> Mois { get; set; }
         public Nullable<decimal> Montant { get; set; }
-        public int FK_Employe { get; set; }
+        public Nullable<int> FK_Employe { get; set; }
     
         public virtual Employe Employe { get; set; }
     }

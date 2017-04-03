@@ -50,7 +50,7 @@ namespace Human_Resources.Service.Responsable
 
 
         }
-        [Route("{name:string}")]
+        [Route("{name}")]
         [HttpGet]
         [ResponseType(typeof(Departement))]
         public IHttpActionResult GetDepartementByName(string name)

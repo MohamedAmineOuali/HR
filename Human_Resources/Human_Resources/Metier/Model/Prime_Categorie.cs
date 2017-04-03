@@ -15,8 +15,8 @@ namespace Human_Resources.Metier.Model
     public partial class Prime_Categorie
     {
         public int Id { get; set; }
-        public int FK_Categorie { get; set; }
-        public int FK_PrimeFixe { get; set; }
+        public Nullable<int> FK_Categorie { get; set; }
+        public Nullable<int> FK_PrimeFixe { get; set; }
     
         public virtual Categorie Categorie { get; set; }
         public virtual PrimeFix PrimeFix { get; set; }

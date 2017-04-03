@@ -24,8 +24,8 @@ namespace Human_Resources.Metier.Model
         public string Numero { get; set; }
         public Nullable<System.DateTime> DateDebut { get; set; }
         public Nullable<System.DateTime> DateFin { get; set; }
-        public int FK_TypeContrat { get; set; }
-        public int FK_Categorie { get; set; }
+        public Nullable<int> FK_TypeContrat { get; set; }
+        public Nullable<int> FK_Categorie { get; set; }
     
         public virtual Categorie Categorie { get; set; }
         public virtual TypeContrat TypeContrat { get; set; }

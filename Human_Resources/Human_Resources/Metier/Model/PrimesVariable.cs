@@ -20,7 +20,7 @@ namespace Human_Resources.Metier.Model
         public Nullable<decimal> Valeur { get; set; }
         public string Exoneres { get; set; }
         public Nullable<System.DateTime> DateAffectation { get; set; }
-        public int FK_Employe { get; set; }
+        public Nullable<int> FK_Employe { get; set; }
     
         public virtual Employe Employe { get; set; }
     }
