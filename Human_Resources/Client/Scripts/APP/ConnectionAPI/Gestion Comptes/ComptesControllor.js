@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 /* Controllers */
-var myModule = angular.module('myApp.controllers', ['myApp.factories']);
+//var myModule = angular.module('myApp.controllers', ['myApp.factories']);
 angular.module('myApp.ComptesControllor', [])
   .controller('Main.Comptes', ['$scope', 'Comptes', function ($scope, Comptes) {
       $scope.data = "";
