@@ -323,6 +323,7 @@
       <DependentUpon>HR_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Metier\Traitement\Authentification.cs" />
+    <Compile Include="Model\FileUploadData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\UserCompte.cs" />
     <Compile Include="Service\Admin\CategoriesController.cs" />
@@ -339,13 +340,16 @@
     <Compile Include="Service\Responsable\Gestion Des Employes\ContratsController.cs" />
     <Compile Include="Service\Responsable\Gestion Des Employes\EmployesController.cs" />
     <Compile Include="Service\Responsable\Gestion Des Employes\InfosBanquesController.cs" />
+    <Compile Include="Service\Responsable\Gestion Des Employes\UploadController.cs" />
     <Compile Include="Service\Responsable\PrimesVariablesController.cs" />
     <Compile Include="Service\Responsable\Prime_CategorieController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UploadedFile\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
