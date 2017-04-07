@@ -25,5 +25,4 @@ angular.module('myApp.PrimsContollor', [])
             $scope.errors = error.error_description;
         })
     }
-}])
-;
+}]);

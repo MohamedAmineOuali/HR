@@ -100,10 +100,15 @@
     </Content>
     <Content Include="public\views\Comptes\Comptes.html" />
     <Content Include="public\views\Employes\Employes.html" />
+    <Content Include="public\views\Employes\UploadEmployees.html" />
+    <Content Include="public\views\Prims\addPrim.html" />
+    <Content Include="Scripts\APP\angular-base64-upload.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesFactories.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\EmployeesControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\EmployeesFactory.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\GestionPrime\PrimsControllor.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\GestionPrime\PrimsFactories.js" />
     <Content Include="Scripts\Vendor\angularjs\version.json" />
     <Content Include="Scripts\Vendor\angularjs\errors.json" />
     <Content Include="Scripts\Vendor\angularjs\angular.min.js.map" />

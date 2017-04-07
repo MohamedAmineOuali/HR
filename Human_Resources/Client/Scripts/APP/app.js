@@ -12,15 +12,20 @@ var myApp = angular.module('myApp', [
   'myApp.ComptesFactories',
   'myApp.EmployeesControllor',
   'myApp.EmployeesFactory',
+  'myApp.PrimsContollor',
+  'myApp.PrimsFactories',
   'myApp.factories',
-  'myApp.interceptor'
+  'myApp.interceptor',
+  'naif.base64'
 ]).config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
 }]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', { templateUrl: 'public/views/Home.html', controller: 'MainControllor' });
     $routeProvider.when('/login', { templateUrl: 'public/views/Login.html', controller: 'LoginControllor' });
     $routeProvider.when('/comptes', { templateUrl: 'public/views/Comptes/Comptes.html', controller: 'Main.Comptes' });
-    $routeProvider.when('/employes', { templateUrl: 'public/views/Employes/Employes.html', controller: 'Main.Employees' });
+    $routeProvider.when('/employees', { templateUrl: 'public/views/Employes/Employes.html', controller: 'Main.Employees' });
+    $routeProvider.when('/uploadEmployees', { templateUrl: 'public/views/Employes/UploadEmployees.html', controller: 'Upload.Employees' });
+    $routeProvider.when('/AddPrim', { templateUrl: 'public/views/Prims/addPrim.html', controller: 'Add.Prim' });
     $routeProvider.otherwise({ redirectTo: '/login' });
 }]);
 

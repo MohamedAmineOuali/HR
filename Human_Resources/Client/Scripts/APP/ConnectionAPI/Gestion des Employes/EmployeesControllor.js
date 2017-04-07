@@ -8,9 +8,6 @@ angular.module('myApp.EmployeesControllor', [])
       Employees.GetAllEmployees().then(function (data) {
           $scope.Emp = data;
       });
-
-
-
       $scope.resolveReferences = function resolveReferences(json) {
           if (typeof json === 'string')
               json = JSON.parse(json);
@@ -57,6 +54,17 @@ angular.module('myApp.EmployeesControllor', [])
               // Notice that this throws if you put in a reference at top-level
           }
           return json;
+      }
+  }])
+
+  .controller('Upload.Employees', ['$scope', '$location', 'Employees', function ($scope, $location ,Employees) {
+      $scope.errors = "";
+      $scope.upload= function () {
+          Employees.AddEmployees($scope.data).then(function (data) {
+              $location.path('/');
+          }, function (error) {
+              $scope.errors = error.error_description;
+          })
       }
 
 
