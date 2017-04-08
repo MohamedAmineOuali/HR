@@ -17,7 +17,8 @@ var myApp = angular.module('myApp', [
   'myApp.factories',
   'myApp.interceptor',
   'naif.base64',
-  'myApp.config_empControllor'
+  'myApp.config_empControllor',
+  'checklist-model'
 
 ]).config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
