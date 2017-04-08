@@ -99,12 +99,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="public\views\Comptes\Comptes.html" />
+    <Content Include="public\views\Employes\config_emp.html" />
     <Content Include="public\views\Employes\Employes.html" />
     <Content Include="public\views\Employes\UploadEmployees.html" />
     <Content Include="public\views\Prims\addPrim.html" />
     <Content Include="Scripts\APP\angular-base64-upload.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesFactories.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\config_empController.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\EmployeesControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\EmployeesFactory.js" />
     <Content Include="Scripts\APP\ConnectionAPI\GestionPrime\PrimsControllor.js" />

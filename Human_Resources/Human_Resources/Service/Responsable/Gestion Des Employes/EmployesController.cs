@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Human_Resources.Metier.Model;
+using Human_Resources.Service.Responsable.Gestion_Des_Employes;
+using System.IO;
 
 namespace Human_Resources.Service.Responsable
 {
@@ -17,6 +19,24 @@ namespace Human_Resources.Service.Responsable
     public class EmployesController : ApiController
     {
         private HumanResourcesEntities db = new HumanResourcesEntities();
+
+        [Route("config")]
+        [HttpPost]
+        public IHttpActionResult Config(EmployeeConfig e)
+        {
+            string s = "{'Adresse':" + e.Adresse.ToString().ToLower() + ",'CIN':" + e.CIN + ",'DateNaissance':" + e.DateNaissance + ",'Genre':" + e.Genre + ",'Grade':" + e.Grade + ",'LieuNaissance':" + e.LieuNaissance + ",'Matricule':" + e.Matricule + ",'NSS': " + e.NSS + ",'Nationalite':" + e.Nationalite + ",'Nom':" + e.Nom + ",'NombreEnfants':" + e.NombreEnfants + ",'Prenom':" + e.Prenom + ",'StatutSocial':" + e.StatutSocial + ",'Telephone':" + e.Telephone+"}";
+
+
+
+            var d = Directory.GetCurrentDirectory();
+            File.WriteAllText(@"./configEmp.txt", s);
+            /*bool b = File.Exists(@"/configEmp.json");
+             b = File.Exists(@"./configEmp.txt");*/
+
+            return Ok();
+        }
+
+
 
         [Route("AddEmployee/{departement}")]
         [HttpPost]
