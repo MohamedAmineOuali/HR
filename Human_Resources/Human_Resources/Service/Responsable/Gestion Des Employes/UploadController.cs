@@ -13,9 +13,12 @@ using Human_Resources.Metier.Traitement;
 
 namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
 {
+
     [RoutePrefix("api/Employee")]
     public class UploadController : ApiController
     {
+        EmployeesManager em = new EmployeesManager();
+
         [Route("UploadFile")]// POST: api/Upload
         public HttpResponseMessage Post([FromBody]FileUploadData request)
         {
@@ -25,7 +28,7 @@ namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
                 HttpError err = new HttpError(message);
                 return Request.CreateResponse(HttpStatusCode.NotAcceptable, err);
             }
-            EmployeesManager em = new EmployeesManager();
+
             var detail=em.SaveFile(request.GetFileBytes());
             return Request.CreateResponse(HttpStatusCode.OK,detail);
         }
@@ -33,7 +36,8 @@ namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
         [Route("GenerateData")]// POST: api/Upload
         public HttpResponseMessage Post([FromBody]ExcelFile f)
         {
-            
+            em.GenerateData(f);
+
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

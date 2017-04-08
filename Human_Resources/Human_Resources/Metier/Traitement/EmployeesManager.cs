@@ -1,4 +1,5 @@
-﻿using Human_Resources.Model;
+﻿using Human_Resources.Metier.Model;
+using Human_Resources.Model;
 using LinqToExcel;
 using System;
 using System.Collections.Generic;
@@ -33,9 +34,26 @@ namespace Human_Resources.Metier.Traitement
 
 
 
-        void GenerateData(FileStream fs)
+        public void GenerateData(ExcelFile f)
         {
+            string path = System.Web.Hosting.HostingEnvironment.MapPath(@"~/UploadedFile/employee/" + f.FileName);
+            var excel = new ExcelQueryFactory(path);
 
+
+            using (HumanResourcesEntities db = new HumanResourcesEntities())
+            {
+                foreach (var sheet in f.ExcelDetail)
+                {
+                    if (sheet.Columns.Count > 0)
+                    {
+                        var employees = from c in excel.Worksheet<Employe>(sheet.Name)
+                                        select c;
+                        foreach (var employe in employees)
+                            db.Employes.Add(employe);
+                    }
+                }
+                db.SaveChanges();
+            }
         }
     }
 }
