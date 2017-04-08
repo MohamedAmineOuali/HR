@@ -104,6 +104,7 @@
     <Content Include="public\views\Employes\UploadEmployees.html" />
     <Content Include="public\views\Prims\addPrim.html" />
     <Content Include="Scripts\APP\angular-base64-upload.js" />
+    <Content Include="Scripts\APP\checklist-model.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesFactories.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\config_empController.js" />

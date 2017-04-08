@@ -1,4 +1,28 @@
-﻿<form ng-submit="upload()">
-    <input type='file' ng-model='data' base-sixty-four-input>
+﻿<form ng-show="upload" ng-submit="uploadFile()">
+    <input type='file' ng-model='file' base-sixty-four-input>
     <input type="submit" value="ok" />
 </form>
+
+<form ng-hide="upload" ng-submit="genrateData()">
+
+
+    <div ng-repeat="sheet in details">
+        .......................
+        <div> {{sheet.Name}}</div>
+        ...........................
+        <ul>
+            <li ng-repeat="column in sheet.Columns">
+                <input type="checkbox" name="myname"
+                       checklist-model="data.ExcelDetail[$parent.$index].Columns" checklist-value="column">
+                {{column}}
+            </li>
+        </ul>
+    </div>
+
+
+    <input type="submit" value="ok" />
+</form>
+
+{{details}}
+
+

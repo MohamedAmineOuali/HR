@@ -59,13 +59,40 @@ angular.module('myApp.EmployeesControllor', [])
 
   .controller('Upload.Employees', ['$scope', '$location', 'Employees', function ($scope, $location ,Employees) {
       $scope.errors = "";
-      $scope.upload= function () {
-          Employees.AddEmployees($scope.data).then(function (data) {
-              $location.path('/');
+      $scope.upload = true;
+
+      var changeMod = function (data) {
+          $scope.upload = false;
+          $scope.details = data.ExcelDetail;
+
+          $scope.data = {
+              FileName: data.FileName,
+              ExcelDetail: []
+          };
+          angular.forEach($scope.details, function (s) {
+              $scope.data.ExcelDetail.push({
+                  Name: s.Name,
+                  Columns: []
+              });
+          });
+
+      }
+
+      $scope.uploadFile= function () {
+          Employees.uploadFile($scope.file).then(function (data) {
+              changeMod(data);
           }, function (error) {
               $scope.errors = error.error_description;
           })
       }
 
+      $scope.genrateData = function () {
+
+          Employees.genrateData($scope.data).then(function (data) {
+              $location.path('/');
+          }, function (error) {
+              $scope.errors = error.error_description;
+          })
+      }
 
   }]);
