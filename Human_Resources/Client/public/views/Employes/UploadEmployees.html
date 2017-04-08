@@ -7,22 +7,14 @@
 
 
     <div ng-repeat="sheet in details">
-        .......................
-        <div> {{sheet.Name}}</div>
-        ...........................
-        <ul>
-            <li ng-repeat="column in sheet.Columns">
-                <input type="checkbox" name="myname"
-                       checklist-model="data.ExcelDetail[$parent.$index].Columns" checklist-value="column">
-                {{column}}
-            </li>
-        </ul>
+        <input type="checkbox" name="myname"
+               checklist-model="data.Sheets" checklist-value="sheet" />{{sheet}}
     </div>
 
 
     <input type="submit" value="ok" />
 </form>
 
-{{details}}
+{{data|json}}
 
 
