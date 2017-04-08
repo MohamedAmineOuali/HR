@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Human_Resources.Metier.Model;
+using Human_Resources.Service.Responsable.Gestion_Des_Employes;
+using System.IO;
 
 namespace Human_Resources.Service.Responsable
 {
@@ -17,6 +19,27 @@ namespace Human_Resources.Service.Responsable
     public class EmployesController : ApiController
     {
         private HumanResourcesEntities db = new HumanResourcesEntities();
+
+        [Route("config")]
+        [HttpPost]
+        public IHttpActionResult Config(EmployeeConfig e)
+        {
+            string s = "{'Adresse':" + e.Adresse.ToString().ToLower() + ",'CIN':" + e.CIN.ToString().ToLower() + ",'DateNaissance':" + e.DateNaissance.ToString().ToLower()
+                + ",'Genre':" + e.Genre.ToString().ToLower() + ",'Grade':" + e.Grade.ToString().ToLower() + ",'LieuNaissance':" + e.LieuNaissance.ToString().ToLower() + ",'Matricule':" 
+                + e.Matricule.ToString().ToLower() + ",'NSS': " + e.NSS.ToString().ToLower() + ",'Nationalite':" + e.Nationalite.ToString().ToLower() + ",'Nom':" + e.Nom.ToString().ToLower() + ",'NombreEnfants':" 
+                + e.NombreEnfants.ToString().ToLower() + ",'Prenom':" + e.Prenom.ToString().ToLower() + ",'StatutSocial':" + e.StatutSocial.ToString().ToLower() + ",'Telephone':" + e.Telephone.ToString().ToLower() + "}";
+
+
+
+            var d = Directory.GetCurrentDirectory();
+            File.WriteAllText(@"./configEmp.txt", s);
+            /*bool b = File.Exists(@"/configEmp.json");
+             b = File.Exists(@"./configEmp.txt");*/
+
+            return Ok();
+        }
+
+
 
         [Route("AddEmployee/{departement}")]
         [HttpPost]
