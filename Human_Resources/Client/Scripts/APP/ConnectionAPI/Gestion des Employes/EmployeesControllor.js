@@ -63,19 +63,12 @@ angular.module('myApp.EmployeesControllor', [])
 
       var changeMod = function (data) {
           $scope.upload = false;
-          $scope.details = data.ExcelDetail;
+          $scope.details = data.Sheets;
 
           $scope.data = {
               FileName: data.FileName,
-              ExcelDetail: []
+              Sheets: []
           };
-          angular.forEach($scope.details, function (s) {
-              $scope.data.ExcelDetail.push({
-                  Name: s.Name,
-                  Columns: []
-              });
-          });
-
       }
 
       $scope.uploadFile= function () {

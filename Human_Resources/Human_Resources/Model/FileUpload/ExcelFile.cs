@@ -8,6 +8,6 @@ namespace Human_Resources.Model
     public class ExcelFile
     {
         public string FileName { get; set; }
-        public List<SheetExcel> ExcelDetail { get; set; }
+        public List<string> Sheets { get; set; }
     }
 }

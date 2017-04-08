@@ -342,7 +342,6 @@
     <Compile Include="Metier\Traitement\EmployeesManager.cs" />
     <Compile Include="Model\FileUpload\ExcelFile.cs" />
     <Compile Include="Model\FileUpload\FileUploadData.cs" />
-    <Compile Include="Model\FileUpload\SheetExcel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\UserCompte.cs" />
     <Compile Include="Service\Admin\CategoriesController.cs" />

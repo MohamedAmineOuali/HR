@@ -18,16 +18,11 @@ namespace Human_Resources.Metier.Traitement
             File.WriteAllBytes(path, filebytes);
 
             var excel = new ExcelQueryFactory(path);
-            var details = new ExcelFile { FileName=fileName, ExcelDetail = new List<SheetExcel>() };
+            var details = new ExcelFile { FileName=fileName, Sheets = new List<string>() };
             var worksheetNames = excel.GetWorksheetNames();
             foreach(string sheetName in worksheetNames)
             {
-                var sheet = new SheetExcel {Columns=new List<string>() };
-                sheet.Name = sheetName;
-                var columnNames = excel.GetColumnNames(sheetName);
-                foreach (string columnName in columnNames)
-                    sheet.Columns.Add(columnName);
-                details.ExcelDetail.Add(sheet);
+                details.Sheets.Add(sheetName);
             }
             return details;
         }
@@ -42,15 +37,12 @@ namespace Human_Resources.Metier.Traitement
 
             using (HumanResourcesEntities db = new HumanResourcesEntities())
             {
-                foreach (var sheet in f.ExcelDetail)
+                foreach (var sheet in f.Sheets)
                 {
-                    if (sheet.Columns.Count > 0)
-                    {
-                        var employees = from c in excel.Worksheet<Employe>(sheet.Name)
-                                        select c;
-                        foreach (var employe in employees)
-                            db.Employes.Add(employe);
-                    }
+                    var employees = from c in excel.Worksheet<Employe>(sheet)
+                                    select c;
+                    foreach (var employe in employees)
+                        db.Employes.Add(employe);
                 }
                 db.SaveChanges();
             }
