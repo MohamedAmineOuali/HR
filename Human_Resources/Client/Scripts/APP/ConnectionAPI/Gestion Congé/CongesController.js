@@ -61,16 +61,20 @@ angular.module('myApp.CongesController', [])
           $scope.types = resolveReferences(data);
       });
       $scope.data = {}; 
-      $scope.AddConge=function() 
+     /* $scope.AddConge=function() 
       {
           console.log("sdfsfjl");
+          var e={};  
+          emp.GetByMat($scope.mat).then(function(data) {
+              e=data;});
           $scope.data.FK_TypeConge = $scope.types[$scope.type].Id;
+          $scope.data.FK_Employe = e.Id;
           conges.AddConge($scope.data);
 
           
 
 
 
-      }
+      }*/
 
   }]);
