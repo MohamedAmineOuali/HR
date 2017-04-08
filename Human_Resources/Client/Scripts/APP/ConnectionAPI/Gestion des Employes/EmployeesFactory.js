@@ -12,7 +12,7 @@ angular.module('myApp.EmployeesFactory', [])
             })
         }
 
-        fac.AddEmployees = function (data) {
+        fac.uploadFile = function (data) {
             var obj = {
                 "filesize": data.filesize,
                 "filetype": data.filetype,
@@ -30,6 +30,25 @@ angular.module('myApp.EmployeesFactory', [])
                     'Content-Type': "application/json"
                 },
                 data: JSON.stringify(obj) 
+            }).then(function (response) {
+                defer.resolve(response.data);
+
+            }, function (error) {
+                defer.reject(error.data);
+            })
+            return defer.promise;
+        }
+
+        fac.genrateData = function (data) {
+            var defer = $q.defer();
+
+            $http({
+                method: 'POST',
+                url: serviceBasePath + "/api/Employee/GenerateData",
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                data: JSON.stringify(data)
             }).then(function (response) {
                 defer.resolve(response.data);
 

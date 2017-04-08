@@ -16,7 +16,8 @@ var myApp = angular.module('myApp', [
   'myApp.PrimsFactories',
   'myApp.factories',
   'myApp.interceptor',
-  'naif.base64'
+  'naif.base64',
+  'checklist-model'
 ]).config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
 }]).config(['$routeProvider', function ($routeProvider) {

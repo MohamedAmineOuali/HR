@@ -7,6 +7,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Http;
+using System.Net.Http;
+using System.Net;
+using Human_Resources.Metier.Traitement;
 
 namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
 {
@@ -14,22 +17,25 @@ namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
     public class UploadController : ApiController
     {
         [Route("UploadFile")]// POST: api/Upload
-        public void Post([FromBody]FileUploadData request)
+        public HttpResponseMessage Post([FromBody]FileUploadData request)
         {
-            string fileName = System.Web.Hosting.HostingEnvironment.MapPath(@"~/UploadedFile/employee/" + DateTime.Now.ToString("yyyyMMddTHHmmss")+ ".xlsx");
-            string incoming = request.Base64Data.Replace('_', '/').Replace('-', '+');
-            switch (request.Base64Data.Length % 4)
+            if(!request.Verify())
             {
-                case 2: incoming += "=="; break;
-                case 3: incoming += "="; break;
+                var message = string.Format("File forma is not allowed");
+                HttpError err = new HttpError(message);
+                return Request.CreateResponse(HttpStatusCode.NotAcceptable, err);
             }
-            byte[] filebytes = Convert.FromBase64String(incoming);
-            FileStream fs = new FileStream(fileName,
-                                           FileMode.CreateNew,
-                                           FileAccess.ReadWrite,
-                                           FileShare.None);
-            fs.Write(filebytes, 0, filebytes.Length);
-            fs.Close();
+            EmployeesManager em = new EmployeesManager();
+            var detail=em.SaveFile(request.GetFileBytes());
+            return Request.CreateResponse(HttpStatusCode.OK,detail);
         }
+
+        [Route("GenerateData")]// POST: api/Upload
+        public HttpResponseMessage Post([FromBody]ExcelFile f)
+        {
+            
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
     }
 }
