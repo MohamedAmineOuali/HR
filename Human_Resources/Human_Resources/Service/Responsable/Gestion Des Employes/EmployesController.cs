@@ -24,7 +24,10 @@ namespace Human_Resources.Service.Responsable
         [HttpPost]
         public IHttpActionResult Config(EmployeeConfig e)
         {
-            string s = "{'Adresse':" + e.Adresse.ToString().ToLower() + ",'CIN':" + e.CIN + ",'DateNaissance':" + e.DateNaissance + ",'Genre':" + e.Genre + ",'Grade':" + e.Grade + ",'LieuNaissance':" + e.LieuNaissance + ",'Matricule':" + e.Matricule + ",'NSS': " + e.NSS + ",'Nationalite':" + e.Nationalite + ",'Nom':" + e.Nom + ",'NombreEnfants':" + e.NombreEnfants + ",'Prenom':" + e.Prenom + ",'StatutSocial':" + e.StatutSocial + ",'Telephone':" + e.Telephone+"}";
+            string s = "{'Adresse':" + e.Adresse.ToString().ToLower() + ",'CIN':" + e.CIN.ToString().ToLower() + ",'DateNaissance':" + e.DateNaissance.ToString().ToLower()
+                + ",'Genre':" + e.Genre.ToString().ToLower() + ",'Grade':" + e.Grade.ToString().ToLower() + ",'LieuNaissance':" + e.LieuNaissance.ToString().ToLower() + ",'Matricule':" 
+                + e.Matricule.ToString().ToLower() + ",'NSS': " + e.NSS.ToString().ToLower() + ",'Nationalite':" + e.Nationalite.ToString().ToLower() + ",'Nom':" + e.Nom.ToString().ToLower() + ",'NombreEnfants':" 
+                + e.NombreEnfants.ToString().ToLower() + ",'Prenom':" + e.Prenom.ToString().ToLower() + ",'StatutSocial':" + e.StatutSocial.ToString().ToLower() + ",'Telephone':" + e.Telephone.ToString().ToLower() + "}";
 
 
 

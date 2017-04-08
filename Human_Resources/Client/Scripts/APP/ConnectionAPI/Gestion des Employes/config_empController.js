@@ -28,8 +28,27 @@ angular.module('myApp.config_empControllor', [])
       $scope.submit = function () {
 
 
-          var obj = $scope.configList;
-          console.log(obj);
+
+
+    $scope.configList = {
+              CIN: $scope.CIN,
+              Nom: $scope.Nom,
+              Prenom: $scope.Prenom,
+              Adresse: $scope.Adresse,
+              NombreEnfants: $scope.NombreEnfants,
+              LieuNaissance: $scope.LieuNaissance,
+              DateNaissance: $scope.DateNaissance,
+              Matricule: $scope.Matricule,
+              StatutSocial: $scope.StatutSocial,
+              Telephone: $scope.Telephone,
+              Nationalite: $scope.Nationalite,
+              NSS: $scope.NSS,
+              Grade: $scope.Grade,
+              Genre: $scope.Genre
+
+    };
+
+    var obj = $scope.configList
 
           
 
