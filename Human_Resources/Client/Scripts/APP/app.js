@@ -14,6 +14,8 @@ var myApp = angular.module('myApp', [
   'myApp.EmployeesFactory',
   'myApp.PrimsContollor',
   'myApp.PrimsFactories',
+  'myApp.EmployeesControllor',
+  'myApp.EmployeesFactory',
   'myApp.factories',
   'myApp.interceptor',
   'myApp.CongesServices',
