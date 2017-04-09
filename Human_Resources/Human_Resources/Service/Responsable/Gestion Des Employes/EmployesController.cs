@@ -32,7 +32,7 @@ namespace Human_Resources.Service.Responsable
 
 
 
-            var d = Directory.GetCurrentDirectory();
+            //var d = Directory.GetCurrentDirectory();
             File.WriteAllText(@"./configEmp.json", s);
             /*bool b = File.Exists(@"/configEmp.json");
              b = File.Exists(@"./configEmp.txt");*/
