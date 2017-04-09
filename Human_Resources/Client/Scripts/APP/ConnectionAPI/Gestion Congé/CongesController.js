@@ -1,14 +1,10 @@
 ﻿'use strict';
 
 /* Controllers */
-var myModule = angular.module('myApp.controllers', ['myApp.factories']);
-angular.module('myApp.EmployeesControllor', [])
-  .controller('Main.Employees', ['$scope', 'Employees', function ($scope, Employees) {
-      $scope.Emp = [];
-      Employees.GetAllEmployees().then(function (data) {
-          $scope.Emp = data;
-      });
-      $scope.resolveReferences = function resolveReferences(json) {
+angular.module('myApp.CongesController', [])
+  .controller('Conges.Main', ['$scope', 'Conges',"Employees",'$location', function ($scope, conges,emp,$location) {
+      console.log('enter');
+      var resolveReferences = function resolveReferences(json) {
           if (typeof json === 'string')
               json = JSON.parse(json);
 
@@ -55,37 +51,34 @@ angular.module('myApp.EmployeesControllor', [])
           }
           return json;
       }
-  }])
 
-  .controller('Upload.Employees', ['$scope', '$location', 'Employees', function ($scope, $location ,Employees) {
-      $scope.errors = "";
-      $scope.upload = true;
+      $scope.conges = {};
+      conges.GetAllConge().then(function (data) {
+          $scope.conges = resolveReferences(data);
+      });
+      $scope.error = false;
 
-      var changeMod = function (data) {
-          $scope.upload = false;
-          $scope.details = data.Sheets;
+      $scope.types = {};
+      conges.GetCongeTypes().then(function (data) {
+          $scope.types = resolveReferences(data);
+      });
+      $scope.data = {}; 
+      $scope.AddConge=function() 
+      {
+          emp.GetByMat($scope.mat).then(function (data) {
+              if (data.status == 404)
+                  $scope.error = true;
+              else {
+                  $scope.error = false;
+                  $scope.data.FK_TypeConge = $scope.types[$scope.type].Id;
+                  $scope.data.FK_Employe = data.data.Id;
 
-          $scope.data = {
-              FileName: data.FileName,
-              Sheets: []
-          };
-      }
+                  conges.AddConge($scope.data);
+                  $location.path('/conges');
 
-      $scope.uploadFile= function () {
-          Employees.uploadFile($scope.file).then(function (data) {
-              changeMod(data);
-          }, function (error) {
-              $scope.errors = error.error_description;
-          })
-      }
+              }
+          });
 
-      $scope.genrateData = function () {
-
-          Employees.genrateData($scope.data).then(function (data) {
-              $location.path('/');
-          }, function (error) {
-              $scope.errors = error.error_description;
-          })
       }
 
   }]);

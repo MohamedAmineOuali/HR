@@ -1,0 +1,127 @@
+﻿<div class="page-inner">
+    <div class="page-title">
+        <h3>Ajouter conge</h3>
+        <div class="page-breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="index-2.html">Home</a></li>
+                <li><a href="#">Conge</a></li>
+                <li class="active">Ajouter conge</li>
+            </ol>
+        </div>
+    </div>
+    <div id="main-wrapper">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="panel panel-white">
+                    <div class="panel-heading clearfix">
+                        <h4 class="panel-title">Ajouter Employee</h4>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <div class="form-group" ng-show="config.CIN">
+                                <label for="input-Default" class="col-sm-2 control-label">CIN</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.CIN">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.Nom">
+                                <label for="input-Default" class="col-sm-2 control-label">Nom</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Nom">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.Prenom">
+                                <label for="input-Default" class="col-sm-2 control-label">Prenom</label>
+                                <div class="col-sm-10">
+                                    <input type="text"  class="form-control" id="input-Default" ng-model="data.Prenom">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.Adresse">
+                                <label for="input-Default" class="col-sm-2 control-label">Adresse</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Adresse">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.NombreEnfant">
+                                <label for="input-Default" class="col-sm-2 control-label">Nombre d'enfant</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.NombreEnfant">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="LieuNaissance">
+                                <label for="input-Default" class="col-sm-2 control-label">Lieu de naissance</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.LieuNaissance">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.DateNaissance">
+                                <label for="input-Default" class="col-sm-2 control-label">Date de naissance</label>
+                                <div class="col-sm-10">
+                                    <input type="date" class="form-control" id="input-Default" ng-model="data.DateNaissance">
+                                    <span ng-show="error" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.Matricule">
+                                <label for="input-Default" class="col-sm-2 control-label">Matricule</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Matricule">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.StatutSocial">
+                                <label for="input-Default" class="col-sm-2 control-label">Statut social</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.StatutSocial">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.Telephone">
+                                <label for="input-Default" class="col-sm-2 control-label">Telephone</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="input-Default" ng-model="data.Telephone">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.Nationalite">
+                                <label for="input-Default" class="col-sm-2 control-label">Nationalité</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Nationalite">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.NSS">
+                                <label for="input-Default" class="col-sm-2 control-label">NSS</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.NSS">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.Grade">
+                                <label for="input-Default" class="col-sm-2 control-label">Grade</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Grade">
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="config.Genre">
+                                <label for="input-Default" class="col-sm-2 control-label">Genre</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Genre">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Departement</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control m-b-sm" ng-model="departement">
+                                        <option ng-repeat="dep in deps track by $index " value="{{dep.Libelle}}">{{dep.Libelle}}</option>
+                                    </select>
+                                </div>
+                                {{departement}}
+
+                                <input type="submit" class="btn btn-info pull-right" value="Ajouter" ng-click="AddEmp();" />
+</form>
+                    </div>
+                    <div class="panel-footer" ng-show="errorInsertion">
+                        <div class="alert alert-danger">
+                            <strong>Error!</strong> Employee non inseré verifier vos donnees 
+                        </div>                    </div>
+                </div>
+            </div>
+        </div><!-- Row -->
+    </div><!-- Main Wrapper -->
+</div>

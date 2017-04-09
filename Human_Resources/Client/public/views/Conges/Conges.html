@@ -1,8 +1,6 @@
 ﻿
-
 <div class="page-header-fixed">
     <div class="overlay"></div>
-
     <main class="page-content content-wrap">
         <div class="navbar">
             <div class="navbar-inner">
@@ -12,7 +10,7 @@
                     </a>
                 </div>
                 <div class="logo-box">
-                    <a href="index-2.html" class="logo-text"><span>GRH</span></a>
+                    <a href="index-2.html" class="logo-text"><span>Modern</span></a>
                 </div><!-- Logo Box -->
                 <div class="search-button">
                     <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
@@ -111,7 +109,7 @@
                             <li>
                                 <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
                             </li>
-                            
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="badge badge-success pull-right">3</span></a>
                                 <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -180,86 +178,54 @@
 
         <div class="page-inner">
             <div class="page-title">
-                <h3>Employes</h3>
+                <h3>Conges</h3>
                 <div class="page-breadcrumb">
                     <ol class="breadcrumb">
-                        <li><a href="index-2.html">Home</a></li>
-                        <li class="active">Employes</li>
+                        <li><a href="#/">Home</a></li>
+                        <li class="active">Conges</li>
                     </ol>
                 </div>
             </div>
             <div id="main-wrapper">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="panel panel-white">
-                            <div><h1>Liste des employés : {{Emp.length}}</h1></div>
-                            
-
-                           
-
-                            <div class="panel-body">
-                                <div class="table-responsive project-stats">
-                                    <table class="table">
+                        <div class="panel panel-white"> 
+                           <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table id="example" class="display table" style="width: 100%; cellspacing: 0;">
                                         <thead>
                                             <tr>
-                                                <th>Matricule</th>
-                                                <th>CIN</th>
-                                                <th>Nom</th>
-                                                <th>Date de naissance</th>
-                                                <th>Telephone</th>
-                                                <th>En travail</th>
-                                                <th>Grade</th>
+                                                <th>Nom du l'employer</th>
+                                                <th>Type de Conge </th>
+                                                <th>Date De Demande </th>
+                                                <th>Date De Debut </th>
+                                                <th>Nombre de Jour</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
-
-                                            <tr ng-repeat="x in resolveReferences(Emp)">
-                                                <th scope="row">{{x.Matricule}}</th>
-                                                <th scope="row">{{x.CIN}}</th>
-                                                <td>{{x.Nom + ' ' + x.Prenom}}</td>
-                                                <td scope="row">{{x.DateDeNaissance.split('T')[0]+', '+x.LieuDeNaissance}}</td>
-                                                <td scope="row">{{x.Telephone}}</td>
-
-                                                <td><span class="label label-info">{{x.Etat}}</span></td>
-                                                <td>{{x.Grade}}</td>
-
+                                            <tr ng-repeat="conge in conges track by $index">
+                                                <td>{{conge.Employe.Nom }} {{conge.Employe.Prenom}}</td>
+                                                <td>{{ conge.TypeConge.Libelle }}</td>
+                                                <td>{{conge.DateDemande | limitTo:10 }}</td>
+                                                <td>{{conge.DateDebut| limitTo:10}}</td>
+                                                <td>{{conge.NbreJours}}</td>
                                             </tr>
-                                            
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
                         </div>
+                        <a href="#/addconges" type="button"class="btn btn-info">Ajouter un conges</a>
                     </div>
                 </div><!-- Row -->
             </div><!-- Main Wrapper -->
             <div class="page-footer">
-                <p class="no-s">2017 &copy; Ressources Humaines   ,  GL3</p>
+                <p class="no-s">2015 &copy; Modern by Steelcoders.</p>
             </div>
         </div><!-- Page Inner -->
 
 
     </main><!-- Page Content -->
-
-
-
-
-
-
     <!-- Javascripts -->
     <script src="assets/plugins/jquery/jquery-2.1.4.min.js"></script>
     <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
