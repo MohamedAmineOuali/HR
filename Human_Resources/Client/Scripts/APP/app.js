@@ -12,6 +12,8 @@ var myApp = angular.module('myApp', [
   'myApp.ComptesFactories',
   'myApp.PrimsContollor',
   'myApp.PrimsFactories',
+  'myApp.EmployeesControllor',
+  'myApp.EmployeesFactory',
   'myApp.factories',
   'myApp.interceptor'
 ]).config(['$locationProvider', function($locationProvider) {
