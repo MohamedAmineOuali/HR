@@ -11,6 +11,7 @@ using System.Web.Http.Description;
 using Human_Resources.Metier.Model;
 using Human_Resources.Service.Responsable.Gestion_Des_Employes;
 using System.IO;
+using System.Runtime.Serialization.Json;
 
 namespace Human_Resources.Service.Responsable
 {
@@ -37,6 +38,23 @@ namespace Human_Resources.Service.Responsable
              b = File.Exists(@"./configEmp.txt");*/
 
             return Ok();
+        }
+        [Route("GetConfig")]
+        [HttpGet]
+        public IHttpActionResult GetConfig()
+
+        {
+           // var d = Directory.GetCurrentDirectory();
+           // var config = File.ReadAllText(@"./configEmp.json");
+            DataContractJsonSerializer serializer =
+    new DataContractJsonSerializer(typeof(EmployeeConfig));
+
+            var yourObject = (EmployeeConfig)serializer.ReadObject(File.Open(@"./configEmp.json", FileMode.Open));
+            return Ok(yourObject); 
+
+
+
+
         }
 
 
@@ -134,7 +152,7 @@ namespace Human_Resources.Service.Responsable
 
 
         [Route("GetEmployeeByMat/{mat:int}")]
-        [HttpPost]
+        [HttpGet]
         public IHttpActionResult GetEmployeeByMatricule(int mat)
         {
             Employe employe = db.Employes.Where(e => e.Matricule == mat).FirstOrDefault();

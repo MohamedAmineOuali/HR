@@ -17,11 +17,12 @@ var myApp = angular.module('myApp', [
   'myApp.factories',
   'myApp.interceptor',
   'myApp.CongesServices',
-  'myApp.CongesController'
+  'myApp.CongesController',
   'myApp.interceptor',
   'naif.base64',
   'myApp.config_empControllor',
-  'checklist-model'
+  'checklist-model',
+  'myApp.ADDEmployeesControllor'
 
 ]).config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
@@ -34,8 +35,10 @@ var myApp = angular.module('myApp', [
 
     $routeProvider.when('/employees', { templateUrl: 'public/views/Employes/Employes.html', controller: 'Main.Employees' });
     $routeProvider.when('/uploadEmployees', { templateUrl: 'public/views/Employes/UploadEmployees.html', controller: 'Upload.Employees' });
+    $routeProvider.when('/addemployee', { templateUrl: 'public/views/Employes/AddEmp.html', controller: 'Main.AddEmployees' });
     $routeProvider.when('/AddPrim', { templateUrl: 'public/views/Prims/addPrim.html', controller: 'Add.Prim' });
     $routeProvider.when('/config', { templateUrl: 'public/views/Employes/config_emp.html', controller: 'Main.config_emp' });
+
     $routeProvider.otherwise({ redirectTo: '/login' });
 }]);
 

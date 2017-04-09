@@ -101,6 +101,7 @@
     <Content Include="public\views\Comptes\Comptes.html" />
     <Content Include="public\views\Conges\Add-Conges.html" />
     <Content Include="public\views\Conges\Conges.html" />
+    <Content Include="public\views\Employes\AddEmp.html" />
     <Content Include="public\views\Employes\config_emp.html" />
     <Content Include="public\views\Employes\Employes.html" />
     <Content Include="public\views\Employes\UploadEmployees.html" />
@@ -109,6 +110,7 @@
     <Content Include="Scripts\APP\checklist-model.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesFactories.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\AddEmpController.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\config_empController.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\EmployeesControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\EmployeesFactory.js" />

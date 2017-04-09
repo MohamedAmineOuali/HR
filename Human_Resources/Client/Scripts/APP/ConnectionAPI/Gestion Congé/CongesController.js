@@ -2,7 +2,7 @@
 
 /* Controllers */
 angular.module('myApp.CongesController', [])
-  .controller('Conges.Main', ['$scope', 'Conges', function ($scope, conges) {
+  .controller('Conges.Main', ['$scope', 'Conges',"Employees",'$location', function ($scope, conges,emp,$location) {
       console.log('enter');
       var resolveReferences = function resolveReferences(json) {
           if (typeof json === 'string')
@@ -56,25 +56,30 @@ angular.module('myApp.CongesController', [])
       conges.GetAllConge().then(function (data) {
           $scope.conges = resolveReferences(data);
       });
+      $scope.error = false;
+
       $scope.types = {};
       conges.GetCongeTypes().then(function (data) {
           $scope.types = resolveReferences(data);
       });
       $scope.data = {}; 
-     /* $scope.AddConge=function() 
+      $scope.AddConge=function() 
       {
           console.log("sdfsfjl");
-          var e={};  
-          emp.GetByMat($scope.mat).then(function(data) {
-              e=data;});
-          $scope.data.FK_TypeConge = $scope.types[$scope.type].Id;
-          $scope.data.FK_Employe = e.Id;
-          conges.AddConge($scope.data);
+          emp.GetByMat($scope.mat).then(function (data) {
+              if (data.status == 404)
+                  $scope.error = true;
+              else {
+                  $scope.error = false;
+                  $scope.data.FK_TypeConge = $scope.types[$scope.type].Id;
+                  $scope.data.FK_Employe = data.data.Id;
 
-          
+                  conges.AddConge($scope.data);
+                  $location.path('/conges');
 
+              }
+          });
 
-
-      }*/
+      }
 
   }]);
