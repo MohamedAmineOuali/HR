@@ -65,7 +65,6 @@ angular.module('myApp.CongesController', [])
       $scope.data = {}; 
       $scope.AddConge=function() 
       {
-          console.log("sdfsfjl");
           emp.GetByMat($scope.mat).then(function (data) {
               if (data.status == 404)
                   $scope.error = true;

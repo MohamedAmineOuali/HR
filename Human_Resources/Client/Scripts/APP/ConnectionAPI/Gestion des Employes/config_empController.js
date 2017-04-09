@@ -3,12 +3,35 @@
 /* Controllers */
 var myModule = angular.module('myApp.controllers', ['myApp.factories']);
 angular.module('myApp.config_empControllor', [])
-  .controller('Main.config_emp', ['ServiceURL', '$http', '$scope', function (serviceBasePath, $http, $scope) {
+  .controller('Main.config_emp', ['ServiceURL', '$http', '$scope', '$location','Employees', function (serviceBasePath, $http, $scope,$location, emp) {
 
       
       
+      emp.GetConfig().then(function (response) {
+          $scope.error = false;
 
-      $scope.configList = {
+          if (response.status != 200)
+              $scope.configList = {
+                  CIN: false,
+                  Nom: false,
+                  Prenom: false,
+                  Adresse: false,
+                  NombreEnfants: false,
+                  LieuNaissance: false,
+                  DateNaissance: false,
+                  Matricule: false,
+                  StatutSocial: false,
+                  Telephone: false,
+                  Nationalite: false,
+                  NSS: false,
+                  Grade: false,
+                  Genre: false
+
+              };
+          else
+              $scope.configList = response.data;
+      });
+      /*$scope.configList = {
           CIN: false,
           Nom: false,
           Prenom: false,
@@ -24,13 +47,13 @@ angular.module('myApp.config_empControllor', [])
           Grade: false,
           Genre : false
 
-      };
+      };*/
       $scope.submit = function () {
 
 
 
 
-    $scope.configList = {
+    /*$scope.configList = {
               CIN: $scope.CIN,
               Nom: $scope.Nom,
               Prenom: $scope.Prenom,
@@ -46,7 +69,7 @@ angular.module('myApp.config_empControllor', [])
               Grade: $scope.Grade,
               Genre: $scope.Genre
 
-    };
+    };*/
 
     var obj = $scope.configList
 
@@ -60,11 +83,10 @@ angular.module('myApp.config_empControllor', [])
               },
               data: obj
           }).then(function (response) {
-              //defer.resolve(response.data);
-              console.log(response);
+              $location.path('/');
 
           }, function (error) {
-              console.log("error data");
+              $scope.error = true; 
           });
 
           //$location.path('/');

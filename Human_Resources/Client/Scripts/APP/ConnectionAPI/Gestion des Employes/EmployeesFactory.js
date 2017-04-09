@@ -63,6 +63,15 @@ angular.module('myApp.EmployeesFactory', [])
                 return response;
             }, function (response) { return response; });
         }
-
+        fac.GetConfig=function()
+        {
+            return $http.get(serviceBasePath + '/api/Employee/GetConfig').then(function (response) {
+                return response;
+            }, function (response) { return response; });
+        }
+        fac.AddEmp=function(data,dep)
+        {
+            return $http.post(serviceBasePath + '/api/Employee/AddEmployee/' + dep, data).then(function (response) { return response; }, function (response) { return response; });
+        }
         return fac;
 }]);

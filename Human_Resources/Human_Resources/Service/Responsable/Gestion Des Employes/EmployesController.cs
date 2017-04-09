@@ -48,8 +48,10 @@ namespace Human_Resources.Service.Responsable
            // var config = File.ReadAllText(@"./configEmp.json");
             DataContractJsonSerializer serializer =
     new DataContractJsonSerializer(typeof(EmployeeConfig));
-
-            var yourObject = (EmployeeConfig)serializer.ReadObject(File.Open(@"./configEmp.json", FileMode.Open));
+            var stream = File.Open(@"./configEmp.json", FileMode.Open);
+            var yourObject = (EmployeeConfig)serializer.ReadObject(stream);
+            stream.Close();
+            
             return Ok(yourObject); 
 
 

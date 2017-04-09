@@ -220,7 +220,7 @@
                                         CIN
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="CIN"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.CIN"></span>
                                     </td>
 
                                 </tr>
@@ -230,7 +230,7 @@
                                         Nom
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="Nom"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.Nom"></span>
                                     </td>
 
 
@@ -241,7 +241,7 @@
                                         Prenom
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="Prenom"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.Prenom"></span>
                                     </td>
 
                                 </tr>
@@ -251,7 +251,7 @@
                                         Adresse
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="Adresse"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.Adresse"></span>
                                     </td>
 
                                 </tr>
@@ -260,7 +260,7 @@
                                     <td class="hidden-xs">
                                         Nombre d'enfants
                                     </td>
-                                    <td class="hidden-xs" ng-model="NombreEnfants">
+                                    <td class="hidden-xs" ng-model="configList.NombreEnfants">
                                         <span><input type="checkbox" class="checkbox-mail"></span>
                                     </td>
 
@@ -271,7 +271,7 @@
                                         Lieu de naissance
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="LieuNaissance"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.LieuNaissance"></span>
                                     </td>
 
                                 </tr>
@@ -281,7 +281,7 @@
                                         Date de naissance
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="DateNaissance"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.DateNaissance"></span>
                                     </td>
 
                                 </tr>
@@ -291,7 +291,7 @@
                                         Matricule
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="Matricule"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.Matricule"></span>
                                     </td>
 
                                 </tr>
@@ -301,7 +301,7 @@
                                         Statut social
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="StatutSocial"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.StatutSocial"></span>
                                     </td>
 
                                 </tr>
@@ -311,7 +311,7 @@
                                         Telephone
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="Telephone"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.Telephone"></span>
                                     </td>
 
                                 </tr>
@@ -321,7 +321,7 @@
                                         Nationalité
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="Nationalite"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.Nationalite"></span>
                                     </td>
 
                                 </tr>
@@ -331,7 +331,7 @@
                                         Numero securite social
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="NSS"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.NSS"></span>
                                     </td>
 
                                 </tr>
@@ -341,7 +341,7 @@
                                         Grade
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="Grade"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.Grade"></span>
                                     </td>
 
                                 </tr>
@@ -351,7 +351,7 @@
                                         Genre
                                     </td>
                                     <td class="hidden-xs">
-                                        <span><input type="checkbox" class="checkbox-mail" ng-model="Genre"></span>
+                                        <span><input type="checkbox" class="checkbox-mail" ng-model="configList.Genre"></span>
                                     </td>
 
                                 </tr>
@@ -364,6 +364,9 @@
                             <button type="button" class="btn btn-success btn-rounded" ng-click="submit()">Confirmer</button>
                             <h1>{{Genre}}</h1>
                         </div>
+                </div>
+                <div class="alert alert-danger" ng-show="error">
+                    <strong>Error!</strong> 
                 </div>
             </div><!-- Row -->
         </div><!-- Main Wrapper -->
