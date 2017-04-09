@@ -10,6 +10,9 @@ using System.Web.Http;
 using System.Net.Http;
 using System.Net;
 using Human_Resources.Metier.Traitement;
+using System.Security.Claims;
+using Human_Resources.Metier.Model;
+using Human_Resources.Model.FileUpload;
 
 namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
 {
@@ -18,7 +21,10 @@ namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
     public class UploadController : ApiController
     {
         EmployeesManager em = new EmployeesManager();
+        private HumanResourcesEntities db = new HumanResourcesEntities();
 
+
+        //[Authorize]
         [Route("UploadFile")]// POST: api/Upload
         public HttpResponseMessage Post([FromBody]FileUploadData request)
         {
@@ -29,14 +35,27 @@ namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
                 return Request.CreateResponse(HttpStatusCode.NotAcceptable, err);
             }
 
-            var detail=em.SaveFile(request.GetFileBytes());
+            var curUser = new UserCompte((ClaimsIdentity)User.Identity);
+            var detail = new UploadDetails();
+
+           
+            detail.Etablissements = db.Etablissements.Include("Departements").ToList();
+
+            foreach(var e in detail.Etablissements)
+            {
+                e.Departements=null;
+            }
+
+            detail.File =em.SaveFile(request.GetFileBytes());
+
             return Request.CreateResponse(HttpStatusCode.OK,detail);
         }
 
-        [Route("GenerateData")]// POST: api/Upload
-        public HttpResponseMessage Post([FromBody]ExcelFile f)
+        //[Authorize]
+        [Route("GenerateData/{id:int}")]// POST: api/Upload/{id}
+        public HttpResponseMessage Post(int id, [FromBody]ExcelFile FileDetails)
         {
-            em.GenerateData(f);
+            em.GenerateData(FileDetails,id);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
