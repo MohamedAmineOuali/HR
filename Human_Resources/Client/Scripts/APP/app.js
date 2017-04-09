@@ -10,10 +10,19 @@ var myApp = angular.module('myApp', [
   'myApp.controllers',
   'myApp.ComptesControllor',
   'myApp.ComptesFactories',
+  'myApp.EmployeesControllor',
+  'myApp.EmployeesFactory',
+  'myApp.PrimsContollor',
+  'myApp.PrimsFactories',
   'myApp.factories',
   'myApp.interceptor',
   'myApp.CongesServices',
   'myApp.CongesController'
+  'myApp.interceptor',
+  'naif.base64',
+  'myApp.config_empControllor',
+  'checklist-model'
+
 ]).config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
 }]).config(['$routeProvider', function ($routeProvider) {
@@ -23,6 +32,10 @@ var myApp = angular.module('myApp', [
     $routeProvider.when('/conges', { templateUrl: 'public/views/Conges/Conges.html', controller: 'Conges.Main' });
     $routeProvider.when('/addconges', { templateUrl: 'public/views/Conges/Add-Conges.html', controller: 'Conges.Main' });
 
+    $routeProvider.when('/employees', { templateUrl: 'public/views/Employes/Employes.html', controller: 'Main.Employees' });
+    $routeProvider.when('/uploadEmployees', { templateUrl: 'public/views/Employes/UploadEmployees.html', controller: 'Upload.Employees' });
+    $routeProvider.when('/AddPrim', { templateUrl: 'public/views/Prims/addPrim.html', controller: 'Add.Prim' });
+    $routeProvider.when('/config', { templateUrl: 'public/views/Employes/config_emp.html', controller: 'Main.config_emp' });
     $routeProvider.otherwise({ redirectTo: '/login' });
 }]);
 
