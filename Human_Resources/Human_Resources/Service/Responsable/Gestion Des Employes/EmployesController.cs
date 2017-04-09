@@ -25,6 +25,8 @@ namespace Human_Resources.Service.Responsable
         [HttpPost]
         public IHttpActionResult Config(EmployeeConfig e)
         {
+            string path = System.Web.Hosting.HostingEnvironment.MapPath(@"~/UploadedFile/employee/configEmp.json");
+
             string s = "{\"Adresse\":" + e.Adresse.ToString().ToLower() + ",\"CIN\":" + e.CIN.ToString().ToLower() + ",\"DateNaissance\":" + e.DateNaissance.ToString().ToLower()
                 + ",\"Genre\":" + e.Genre.ToString().ToLower() + ",\"Grade\":" + e.Grade.ToString().ToLower() + ",\"LieuNaissance\":" + e.LieuNaissance.ToString().ToLower() + ",\"Matricule\":"
                 + e.Matricule.ToString().ToLower() + ",\"NSS\": " + e.NSS.ToString().ToLower() + ",\"Nationalite\":" + e.Nationalite.ToString().ToLower() + ",\"Nom\":" + e.Nom.ToString().ToLower() + ",\"NombreEnfants\":"
@@ -33,7 +35,7 @@ namespace Human_Resources.Service.Responsable
 
 
             //var d = Directory.GetCurrentDirectory();
-            File.WriteAllText(@"./configEmp.json", s);
+            File.WriteAllText(path, s);
             /*bool b = File.Exists(@"/configEmp.json");
              b = File.Exists(@"./configEmp.txt");*/
 
@@ -42,17 +44,23 @@ namespace Human_Resources.Service.Responsable
         [Route("GetConfig")]
         [HttpGet]
         public IHttpActionResult GetConfig()
-
         {
-           // var d = Directory.GetCurrentDirectory();
-           // var config = File.ReadAllText(@"./configEmp.json");
-            DataContractJsonSerializer serializer =
-    new DataContractJsonSerializer(typeof(EmployeeConfig));
-            var stream = File.Open(@"./configEmp.json", FileMode.Open);
-            var yourObject = (EmployeeConfig)serializer.ReadObject(stream);
-            stream.Close();
-            
-            return Ok(yourObject); 
+            // var d = Directory.GetCurrentDirectory();
+            // var config = File.ReadAllText(@"./configEmp.json");
+            string path = System.Web.Hosting.HostingEnvironment.MapPath(@"~/UploadedFile/employee/configEmp.json" );
+            if (File.Exists(path))
+            {
+                DataContractJsonSerializer serializer =
+        new DataContractJsonSerializer(typeof(EmployeeConfig));
+
+                var stream = File.Open(path, FileMode.Open);
+                var yourObject = (EmployeeConfig)serializer.ReadObject(stream);
+                stream.Close();
+
+                return Ok(yourObject);
+            }
+            else
+                return NotFound(); 
 
 
 

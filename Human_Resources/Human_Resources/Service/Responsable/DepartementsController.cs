@@ -40,6 +40,7 @@ namespace Human_Resources.Service.Responsable
 
             return Ok(departement);
         }
+
         [HttpGet]
         [Route("GeDepartementByEtablissement/{id}")]
         public IQueryable<Departement> GeDepartementByEtablissement(int id)
