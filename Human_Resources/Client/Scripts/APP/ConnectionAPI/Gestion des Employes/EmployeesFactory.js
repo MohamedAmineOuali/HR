@@ -57,6 +57,12 @@ angular.module('myApp.EmployeesFactory', [])
             })
             return defer.promise;
         }
+        fac.GetByMat=function(mat)
+        {
+            return $http.get(serviceBasePath + '/api/Employee/GetEmployeeByMat/' + mat).then(function (response) {
+                return response;
+            }, function (response) { return response; });
+        }
 
         return fac;
 }]);

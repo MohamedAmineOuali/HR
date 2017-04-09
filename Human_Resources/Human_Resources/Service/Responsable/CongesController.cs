@@ -100,8 +100,8 @@ namespace Human_Resources.Service.Responsable
         [ResponseType(typeof(Conge))]
         public IHttpActionResult PostConge(Conge conge)
         {
-            conge.DateDemande = DateTime.Now;
-            conge.DateDebut = DateTime.Now;
+            //conge.DateDemande = DateTime.Now;
+            //conge.DateDebut = DateTime.Now;
 
             if (!ModelState.IsValid)
             {
