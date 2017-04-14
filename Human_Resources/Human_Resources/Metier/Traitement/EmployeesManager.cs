@@ -29,7 +29,7 @@ namespace Human_Resources.Metier.Traitement
 
 
 
-        public void GenerateData(ExcelFile f)
+        public void GenerateData(ExcelFile f, int idEtablissement)
         {
             string path = System.Web.Hosting.HostingEnvironment.MapPath(@"~/UploadedFile/employee/" + f.FileName);
             var excel = new ExcelQueryFactory(path);
@@ -39,10 +39,41 @@ namespace Human_Resources.Metier.Traitement
             {
                 foreach (var sheet in f.Sheets)
                 {
-                    var employees = from c in excel.Worksheet<Employe>(sheet)
+                    var employees = from c in excel.Worksheet<EmployeeAllInfo>(sheet)
                                     select c;
-                    foreach (var employe in employees)
+
+                    var departements = db.Etablissements.Find(idEtablissement).Departements.ToList();
+                    var typeContrats = db.TypeContrats.ToList();
+
+                    foreach (var e in employees)
+                    {
+                        var departement = departements.Where(t => t.Libelle == e.Departement).FirstOrDefault();
+
+                        if (departement == null)
+                        {
+                            departement = new Departement { Libelle=e.Departement, FK_Etablissement=idEtablissement};
+                            departement = db.Departements.Add(departement);
+                            departements.Add(departement);
+                        }
+
+                        var typeContrat = typeContrats.Where(t => t.Type == e.TypeContrat).FirstOrDefault();
+
+                        if (typeContrat == null)
+                        {
+                            typeContrat = new TypeContrat { Type = e.TypeContrat};
+                           
+                            typeContrat = db.TypeContrats.Add(typeContrat);
+                            typeContrats.Add(typeContrat);
+                        }
+                    }
+
+                    db.SaveChanges();
+
+                    foreach (var e in employees)
+                    {
+                        Employe employe = e.GetEmployee(departements,typeContrats);
                         db.Employes.Add(employe);
+                    }
                 }
                 db.SaveChanges();
             }

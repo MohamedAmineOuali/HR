@@ -242,6 +242,7 @@
     <Property Name="Localite" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="MaxEmploye" Type="int" Nullable="true" />
     <Property Name="Type" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="label" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="IGRs">
     <Key>
@@ -697,6 +698,7 @@
           <Property Name="MaxEmploye" Type="Int32" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Departements" Relationship="Self.FK_Etablissement" FromRole="Etablissements" ToRole="Departements" />
+          <Property Name="Label" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="IGR">
           <Key>
@@ -1237,6 +1239,7 @@
           <ScalarProperty Name="Localite" ColumnName="Localite" />
           <ScalarProperty Name="MaxEmploye" ColumnName="MaxEmploye" />
           <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Label" ColumnName="label" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

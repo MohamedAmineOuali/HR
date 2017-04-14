@@ -44,7 +44,7 @@ angular.module('myApp.EmployeesFactory', [])
 
             $http({
                 method: 'POST',
-                url: serviceBasePath + "/api/Employee/GenerateData",
+                url: serviceBasePath + "/api/Employee/GenerateData/" + data.Etablissement,
                 headers: {
                     'Content-Type': "application/json"
                 },

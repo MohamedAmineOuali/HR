@@ -63,10 +63,11 @@ angular.module('myApp.EmployeesControllor', [])
 
       var changeMod = function (data) {
           $scope.upload = false;
-          $scope.details = data.Sheets;
-
+          $scope.details = data.File.Sheets;
+          $scope.etablissements = data.Etablissements;
           $scope.data = {
-              FileName: data.FileName,
+              Etablissement:null,
+              FileName: data.File.FileName,
               Sheets: []
           };
       }

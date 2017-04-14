@@ -340,8 +340,10 @@
     </Compile>
     <Compile Include="Metier\Traitement\Authentification.cs" />
     <Compile Include="Metier\Traitement\EmployeesManager.cs" />
+    <Compile Include="Metier\Model\autres\EmployeeAllInfo.cs" />
     <Compile Include="Model\FileUpload\ExcelFile.cs" />
     <Compile Include="Model\FileUpload\FileUploadData.cs" />
+    <Compile Include="Model\FileUpload\UploadDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\UserCompte.cs" />
     <Compile Include="Service\Admin\CategoriesController.cs" />
