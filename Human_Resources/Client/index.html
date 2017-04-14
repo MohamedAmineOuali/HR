@@ -1,10 +1,11 @@
 ﻿<!DOCTYPE html>
 <html ng-app="myApp">
+
+<!-- Mirrored from lambdathemes.in/admin1/layout-blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Jun 2016 11:07:52 GMT -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+
     <!-- Title -->
-    <title>Modern | Login - Sign in</title>
+    <title>GRH</title>
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta charset="UTF-8">
@@ -24,10 +25,7 @@
     <link href="public/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
     <link href="public/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
     <link href="public/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
-    <link href="public/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="public/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css" />
-    <link href="public/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
-
+    <link href="public/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" />
 
     <!-- Theme Styles -->
     <link href="public/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
@@ -37,7 +35,6 @@
     <script src="public/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
     <script src="public/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
 
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -45,12 +42,273 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-	<meta charset="utf-8" />
 </head>
-<body>
+<body class="page-header-fixed">
+    <div class="overlay"></div>
+    
+    
+   
+    <form class="search-form" action="#" method="GET">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control search-input" placeholder="Search...">
+            <span class="input-group-btn">
+                <button class="btn btn-default close-search waves-effect waves-button waves-classic" type="button"><i class="fa fa-times"></i></button>
+            </span>
+        </div><!-- Input Group -->
+    </form><!-- Search Form -->
+    <main class="page-content content-wrap">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="sidebar-pusher">
+                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic push-sidebar">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <div class="logo-box">
+                    <a href="index-2.html" class="logo-text"><span>Modern</span></a>
+                </div><!-- Logo Box -->
+                <div class="search-button">
+                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
+                </div>
+                <div class="topmenu-outer">
+                    <div class="top-menu">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect waves-button waves-classic sidebar-toggle"><i class="fa fa-bars"></i></a>
+                            </li>
+                            <li>
+                                <a href="#cd-nav" class="waves-effect waves-button waves-classic cd-nav-trigger"><i class="fa fa-diamond"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect waves-button waves-classic toggle-fullscreen"><i class="fa fa-expand"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                    <i class="fa fa-cogs"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-md dropdown-list theme-settings" role="menu">
+                                    <li class="li-group">
+                                        <ul class="list-unstyled">
+                                            <li class="no-link" role="presentation">
+                                                Fixed Header
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right fixed-header-check" checked>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="li-group">
+                                        <ul class="list-unstyled">
+                                            <li class="no-link" role="presentation">
+                                                Fixed Sidebar
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right fixed-sidebar-check">
+                                                </div>
+                                            </li>
+                                            <li class="no-link" role="presentation">
+                                                Horizontal bar
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right horizontal-bar-check">
+                                                </div>
+                                            </li>
+                                            <li class="no-link" role="presentation">
+                                                Toggle Sidebar
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right toggle-sidebar-check">
+                                                </div>
+                                            </li>
+                                            <li class="no-link" role="presentation">
+                                                Compact Menu
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right compact-menu-check">
+                                                </div>
+                                            </li>
+                                            <li class="no-link" role="presentation">
+                                                Hover Menu
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right hover-menu-check">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="li-group">
+                                        <ul class="list-unstyled">
+                                            <li class="no-link" role="presentation">
+                                                Boxed Layout
+                                                <div class="ios-switch pull-right switch-md">
+                                                    <input type="checkbox" class="js-switch pull-right boxed-layout-check">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="li-group">
+                                        <ul class="list-unstyled">
+                                            <li class="no-link" role="presentation">
+                                                Choose Theme Color
+                                                <div class="color-switcher">
+                                                    <a class="colorbox color-blue" href="layout-blankca00.html?theme=blue" title="Blue Theme" data-css="blue"></a>
+                                                    <a class="colorbox color-green" href="layout-blankaf91.html?theme=green" title="Green Theme" data-css="green"></a>
+                                                    <a class="colorbox color-red" href="layout-blank0e99.html?theme=red" title="Red Theme" data-css="red"></a>
+                                                    <a class="colorbox color-white" href="layout-blank13d4.html?theme=white" title="White Theme" data-css="white"></a>
+                                                    <a class="colorbox color-purple" href="layout-blank938c.html?theme=purple" title="purple Theme" data-css="purple"></a>
+                                                    <a class="colorbox color-dark" href="layout-blank4965.html?theme=dark" title="Dark Theme" data-css="dark"></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="no-link"><button class="btn btn-default reset-options">Reset Options</button></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
+                            </li>
 
-    <div ng-view></div>
+                            <li>
+                                <a href="login.html" class="log-out waves-effect waves-button waves-classic">
+                                    <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
+                                </a>
+                            </li>
+                            
+                        </ul><!-- Nav -->
+                    </div><!-- Top Menu -->
+                </div>
+            </div>
+        </div><!-- Navbar -->
+        <div class="page-sidebar sidebar">
+            <div class="page-sidebar-inner slimscroll">
+                <div class="sidebar-header">
+                    <div class="sidebar-profile">
+                        <a href="javascript:void(0);">
+                            <div class="sidebar-profile-details">
+                                <span>David Green<br><small>Art Director</small></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <ul class="menu accordion-menu">
 
+                    <li class="active"><a href="index-2.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
+                    <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li>
+                    
+
+                    <li class="droplink">
+                        <a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-briefcase"></span><p>UI Kits</p><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li><a href="ui-alerts.html">Alerts</a></li>
+                            <li><a href="ui-buttons.html">Buttons</a></li>
+                            <li><a href="ui-icons.html">Icons</a></li>
+                            <li><a href="ui-typography.html">Typography</a></li>
+                            <li><a href="ui-notifications.html">Notifications</a></li>
+                            <li><a href="ui-grid.html">Grid</a></li>
+                            <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a></li>
+                            <li><a href="ui-modals.html">Modals</a></li>
+                            <li><a href="ui-panels.html">Panels</a></li>
+                            <li><a href="ui-progress.html">Progress Bars</a></li>
+                            <li><a href="ui-sliders.html">Sliders</a></li>
+                            <li><a href="ui-nestable.html">Nestable</a></li>
+                            <li><a href="ui-tree-view.html">Tree View</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="droplink">
+                        <a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-stats"></span><p>Charts</p><span class="arrow"></span></a>
+                        <ul class="sub-menu">
+                            <li><a href="charts-sparkline.html">Sparkline</a></li>
+                            <li><a href="charts-rickshaw.html">Rickshaw</a></li>
+                            <li><a href="charts-morris.html">Morris</a></li>
+                            <li><a href="charts-flotchart.html">Flotchart</a></li>
+                            <li><a href="charts-chartjs.html">Chart.js</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="index-2.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-log-in"></span><p>Log out</p></a></li>
+
+
+                </ul>
+            </div><!-- Page Sidebar Inner -->
+        </div><!-- Page Sidebar -->
+
+
+
+        <div class="page-inner">
+        
+            <div ng-view></div>
+
+            <div id="main-wrapper">
+                <div class="row">
+                </div><!-- Row -->
+            </div><!-- Main Wrapper -->
+            <div class="page-footer">
+                <p class="no-s">2015 &copy; Modern by Steelcoders.</p>
+            </div>
+        </div><!-- Page Inner -->
+    </main><!-- Page Content -->
+    
+    
+    
+    <nav class="cd-nav-container" id="cd-nav">
+        <header>
+            <h3>Navigation</h3>
+            <a href="#0" class="cd-close-nav">Close</a>
+        </header>
+        <ul class="cd-nav list-unstyled">
+            <li class="cd-selected" data-menu="index">
+                <a href="javsacript:void(0);">
+                    <span>
+                        <i class="glyphicon glyphicon-home"></i>
+                    </span>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li data-menu="profile">
+                <a href="javsacript:void(0);">
+                    <span>
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    <p>Profile</p>
+                </a>
+            </li>
+            <li data-menu="inbox">
+                <a href="javsacript:void(0);">
+                    <span>
+                        <i class="glyphicon glyphicon-envelope"></i>
+                    </span>
+                    <p>Mailbox</p>
+                </a>
+            </li>
+            <li data-menu="#">
+                <a href="javsacript:void(0);">
+                    <span>
+                        <i class="glyphicon glyphicon-tasks"></i>
+                    </span>
+                    <p>Tasks</p>
+                </a>
+            </li>
+            <li data-menu="#">
+                <a href="javsacript:void(0);">
+                    <span>
+                        <i class="glyphicon glyphicon-cog"></i>
+                    </span>
+                    <p>Settings</p>
+                </a>
+            </li>
+            <li data-menu="calendar">
+                <a href="javsacript:void(0);">
+                    <span>
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                    <p>Calendar</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="cd-overlay"></div>
+
+
+
+    <!--Our script-->
     <script src="Scripts/Vendor/angularjs/angular.min.js"></script>
     <script src="Scripts/Vendor/angularjs/angular-route.min.js"></script>
 
@@ -76,5 +334,24 @@
     <script src="Scripts/APP/directives.js"></script>
     <script src="Scripts/APP/filters.js"></script>
     <script src="Scripts/APP/services.js"></script>
+
+
+
+    <!-- Javascripts -->
+    <script src="public/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
+    <script src="public/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="public/assets/plugins/pace-master/pace.min.js"></script>
+    <script src="public/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="public/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="public/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="public/assets/plugins/switchery/switchery.min.js"></script>
+    <script src="public/assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="public/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+    <script src="public/assets/plugins/waves/waves.min.js"></script>
+    <script src="public/assets/plugins/3d-bold-navigation/js/main.js"></script>
+    <script src="public/assets/js/modern.min.js"></script>
+
 </body>
+
+<!-- Mirrored from lambdathemes.in/admin1/layout-blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Jun 2016 11:07:54 GMT -->
 </html>
