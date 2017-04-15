@@ -119,6 +119,7 @@
     <Content Include="Scripts\APP\ConnectionAPI\GestionPrime\PrimsFactories.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Congé\CongesController.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Congé\CongesService.js" />
+    <Content Include="Scripts\APP\ocLazyLoad.js" />
     <Content Include="Scripts\Vendor\angularjs\version.json" />
     <Content Include="Scripts\Vendor\angularjs\errors.json" />
     <Content Include="Scripts\Vendor\angularjs\angular.min.js.map" />

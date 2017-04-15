@@ -21,6 +21,7 @@ var myApp = angular.module('myApp', [
   'myApp.CongesServices',
   'myApp.CongesController',
   'myApp.interceptor',
+  'oc.lazyLoad',
   'naif.base64',
   'myApp.config_empControllor',
   'checklist-model',
