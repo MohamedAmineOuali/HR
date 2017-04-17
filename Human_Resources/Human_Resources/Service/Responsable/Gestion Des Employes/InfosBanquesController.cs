@@ -20,11 +20,11 @@ namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
 
         [Route("Add")]
         [HttpPost]
-        public IHttpActionResult GetInfosBa(InfosBanque ib)
+        public IHttpActionResult Add(InfosBanque ib)
         {
-            db.InfosBanques.Add(ib);
+            var bank=db.InfosBanques.Add(ib);
             db.SaveChanges();
-            return Ok();
+            return Ok(bank.Id);
         }
 
 

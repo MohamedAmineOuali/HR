@@ -26,7 +26,9 @@ var myApp = angular.module('myApp', [
   'myApp.config_empControllor',
   'checklist-model',
   'myApp.AddEmployeesControllor',
-  'myApp.DepartmentService'
+  'myApp.DepartmentService',
+  'myApp.InfoBank',
+  'myApp.Contrat'
 
 ]).config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');

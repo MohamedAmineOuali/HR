@@ -128,7 +128,7 @@ namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
         }
 
         // POST: api/Contrats
-        [ResponseType(typeof(Contrat))]
+        [Route("Add")]
         public IHttpActionResult PostContrat(Contrat contrat)
         {
             if (!ModelState.IsValid)
@@ -136,10 +136,10 @@ namespace Human_Resources.Service.Responsable.Gestion_Des_Employes
                 return BadRequest(ModelState);
             }
 
-            db.Contrats.Add(contrat);
+            var c=db.Contrats.Add(contrat);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = contrat.Id }, contrat);
+            return Ok(c.Id);
         }
 
         // DELETE: api/Contrats/5

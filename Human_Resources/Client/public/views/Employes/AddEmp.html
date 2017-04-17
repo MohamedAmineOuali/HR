@@ -1,138 +1,9 @@
-﻿<div class="page-inner">
-    <div class="page-title">
-        <h3>Ajouter conge</h3>
-        <div class="page-breadcrumb">
-            <ol class="breadcrumb">
-                <li><a href="index-2.html">Home</a></li>
-                <li><a href="#">Conge</a></li>
-                <li class="active">Ajouter conge</li>
-            </ol>
-        </div>
-    </div>
-    <div id="main-wrapper">
-        <div class="row">
-
-            <div class="col-md-12">
-                <div class="panel panel-white">
-                    <div class="panel-heading clearfix">
-                        <h4 class="panel-title">Ajouter Employee</h4>
-                    </div>
-                    <div class="panel-body">
-                        <form class="form-horizontal">
-                            <div class="form-group" ng-show="config.CIN">
-                                <label for="input-Default" class="col-sm-2 control-label">CIN</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.CIN">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.Nom">
-                                <label for="input-Default" class="col-sm-2 control-label">Nom</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Nom">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.Prenom">
-                                <label for="input-Default" class="col-sm-2 control-label">Prenom</label>
-                                <div class="col-sm-10">
-                                    <input type="text"  class="form-control" id="input-Default" ng-model="data.Prenom">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.Adresse">
-                                <label for="input-Default" class="col-sm-2 control-label">Adresse</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Adresse">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.NombreEnfant">
-                                <label for="input-Default" class="col-sm-2 control-label">Nombre d'enfant</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.NombreEnfant">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="LieuNaissance">
-                                <label for="input-Default" class="col-sm-2 control-label">Lieu de naissance</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.LieuNaissance">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.DateNaissance">
-                                <label for="input-Default" class="col-sm-2 control-label">Date de naissance</label>
-                                <div class="col-sm-10">
-                                    <input type="date" class="form-control" id="input-Default" ng-model="data.DateNaissance">
-                                    <span ng-show="error" class="glyphicon glyphicon-remove form-control-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.Matricule">
-                                <label for="input-Default" class="col-sm-2 control-label">Matricule</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Matricule">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.StatutSocial">
-                                <label for="input-Default" class="col-sm-2 control-label">Statut social</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.StatutSocial">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.Telephone">
-                                <label for="input-Default" class="col-sm-2 control-label">Telephone</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="input-Default" ng-model="data.Telephone">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.Nationalite">
-                                <label for="input-Default" class="col-sm-2 control-label">Nationalité</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Nationalite">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.NSS">
-                                <label for="input-Default" class="col-sm-2 control-label">NSS</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.NSS">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.Grade">
-                                <label for="input-Default" class="col-sm-2 control-label">Grade</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Grade">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-show="config.Genre">
-                                <label for="input-Default" class="col-sm-2 control-label">Genre</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input-Default" ng-model="data.Genre">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">Departement</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control m-b-sm" ng-model="departement">
-                                        <option ng-repeat="dep in deps track by $index " value="{{dep.Libelle}}">{{dep.Libelle}}</option>
-                                    </select>
-                                </div>
-                                {{departement}}
-
-                                <input type="submit" class="btn btn-info pull-right" value="Ajouter" ng-click="AddEmp();" />
-</form>
-                    </div>
-                    <div class="panel-footer" ng-show="errorInsertion">
-                        <div class="alert alert-danger">
-                            <strong>Error!</strong> Employee non inseré verifier vos donnees 
-                        </div>                    </div>
-                </div>
-            </div>
-        </div><!-- Row -->
-    </div><!-- Main Wrapper -->
-</div>
-
-<div class="page-title">
+﻿<div class="page-title">
     <h3>Form Wizard</h3>
     <div class="page-breadcrumb">
         <ol class="breadcrumb">
-            <li><a href="index-2.html">Home</a></li>
-            <li><a href="#">Forms</a></li>
-            <li class="active">Form Wizard</li>
+            <li><a href="#/">Home</a></li>
+            <li class="active">Create Employee</li>
         </ol>
     </div>
 </div>
@@ -143,10 +14,10 @@
                 <div class="panel-body">
                     <div id="rootwizard">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Personal Info</a></li>
-                            <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-truck m-r-xs"></i>Product Info</a></li>
-                            <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="fa fa-truck m-r-xs"></i>Payment</a></li>
-                            <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Finish</a></li>
+                            <li role="presentation" class="active"><a data-target="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Personal Info</a></li>
+                            <li role="presentation"><a data-target="#tab2" data-toggle="tab"><i class="fa fa-truck m-r-xs"></i>Contrat</a></li>
+                            <li role="presentation"><a data-target="#tab3" data-toggle="tab"><i class="fa fa-truck m-r-xs"></i>Bank Info</a></li>
+                            <li role="presentation"><a data-target="#tab4" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Finish</a></li>
                         </ul>
 
 
@@ -154,32 +25,68 @@
                             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                             </div>
                         </div>
-                        <form id="wizardForm">
+                        <form ng-submit="AddEmp()" id="wizardForm">
                             <div class="tab-content">
                                 <div class="tab-pane active fade in" id="tab1">
                                     <div class="row m-b-lg">
                                         <div class="col-md-6">
                                             <div class="row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="exampleInputName">First Name</label>
-                                                    <input type="text" class="form-control" name="exampleInputName" id="exampleInputName" placeholder="First Name">
+                                                <div class="form-group col-md-6"  ng-show="config.CIN">
+                                                    <label>CIN</label>
+                                                    <input type="text"  ng-model="data.CIN" class="form-control">
                                                 </div>
-                                                <div class="form-group  col-md-6">
-                                                    <label for="exampleInputName2">Last Name</label>
-                                                    <input type="text" class="form-control col-md-6" name="exampleInputName2" id="exampleInputName2" placeholder="Last Name">
+                                                <div class="form-group  col-md-6" ng-show="config.Nom">
+                                                    <label>Nom</label>
+                                                    <input type="text" ng-model="data.Nom" class="form-control col-md-6">
                                                 </div>
+                                                <div class="form-group col-md-12" ng-show="config.Prenom">
+                                                    <label>Prenom</label>
+                                                    <input type="text" class="form-control" ng-model="data.Prenom">
+                                                </div>
+                                                <div class="form-group col-md-12" ng-show="config.Adresse">
+                                                    <label>Adresse</label>
+                                                    <input type="text" ng-model="data.Adresse" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12" ng-show="config.Matricule">
+                                                    <label>Matricule</label>
+                                                    <input type="text" ng-model="data.Matricule" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12" ng-show="config.StatutSocial">
+                                                    <label>Statut Social</label>
+                                                    <input type="text" ng-model="data.StatutSocial" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12" ng-show="config.Genre">
+                                                    <label>Genre</label>
+                                                    <input type="text" ng-model="data.Genre" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12" ng-show="config.LieuNaissance">
+                                                    <label>Lieu de naissance</label>
+                                                    <input type="text" ng-model="data.LieuNaissance" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12" ng-show="config.DateNaissance">
+                                                    <label>Date de naissance</label>
+                                                    <input type="text" ng-model="data.DateNaissance" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12" ng-show="config.NombreEnfant">
+                                                    <label>Nombre Enfant</label>
+                                                    <input type="text" ng-model="data.NombreEnfant" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12" ng-show="config.Nationalite">
+                                                    <label>Nationalite</label>
+                                                    <input type="text" ng-model="data.Nationalite" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12" ng-show="config.Telephone">
+                                                    <label>Telephone</label>
+                                                    <input type="text" ng-model="data.Telephone" class="form-control">
+                                                </div>
+
                                                 <div class="form-group col-md-12">
-                                                    <label for="exampleInputEmail">Email address</label>
-                                                    <input type="email" class="form-control" name="exampleInputEmail" id="exampleInputEmail" placeholder="Enter email">
+                                                    <label>Departement</label>
+                                                    <select class="form-control m-b-sm" ng-model="departement">
+                                                        <option ng-repeat="dep in deps track by $index " value="{{dep.Libelle}}">{{dep.Libelle}}</option>
+                                                    </select>
                                                 </div>
-                                                <div class="form-group col-md-12">
-                                                    <label for="exampleInputPassword1">Password</label>
-                                                    <input type="password" class="form-control" name="exampleInputPassword1" id="exampleInputPassword1" placeholder="Password">
-                                                </div>
-                                                <div class="form-group col-md-12">
-                                                    <label for="exampleInputPassword2">Confirm Password</label>
-                                                    <input type="password" class="form-control" name="exampleInputPassword2" id="exampleInputPassword2" placeholder="Confirm Password">
-                                                </div>
+
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -189,69 +96,78 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="tab-pane fade" id="tab2">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <img src="assets/images/envato-logo.png" width="250" alt="">
-                                            <div class="m-t-md">
-                                                <address>
-                                                    <strong>Twitter, Inc.</strong><br>
-                                                    795 Folsom Ave, Suite 600<br>
-                                                    San Francisco, CA 94107<br>
-                                                    <abbr title="Phone">P:</abbr> (123) 456-7890
-                                                </address>
-                                                <address>
-                                                    <strong>Full Name</strong><br>
-                                                    <a href="mailto:#">first.last@example.com</a>
-                                                </address>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <div class="form-group col-md-12">
-                                                <label for="exampleInputProductName">Product Name</label>
-                                                <input type="text" class="form-control" name="exampleInputProductName" id="exampleInputProductName" placeholder="Product Name">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label for="exampleInputProductId">Product ID</label>
-                                                <input type="text" class="form-control" name="exampleInputProductId" id="exampleInputProductId" placeholder="Product ID">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label for="exampleInputQuantity">Quantity</label>
-                                                <input type="number" min="1" max="5" class="form-control" name="exampleInputQuantity" id="exampleInputQuantity" placeholder="Quantity">
+                                    <div class="row m-b-lg">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label>Numero</label>
+                                                    <input type="text" ng-model="contrat.Numero" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Date de debut</label>
+                                                    <input type="date" ng-model="contrat.DateDebut" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Date de fin</label>
+                                                    <input type="date" ng-model="contrat.DateFin" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Type Contrat</label>
+                                                    <select class="form-control m-b-sm" ng-model="contrat.Fk_TypeContrat">
+                                                        <option ng-repeat="type in types track by $index " value="{{type.id}}">{{dep.Type}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Categorie</label>
+                                                    <select class="form-control m-b-sm" ng-model="contrat.FK_Categorie">
+                                                        <option ng-repeat="cat in categories track by $index " value="{{cat.id}}">{{cat.Libelle}}</option>
+                                                    </select>
+                                                </div>
+
+
+
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="tab3">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group col-md-12">
-                                                <label for="exampleInputCard">Card Number</label>
-                                                <div class="row">
-                                                    <div class="col-md-8">
-                                                        <input type="text" class="form-control" name="exampleInputCard" id="exampleInputCard" placeholder="Card Number">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <input type="text" class="form-control col-md-4" name="exampleInputSecurity" id="exampleInputSecurity" placeholder="Security Code">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label for="exampleInputHolder">Card Holders Name</label>
-                                                <input type="text" class="form-control" name="exampleInputHolder" id="exampleInputHolder" placeholder="Card Holders Name">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label for="exampleInputExpiration">Expiration</label>
-                                                <input type="text" class="form-control date-picker" name="exampleInputExpiration" id="exampleInputExpiration" placeholder="Expiration">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label for="exampleInputCsv">CSV</label>
-                                                <input type="text" class="form-control" name="exampleInputCsv" id="exampleInputCsv" placeholder="CSV">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label class="f-s-12">By pressing Next You will Agree to the Payment <a href="#">Terms & Conditions</a></label>
-                                            </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label>Numero compte</label>
+                                            <input type="text" class="form-control" ng-model="bank.NumeroCompte">
                                         </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="exampleInputExpiration">Code Bank</label>
+                                            <input type="text" class="form-control date-picker" ng-model="bank.CodeBanque">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label>Domiciliation</label>
+                                            <input type="text" class="form-control" ng-model="bank.Domiciliation">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label>Code Guichet </label>
+                                            <input type="text" class="form-control" ng-model="bank.CodeGuichet">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label>ReglementPar </label>
+                                            <input type="text" class="form-control" ng-model="bank.ReglementPar">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label>Cle RIB </label>
+                                            <input type="text" class="form-control" ng-model="bank.CleRIB">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label>IBAN </label>
+                                            <input type="text" class="form-control" ng-model="bank.IBAN">
+                                        </div>
+
+
+
+
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="tab4">
@@ -259,17 +175,18 @@
                                     <div class="alert alert-info m-t-sm m-b-lg" role="alert">
                                         Congratulations ! You got the last step.
                                     </div>
+                                    <input type="submit" value="OK"/>
                                 </div>
-                                <ul class="pager wizard">
-                                    <li class="previous"><a href="#" class="btn btn-default">Previous</a></li>
-                                    <li class="next"><a href="#" class="btn btn-default">Next</a></li>
-                                </ul>
                             </div>
                         </form>
+                            <ul class="pager wizard">
+                                <li class="previous"><a data-target="#" class="btn btn-default">Previous</a></li>
+                                <li class="next"><a data-target="#" class="btn btn-default">Next</a></li>
+                            </ul>
                     </div>
+                    
                 </div>
             </div>
         </div>
-    </div><!-- Row -->
-</div><!-- Main Wrapper -->
-
+    </div>
+</div><!-- Row -->
