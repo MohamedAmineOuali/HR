@@ -3,7 +3,8 @@
 
 // Declare app level module which depends on filters, and services
 var myApp = angular.module('myApp', [
-  'ngRoute',
+  'ui.router',
+
   'myApp.controllers',
 
   'myApp.ComptesControllor',
@@ -33,22 +34,78 @@ var myApp = angular.module('myApp', [
 
 ]).config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
-}]).config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/', { templateUrl: 'public/views/Home.html', controller: 'MainControllor' });
-    $routeProvider.when('/login', { templateUrl: 'public/views/Login.html', controller: 'LoginControllor' });
-    $routeProvider.when('/comptes', { templateUrl: 'public/views/Comptes/Comptes.html', controller: 'Main.Comptes' });
-    $routeProvider.when('/conges', { templateUrl: 'public/views/Conges/Conges.html', controller: 'Conges.Main' });
-    $routeProvider.when('/addconges', { templateUrl: 'public/views/Conges/Add-Conges.html', controller: 'Conges.Main' });
-    $routeProvider.when('/employees', { templateUrl: 'public/views/Employes/Employes.html', controller: 'Main.Employees' });
-    $routeProvider.when('/uploadEmployees', { templateUrl: 'public/views/Employes/UploadEmployees.html', controller: 'Upload.Employees' });
-    $routeProvider.when('/addemployee', { templateUrl: 'public/views/Employes/AddEmp.html', controller: 'AddEmployee' });
-    $routeProvider.when('/AddPrim', { templateUrl: 'public/views/Prims/addPrim.html', controller: 'Add.Prim' });
-    $routeProvider.when('/config', { templateUrl: 'public/views/Employes/config_emp.html', controller: 'Main.config_emp' });
+}])
+.config(function ($stateProvider) {
+    $stateProvider
+      .state('login', {
+          url: '/login',
+          templateUrl: 'public/views/Login.html',
+          controller: 'LoginControllor'
+      })
+      .state('admin', {
+          url: '/admin',
+          templateUrl: 'public/views/Templates/Admin.html',
+          controller: 'TemplateControllor'
+      })
+      .state('admin.Dashbord', {
+          url: '/main',
+          templateUrl: 'public/views/Admin/Home.html',
+          controller: 'DashbordControllor'
+      })
+        .state('admin.config', {
+          url: '/config',
+          templateUrl: 'public/views/Employes/config_emp.html',
+          controller: 'Main.config_emp'
+        })
+        .state('admin.AddPrim', {
+            url: '/addPrim',
+            templateUrl: 'public/views/Prims/addPrim.html',
+            controller: 'Add.Prim'
+        })
+        .state('admin.comptes', {
+            url: '/comptes',
+            templateUrl: 'public/views/Comptes/Comptes.html',
+            controller: 'Main.Comptes'
+        })
+      .state('responsable', {
+          url: '/responsable',
+          templateUrl: 'public/views/Templates/Responsable.html',
+          controller: 'TemplateControllor'
+      })
+      .state('responsable.Dashbord', {
+         url: '/main',
+         templateUrl: 'public/views/Responsable/Home.html',
+         controller: 'DashbordControllor'
+      })
+    .state('responsable.addEmployee', {
+        url: '/addemployee',
+        templateUrl: 'public/views/Employes/AddEmp.html',
+        controller: 'AddEmployee'
+    })
+    .state('responsable.employees', {
+        url: '/employees',
+        templateUrl: 'public/views/Employes/Employes.html',
+        controller: 'Main.Employees'
+    })
+    .state('responsable.uploadEmployees', {
+        url: '/uploadEmployees',
+        templateUrl: 'public/views/Employes/UploadEmployees.html',
+        controller: 'Upload.Employees'
+    })
+    .state('responsable.addconges', {
+        url: '/addconge',
+        templateUrl: 'public/views/Conges/Add-Conges.html',
+        controller: 'Conges.Main'
+    })
+    .state('responsable.conges', {
+        url: '/conges',
+        templateUrl: 'public/views/Conges/Conges.html',
+        controller: 'Conges.Main'
+    })
+    
 
 
-
-    $routeProvider.otherwise({ redirectTo: '/login' });
-}]);
+});
 
 
 myApp.constant('ServiceURL', 'http://localhost:52364');

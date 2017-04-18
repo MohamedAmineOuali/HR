@@ -98,6 +98,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="public\views\Admin\Home.html" />
     <Content Include="public\views\Comptes\Comptes.html" />
     <Content Include="public\views\Conges\Add-Conges.html" />
     <Content Include="public\views\Conges\Conges.html" />
@@ -106,7 +107,10 @@
     <Content Include="public\views\Employes\Employes.html" />
     <Content Include="public\views\Employes\UploadEmployees.html" />
     <Content Include="public\views\Prims\addPrim.html" />
+    <Content Include="public\views\Templates\Admin.html" />
+    <Content Include="public\views\Templates\Responsable.html" />
     <Content Include="Scripts\APP\angular-base64-upload.js" />
+    <Content Include="Scripts\APP\angular-ui-router.js" />
     <Content Include="Scripts\APP\checklist-model.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Departement\DepartementService.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesControllor.js" />
@@ -344,7 +348,7 @@
     <Content Include="Scripts\APP\controllers.js" />
     <Content Include="Scripts\APP\factories.js" />
     <Content Include="public\views\Login.html" />
-    <Content Include="public\views\Home.html" />
+    <Content Include="public\views\Responsable\Home.html" />
     <Content Include="Scripts\APP\interceptors.js" />
     <Content Include="Scripts\Vendor\angularjs\angular-animate.js" />
     <Content Include="Scripts\Vendor\angularjs\angular-animate.min.js" />
@@ -378,7 +382,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="public\views\Errors\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
