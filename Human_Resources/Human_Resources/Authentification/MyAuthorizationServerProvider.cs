@@ -1,5 +1,6 @@
 ﻿using Human_Resources.Metier.Model;
 using Human_Resources.Metier.Traitement;
+using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
@@ -31,10 +32,43 @@ namespace Human_Resources
                  identity.AddClaim(new Claim(ClaimTypes.Role, compte.Role.Libelle));
 
                  identity.AddClaim(new Claim(ClaimTypes.Sid, compte.Id.ToString()));
+                AuthenticationProperties props;
+                if (compte.Employe!=null)
+                {
+                    props = new AuthenticationProperties(new Dictionary<string, string>
+                    {
+                        {  "name", compte.Employe.Nom},
+                        { "prenom", compte.Employe.Prenom },
+                        { "role", compte.Role.Libelle}
+                    });
+                }
+                else
+                {
+                    props = new AuthenticationProperties(new Dictionary<string, string>
+                    {
+                        { "name", ""},
+                        { "prenom", "" },
+                        { "role", compte.Role.Libelle}
+                    });
+                }
 
-                 context.Validated(identity);
+                var ticket = new AuthenticationTicket(identity, props);
+
+                context.Validated(ticket);
             }
         }
+
+        public override Task TokenEndpoint(OAuthTokenEndpointContext context)
+        {
+            foreach (KeyValuePair<string, string> property in context.Properties.Dictionary)
+            {
+                if(property.Key!=".issued" && property.Key != ".expires")
+                    context.AdditionalResponseParameters.Add(property.Key, property.Value);
+
+            }
+            return Task.FromResult<object>(null);
+        }
+
 
     }
 }
