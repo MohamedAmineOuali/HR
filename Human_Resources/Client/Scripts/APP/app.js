@@ -37,6 +37,10 @@ var myApp = angular.module('myApp', [
 }])
 .config(function ($urlRouterProvider,$stateProvider) {
     $stateProvider
+        .state('main', {
+            url: '/',
+            controller: 'MainControllor'
+        })
       .state('login', {
           url: '/login',
           templateUrl: 'public/views/Login.html',
@@ -115,7 +119,8 @@ var myApp = angular.module('myApp', [
         controller: 'Conges.Main'
     });
 
-    
+    $urlRouterProvider.when('', '/');
+
     $urlRouterProvider.otherwise('/notfound');
 
 });
