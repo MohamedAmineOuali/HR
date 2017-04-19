@@ -59,10 +59,17 @@ angular.module('myApp.EmployeesControllor', [])
 
   .controller('AddEmployee', ['$scope', '$location', '$ocLazyLoad', 'Employees', 'Departement', 'Contrat', 'InfoBank', function ($scope, $location, $ocLazyLoad, emp, department, contrat, infoBank) {
 
-      $ocLazyLoad.load('public/assets/plugins/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js');
-      $ocLazyLoad.load('public/assets/plugins/jquery-validation/jquery.validate.min.js');
-      $ocLazyLoad.load('public/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js');
-      $ocLazyLoad.load('public/assets/js/pages/form-wizard.js');
+      $scope.$on('$viewContentLoaded', function () {
+          $ocLazyLoad.load({
+              cache: false,
+              serie: true,
+              files: [
+                  'public/assets/plugins/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js',
+                  'public/assets/plugins/jquery-validation/jquery.validate.min.js',
+                  'public/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
+                  'public/assets/js/pages/form-wizard.js']
+          });
+      });
 
       $scope.bank = {};
       $scope.contrat = {};

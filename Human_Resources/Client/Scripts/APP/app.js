@@ -35,13 +35,21 @@ var myApp = angular.module('myApp', [
 ]).config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
 }])
-.config(function ($stateProvider) {
+.config(function ($urlRouterProvider,$stateProvider) {
     $stateProvider
       .state('login', {
           url: '/login',
           templateUrl: 'public/views/Login.html',
           controller: 'LoginControllor'
       })
+        .state('notfound', {
+            url: '/notfound',
+            templateUrl: 'public/views/Errors/404.html',
+        })
+        .state('unauthorized', {
+            url: '/unauthorized',
+            templateUrl: 'public/views/Errors/403.html',
+        })
       .state('admin', {
           url: '/admin',
           templateUrl: 'public/views/Templates/Admin.html',
@@ -53,9 +61,9 @@ var myApp = angular.module('myApp', [
           controller: 'DashbordControllor'
       })
         .state('admin.config', {
-          url: '/config',
-          templateUrl: 'public/views/Employes/config_emp.html',
-          controller: 'Main.config_emp'
+            url: '/config',
+            templateUrl: 'public/views/Employes/config_emp.html',
+            controller: 'Main.config_emp'
         })
         .state('admin.AddPrim', {
             url: '/addPrim',
@@ -73,9 +81,9 @@ var myApp = angular.module('myApp', [
           controller: 'TemplateControllor'
       })
       .state('responsable.Dashbord', {
-         url: '/main',
-         templateUrl: 'public/views/Responsable/Home.html',
-         controller: 'DashbordControllor'
+          url: '/main',
+          templateUrl: 'public/views/Responsable/Home.html',
+          controller: 'DashbordControllor'
       })
     .state('responsable.addEmployee', {
         url: '/addemployee',
@@ -101,9 +109,9 @@ var myApp = angular.module('myApp', [
         url: '/conges',
         templateUrl: 'public/views/Conges/Conges.html',
         controller: 'Conges.Main'
-    })
+    });
     
-
+    $urlRouterProvider.otherwise('/notfound');
 
 });
 
