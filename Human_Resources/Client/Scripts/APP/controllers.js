@@ -2,7 +2,8 @@
 
 /* Controllers */
 angular.module('myApp.controllers', [])
-    .controller('TemplateControllor', ['$scope', '$ocLazyLoad', function ($scope, $ocLazyLoad) {
+    .controller('TemplateControllor', ['$scope', '$ocLazyLoad', 'accountService', function ($scope, $ocLazyLoad, accountService) {
+        $scope.nom = "Imen";
         $scope.$on('$viewContentLoaded', function () {
             $ocLazyLoad.load({
                 
@@ -61,4 +62,10 @@ angular.module('myApp.controllers', [])
               $scope.message = error.error_description;
           })
       }
-  }]);
+  }])
+.controller('LogoutControllor', ['$scope', '$location', 'accountService', function ($scope, $location, accountService) {
+    //FETCH DATA FROM SERVICES
+    accountService.logout();
+    $location.path('/');
+}])
+;

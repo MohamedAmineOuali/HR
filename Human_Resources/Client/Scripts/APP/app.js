@@ -42,6 +42,10 @@ var myApp = angular.module('myApp', [
           templateUrl: 'public/views/Login.html',
           controller: 'LoginControllor'
       })
+        .state('logout', {
+            url: '/logout',
+            controller: 'LogoutControllor'
+        })
         .state('notfound', {
             url: '/notfound',
             templateUrl: 'public/views/Errors/404.html',
@@ -110,6 +114,7 @@ var myApp = angular.module('myApp', [
         templateUrl: 'public/views/Conges/Conges.html',
         controller: 'Conges.Main'
     });
+
     
     $urlRouterProvider.otherwise('/notfound');
 
