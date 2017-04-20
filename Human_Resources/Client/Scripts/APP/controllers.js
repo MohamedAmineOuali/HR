@@ -2,6 +2,19 @@
 
 /* Controllers */
 angular.module('myApp.controllers', [])
+    .controller('MainControllor', ['$location', 'userService', function ($location,userService) {
+        var user = userService.GetCurrentUser();
+        
+        if (user == null || user.role==null)
+            $location.path('/login');
+
+        if (user.role==="admin")
+            $location.path('/admin/main');
+        else if(user.role==="responsable")
+            $location.path('/responsable/main');
+        else
+            $location.path('/login');
+    }])
     .controller('TemplateControllor', ['$scope', '$ocLazyLoad', 'accountService', function ($scope, $ocLazyLoad, accountService) {
         $scope.nom = "Imen";
         $scope.$on('$viewContentLoaded', function () {
