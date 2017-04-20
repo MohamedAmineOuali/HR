@@ -7,6 +7,7 @@ angular.module('myApp.factories', []).
   factory('userService', function () {
       var fac = {};
       fac.CurrentUser = null;
+
       fac.SetCurrentUser = function (user) {
           fac.CurrentUser = user;
           sessionStorage.user = angular.toJson(user);
@@ -43,6 +44,7 @@ angular.module('myApp.factories', []).
         })
         return defer.promise;
     }
+
     fac.logout = function () {
         userService.CurrentUser = null;
         userService.SetCurrentUser(userService.CurrentUser);

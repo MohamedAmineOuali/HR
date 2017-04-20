@@ -98,6 +98,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="public\views\Errors\403.html" />
+    <Content Include="public\views\Errors\404.html" />
+    <Content Include="public\views\Admin\Home.html" />
     <Content Include="public\views\Comptes\Comptes.html" />
     <Content Include="public\views\Conges\Add-Conges.html" />
     <Content Include="public\views\Conges\Conges.html" />
@@ -106,17 +109,19 @@
     <Content Include="public\views\Employes\Employes.html" />
     <Content Include="public\views\Employes\UploadEmployees.html" />
     <Content Include="public\views\Prims\addPrim.html" />
+    <Content Include="public\views\Templates\Admin.html" />
+    <Content Include="public\views\Templates\Responsable.html" />
     <Content Include="Scripts\APP\angular-base64-upload.js" />
+    <Content Include="Scripts\APP\angular-ui-router.js" />
     <Content Include="Scripts\APP\checklist-model.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Departement\DepartementService.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Comptes\ComptesFactories.js" />
-    <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\AddEmpController.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\config_empController.js" />
-    <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\ContratService.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\ContratFactory.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\EmployeesControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\EmployeesFactory.js" />
-    <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\InfoBankService.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\InfoBankFactory.js" />
     <Content Include="Scripts\APP\ConnectionAPI\GestionPrime\PrimsControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\GestionPrime\PrimsFactories.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Congé\CongesController.js" />
@@ -343,13 +348,10 @@
     <Content Include="public\assets\plugins\x-editable\inputs-ext\typeaheadjs\typeaheadjs.js" />
     <Content Include="Scripts\APP\app.js" />
     <Content Include="Scripts\APP\controllers.js" />
-    <Content Include="Scripts\APP\directives.js" />
     <Content Include="Scripts\APP\factories.js" />
-    <Content Include="Scripts\APP\filters.js" />
     <Content Include="public\views\Login.html" />
-    <Content Include="public\views\Home.html" />
+    <Content Include="public\views\Responsable\Home.html" />
     <Content Include="Scripts\APP\interceptors.js" />
-    <Content Include="Scripts\APP\services.js" />
     <Content Include="Scripts\Vendor\angularjs\angular-animate.js" />
     <Content Include="Scripts\Vendor\angularjs\angular-animate.min.js" />
     <Content Include="Scripts\Vendor\angularjs\angular-aria.js" />

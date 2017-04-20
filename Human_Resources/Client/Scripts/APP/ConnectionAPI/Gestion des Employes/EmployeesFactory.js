@@ -57,21 +57,26 @@ angular.module('myApp.EmployeesFactory', [])
             })
             return defer.promise;
         }
-        fac.GetByMat=function(mat)
-        {
+        fac.GetByMat=function(mat){
             return $http.get(serviceBasePath + '/api/Employee/GetEmployeeByMat/' + mat).then(function (response) {
                 return response;
-            }, function (response) { return response; });
+            })
         }
-        fac.GetConfig=function()
-        {
+
+
+        fac.GetConfig = function (){
             return $http.get(serviceBasePath + '/api/Employee/GetConfig').then(function (response) {
                 return response;
-            }, function (response) { return response; });
+            })
         }
+
         fac.AddEmp=function(data,dep)
         {
-            return $http.post(serviceBasePath + '/api/Employee/AddEmployee/' + dep, data).then(function (response) { return response; }, function (response) { return response; });
+            return $http.post(serviceBasePath + '/api/Employee/AddEmployee/' + dep, data).then(function (response) {
+                return response;
+            })
         }
+
+
         return fac;
 }]);

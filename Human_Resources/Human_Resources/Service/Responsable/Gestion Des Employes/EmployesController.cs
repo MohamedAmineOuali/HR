@@ -75,7 +75,7 @@ namespace Human_Resources.Service.Responsable
         {
 
             //Departement Foreign Key
-            int fk_dep = (from d in db.Departements
+            int? fk_dep = (from d in db.Departements
                           where (d.Libelle == departement)
                           select d.Id).FirstOrDefault();
 
