@@ -1,1 +1,1 @@
-{"Adresse":false,"CIN":true,"DateNaissance":false,"Genre":false,"Grade":false,"LieuNaissance":false,"Matricule":false,"NSS": false,"Nationalite":false,"Nom":true,"NombreEnfants":false,"Prenom":false,"StatutSocial":false,"Telephone":false}
+{"Adresse":false,"CIN":true,"DateNaissance":false,"Genre":false,"Grade":false,"LieuNaissance":false,"Matricule":false,"NSS": false,"Nationalite":false,"Nom":false,"NombreEnfants":false,"Prenom":false,"StatutSocial":false,"Telephone":false}
