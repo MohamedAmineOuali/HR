@@ -15,8 +15,13 @@ angular.module('myApp.controllers', [])
         else
             $location.path('/login');
     }])
-    .controller('TemplateControllor', ['$scope', '$ocLazyLoad', 'accountService', function ($scope, $ocLazyLoad, accountService) {
-        $scope.nom = "Imen";
+    .controller('TemplateControllor', ['$scope', '$ocLazyLoad', 'accountService', 'userService', function ($scope, $ocLazyLoad, accountService, userService) {
+        var user = userService.GetCurrentUser();
+
+        if (user == null || user.role == null)
+            $location.path('/login');
+
+        $scope.nom = user.login;
         $scope.$on('$viewContentLoaded', function () {
             $ocLazyLoad.load({
                 

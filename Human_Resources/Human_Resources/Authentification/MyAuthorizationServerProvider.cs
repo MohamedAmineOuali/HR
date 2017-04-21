@@ -39,7 +39,8 @@ namespace Human_Resources
                     {
                         {  "name", compte.Employe.Nom},
                         { "prenom", compte.Employe.Prenom },
-                        { "role", compte.Role.Libelle}
+                        { "role", compte.Role.Libelle},
+                         { "login", compte.Login}
                     });
                 }
                 else
@@ -48,7 +49,8 @@ namespace Human_Resources
                     {
                         { "name", ""},
                         { "prenom", "" },
-                        { "role", compte.Role.Libelle}
+                        { "role", compte.Role.Libelle},
+                        { "login", compte.Login}
                     });
                 }
 

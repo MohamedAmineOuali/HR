@@ -15,7 +15,7 @@
                 </a>
             </div>
             <div class="logo-box">
-                <a href="index-2.html" class="logo-text"><span>Modern</span></a>
+                <a href="index-2.html" class="logo-text"><span>GRH</span></a>
             </div><!-- Logo Box -->
             <div class="search-button">
                 <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
@@ -33,7 +33,7 @@
                             <a href="javascript:void(0);" class="waves-effect waves-button waves-classic toggle-fullscreen"><i class="fa fa-expand"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                            <a data-target="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                 <i class="fa fa-cogs"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-md dropdown-list theme-settings" role="menu">
@@ -116,8 +116,8 @@
                         </li>
 
                         <li>
-                            <a href="login.html" class="log-out waves-effect waves-button waves-classic">
-                                <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
+                            <a href="#/logout" class="log-out waves-effect waves-button waves-classic">
+                                <span><i class="fa fa-sign-out m-r-xs"></i>se déconnecter</span>
                             </a>
                         </li>
 
@@ -132,48 +132,42 @@
                 <div class="sidebar-profile">
                     <a href="javascript:void(0);">
                         <div class="sidebar-profile-details">
-                            <span>David Green<br><small>Art Director</small></span>
+                            <span>{{nom}}<br><small>Résponsable ressources humaines</small></span>
                         </div>
                     </a>
                 </div>
             </div>
             <ul class="menu accordion-menu">
 
-                <li class="active"><a href="index-2.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
-                <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li>
-
-
+                <li class="active"><a href="#/responsable/main" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Accueil</p></a></li>
                 <li class="droplink">
-                    <a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-briefcase"></span><p>UI Kits</p><span class="arrow"></span></a>
+                    <a href="" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon--user"></span><p>Gestion des employés</p><span class="arrow"></span></a>
                     <ul class="sub-menu">
-                        <li><a href="ui-alerts.html">Alerts</a></li>
-                        <li><a href="ui-buttons.html">Buttons</a></li>
-                        <li><a href="ui-icons.html">Icons</a></li>
-                        <li><a href="ui-typography.html">Typography</a></li>
-                        <li><a href="ui-notifications.html">Notifications</a></li>
-                        <li><a href="ui-grid.html">Grid</a></li>
-                        <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a></li>
-                        <li><a href="ui-modals.html">Modals</a></li>
-                        <li><a href="ui-panels.html">Panels</a></li>
-                        <li><a href="ui-progress.html">Progress Bars</a></li>
-                        <li><a href="ui-sliders.html">Sliders</a></li>
-                        <li><a href="ui-nestable.html">Nestable</a></li>
-                        <li><a href="ui-tree-view.html">Tree View</a></li>
+                        <li><a href="#/responsable/employees">La liste des employés</a></li>
+                        <li><a href="#/responsable/addemployee">Ajouter employé</a></li>
+                        <li><a href="#/responsable/uploadEmployees">Upload fichier</a></li>
+
                     </ul>
                 </li>
 
                 <li class="droplink">
-                    <a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-stats"></span><p>Charts</p><span class="arrow"></span></a>
+                    <a href="" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-briefcase"></span><p>Gestion congés</p><span class="arrow"></span></a>
                     <ul class="sub-menu">
-                        <li><a href="charts-sparkline.html">Sparkline</a></li>
-                        <li><a href="charts-rickshaw.html">Rickshaw</a></li>
-                        <li><a href="charts-morris.html">Morris</a></li>
-                        <li><a href="charts-flotchart.html">Flotchart</a></li>
-                        <li><a href="charts-chartjs.html">Chart.js</a></li>
+                        <li><a href="#/responsable/conges">La liste des congés</a></li>
+                        <li><a href="#/responsable/addconge">Ajouter congé</a></li>
+                       
                     </ul>
                 </li>
 
-                <li><a href="index-2.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-log-in"></span><p>Log out</p></a></li>
+                <li class="droplink">
+                    <a href="" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-stats"></span><p>Graph</p><span class="arrow"></span></a>
+                    <ul class="sub-menu">
+                        <li><a href="">Employees</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li><a href="#/logout" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-log-in"></span><p>se déconnecter</p></a></li>
 
 
             </ul>
@@ -191,7 +185,7 @@
             </div><!-- Row -->
         </div><!-- Main Wrapper -->
         <div class="page-footer">
-            <p class="no-s">2015 &copy; Modern by Steelcoders.</p>
+            <p class="no-s">2017 &copy; Gl3 ppp.</p>
         </div>
     </div><!-- Page Inner -->
 </main><!-- Page Content -->
@@ -201,55 +195,55 @@
 <nav class="cd-nav-container" id="cd-nav">
     <header>
         <h3>Navigation</h3>
-        <a href="#0" class="cd-close-nav">Close</a>
+        <a href="#0" class="cd-close-nav">Fermer</a>
     </header>
     <ul class="cd-nav list-unstyled">
         <li class="cd-selected" data-menu="index">
-            <a href="javsacript:void(0);">
+            <a href="#/responsable/main">
                 <span>
                     <i class="glyphicon glyphicon-home"></i>
                 </span>
-                <p>Dashboard</p>
+                <p>Accueil</p>
             </a>
         </li>
         <li data-menu="profile">
-            <a href="javsacript:void(0);">
+            <a href="#/responsable/employees">
                 <span>
                     <i class="glyphicon glyphicon-user"></i>
                 </span>
-                <p>Profile</p>
+                <p>Les employés</p>
             </a>
         </li>
         <li data-menu="inbox">
-            <a href="javsacript:void(0);">
+            <a href="https://www.gmail.com">
                 <span>
                     <i class="glyphicon glyphicon-envelope"></i>
                 </span>
-                <p>Mailbox</p>
+                <p>Envoyer un email</p>
             </a>
         </li>
         <li data-menu="#">
-            <a href="javsacript:void(0);">
+            <a href="">
                 <span>
                     <i class="glyphicon glyphicon-tasks"></i>
                 </span>
-                <p>Tasks</p>
+                <p>les tâches</p>
             </a>
         </li>
         <li data-menu="#">
-            <a href="javsacript:void(0);">
+            <a href="#/responsable/conges">
                 <span>
-                    <i class="glyphicon glyphicon-cog"></i>
+                    <i class="glyphicon glyphicon-briefcase"></i>
                 </span>
-                <p>Settings</p>
+                <p>Les congés</p>
             </a>
         </li>
         <li data-menu="calendar">
-            <a href="javsacript:void(0);">
+            <a href="">
                 <span>
                     <i class="glyphicon glyphicon-calendar"></i>
                 </span>
-                <p>Calendar</p>
+                <p>Calendrier</p>
             </a>
         </li>
     </ul>
