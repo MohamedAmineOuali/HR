@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('myApp.InfoBank', []).
+angular.module('myApp.GestionEmploye').
 factory('InfoBank', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSerializer', function ($http, $q, serviceBasePath, userService, $httpParamSerializer) {
     var fac = {};
   

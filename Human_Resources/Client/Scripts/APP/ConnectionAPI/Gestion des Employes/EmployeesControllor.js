@@ -1,8 +1,8 @@
 ﻿'use strict';
 
 /* Controllers */
-var myModule = angular.module('myApp.controllers', ['myApp.factories']);
-angular.module('myApp.EmployeesControllor', [])
+var myModule = angular.module('myApp.GestionEmploye');
+myModule
   .controller('Main.Employees', ['$scope', 'Employees', function ($scope, Employees) {
       $scope.Emp = [];
       Employees.GetAllEmployees().then(function (data) {
@@ -91,6 +91,10 @@ angular.module('myApp.EmployeesControllor', [])
 
       });
       department.GetAllDep().then(function (data) { $scope.deps = data; });
+      contrat.GetTypeContrat().then(function (data) {
+          $scope.types = data;
+      });
+      contrat.GetCategories().then(function (data) { $scope.categories = data });
       $scope.AddEmp = function () {
           var bankid;
           infoBank.Add($scope.bank).then(function (response) {

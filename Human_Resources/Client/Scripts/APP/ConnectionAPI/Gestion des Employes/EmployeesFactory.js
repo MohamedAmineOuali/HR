@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('myApp.EmployeesFactory', [])
+angular.module('myApp.GestionEmploye')
     .factory('Employees', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSerializer', function ($http, $q, serviceBasePath, userService, $httpParamSerializer) {
         var fac = {};
         fac.GetAllEmployees = function () {

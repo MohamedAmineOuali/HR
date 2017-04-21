@@ -45,8 +45,6 @@ namespace Human_Resources.Service.Responsable
         [HttpGet]
         public IHttpActionResult GetConfig()
         {
-            // var d = Directory.GetCurrentDirectory();
-            // var config = File.ReadAllText(@"./configEmp.json");
             string path = System.Web.Hosting.HostingEnvironment.MapPath(@"~/UploadedFile/employee/configEmp.json" );
             if (File.Exists(path))
             {
@@ -61,10 +59,6 @@ namespace Human_Resources.Service.Responsable
             }
             else
                 return NotFound(); 
-
-
-
-
         }
 
 

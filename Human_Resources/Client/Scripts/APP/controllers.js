@@ -4,7 +4,7 @@
 angular.module('myApp.controllers', [])
     .controller('MainControllor', ['$location', 'userService', function ($location,userService) {
         var user = userService.GetCurrentUser();
-        
+        //  redirection des liens lors d'une authentification 
         if (user == null || user.role==null)
             $location.path('/login');
 
@@ -32,7 +32,7 @@ angular.module('myApp.controllers', [])
                     'public/assets/plugins/waves/waves.min.js',
                     'public/assets/plugins/3d-bold-navigation/js/main.js',
                     'public/assets/js/modern.min.js'
-                ]
+                ] // include js file pour les template des menu lazyloading 
             });
         });
     }])
@@ -53,7 +53,7 @@ angular.module('myApp.controllers', [])
                     'public/assets/plugins/curvedlines/curvedLines.js',
                     'public/assets/plugins/metrojs/MetroJs.min.js',
                     'public/assets/js/pages/dashboard.js'
-                ]
+                ] // lazy loading du dashboard 
             });
         });
 

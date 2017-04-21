@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('myApp.ComptesFactories', []).
+angular.module('myApp.GestionCompte').
 factory('Comptes', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSerializer', function ($http, $q, serviceBasePath, userService, $httpParamSerializer) {
     var fac = {};
     fac.GetAllComptes = function () {

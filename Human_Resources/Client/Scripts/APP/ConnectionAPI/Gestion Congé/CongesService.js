@@ -3,25 +3,17 @@
 /* Directives */
 
 
-angular.module('myApp.CongesServices', []).
+angular.module('myApp.GestionConge').
 factory('Conges', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSerializer', function ($http, $q, serviceBasePath, userService, $httpParamSerializer) {
     var fac = {};
     fac.GetAllConge = function () {
         return $http.get(serviceBasePath + '/api/Conges').then(function (result) {
             return result.data;
-
-
         });}
         fac.GetCongeTypes = function () {
             return $http.get(serviceBasePath + '/api/TypeConges').then(function (result) {
                 return result.data;
-
-
-            });
-           
-
-
-
+            });         
         }
         fac.AddConge=function(data) 
         {
@@ -30,11 +22,7 @@ factory('Conges', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSerial
                 console.log(data);
             }, function (err) {
                 console.log(err);
-
-
             });
-
-
         }
     return fac; 
 }]);

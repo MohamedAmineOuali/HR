@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('myApp.DepartmentService', [])
+angular.module('myApp.GestionDepartement')
     .factory('Departement', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSerializer', function ($http, $q, serviceBasePath, userService, $httpParamSerializer) {
         var fac = {};
         fac.GetAllDep = function () {

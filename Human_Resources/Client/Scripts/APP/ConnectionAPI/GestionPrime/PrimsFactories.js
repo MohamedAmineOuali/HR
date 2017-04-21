@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('myApp.PrimsFactories', []).
+angular.module('myApp.GestionPrime').
 factory('Prims', ['$http', '$q', 'ServiceURL', '$httpParamSerializer', function ($http, $q, serviceBasePath, $httpParamSerializer) {
     var fac = {};
     fac.AddPrim = function (prim) {
