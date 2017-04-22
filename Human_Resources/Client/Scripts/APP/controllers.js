@@ -15,7 +15,7 @@ angular.module('myApp.controllers', [])
         else
             $location.path('/login');
     }])
-    .controller('TemplateControllor', ['$scope', '$ocLazyLoad', 'accountService', 'userService', function ($scope, $ocLazyLoad, accountService, userService) {
+    .controller('TemplateControllor', ['$scope', '$ocLazyLoad', '$location', 'accountService', 'userService', function ($scope, $ocLazyLoad, $location,accountService, userService) {
         var user = userService.GetCurrentUser();
 
         if (user == null || user.role == null)

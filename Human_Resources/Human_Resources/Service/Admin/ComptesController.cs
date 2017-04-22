@@ -21,13 +21,26 @@ namespace Human_Resources.Service.Admin
 
         [Authorize(Roles = "admin")]
         [Route("")]
-        public IQueryable<Compte> GetComptes()
+        public List<CompteDetail> GetComptes()
         {
-            return db.Comptes;
+            List<Compte> comptes = db.Comptes.Include("Employe").Include("Etablissement").ToList();
+
+            List<CompteDetail> comptesDetails = comptes
+                                        .Select(c => new CompteDetail()
+                                        {
+                                            Id = c.Id,
+                                            Login = c.Login,
+                                            Etablissement = c.Etablissement.Label,
+                                            Role = c.Role.Libelle,
+                                            Nom = c.Employe != null ? c.Employe.Nom + " " + c.Employe.Prenom : null
+                                        }).ToList();
+
+            return comptesDetails;
+
         }
 
         // GET: api/Comptes/5
-        //[Authorize]
+        [Authorize]
         [Route("{id:int}")]
         [HttpGet]
         [ResponseType(typeof(Compte))]
