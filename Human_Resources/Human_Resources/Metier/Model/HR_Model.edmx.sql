@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/22/2017 00:52:49
--- Generated from EDMX file: D:\Windows Files\Phenix\Documents\ppp\Project\Human_Resources\Human_Resources\Metier\Model\HR_Model.edmx
+-- Date Created: 04/22/2017 14:52:01
+-- Generated from EDMX file: C:\Users\Phenix\Documents\Visual Studio 2015\Projects\PPP\Human_Resources\Human_Resources\Metier\Model\HR_Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -292,8 +292,7 @@ CREATE TABLE [dbo].[Etablissements] (
     [Localite] nvarchar(50)  NULL,
     [MaxEmploye] int  NULL,
     [Type] nvarchar(50)  NULL,
-    [Label] nvarchar(max)  NOT NULL,
-    [Label1] nvarchar(max)  NOT NULL
+    [Label] nvarchar(max)  NOT NULL
 );
 GO
 

@@ -11,6 +11,7 @@ var myApp = angular.module('myApp', [
   'myApp.GestionPrime',
   'myApp.GestionConge',
   'myApp.GestionDepartement',
+  'myApp.GestionEtablissement',
   'myApp.factories',
   'myApp.interceptor',
   'oc.lazyLoad',

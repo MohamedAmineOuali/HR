@@ -23,9 +23,16 @@ namespace Human_Resources.Service.Admin
         // GET: api/Etablissements
         //[Authorize(Roles = "admin")]
         [Route("")]
-        public IQueryable<Etablissement> GetEtablissements()
+        [HttpGet]
+        public List<Etablissement> GetEtablissements()
         {
-            return db.Etablissements;
+            List<Etablissement> etablissements=db.Etablissements.Include("Departements").Include("Comptes").ToList();
+            foreach(var e in etablissements)
+            {
+                e.Departements = null;
+                e.Comptes = null;
+            }
+            return etablissements;
         }
 
         // GET: api/Etablissements/5

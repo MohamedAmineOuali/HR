@@ -3,7 +3,7 @@
 /* Controllers */
 //var myModule = angular.module('myApp.controllers', ['myApp.factories']);
 angular.module('myApp.GestionCompte')
-  .controller('Main.Comptes', ['$scope', '$ocLazyLoad', 'Comptes', function ($scope, $ocLazyLoad, Comptes) {
+  .controller('Main.Comptes', ['$scope', '$ocLazyLoad', 'Comptes', 'Etablissements', function ($scope, $ocLazyLoad, Comptes,Etablissements) {
 
       $ocLazyLoad.load({
 
@@ -22,4 +22,28 @@ angular.module('myApp.GestionCompte')
       Comptes.GetAllComptes().then(function (data) {
           $scope.data = data;
       })
+
+      var popUp = function (data) {
+          $scope.etablissements = data;
+          $scope.formdata = {
+              Etablissement: null,
+              Nom: "",
+              Login: "",
+              Password: "",
+              Role:""
+          };
+      }
+
+      $scope.Add = function () {
+          Etablissements.GetAllEtablissement().then(function (data) {
+              popUp(data);
+          }, function (error) {
+              $scope.errors = error.error_description;
+          })
+      }
+
+      $scope.postdata = function () {
+          $scope.formdata;
+      }
+
   }]);

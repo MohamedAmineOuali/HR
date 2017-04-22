@@ -126,6 +126,8 @@
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\EmployeesFactory.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\GestionEmployeModule.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion des Employes\InfoBankFactory.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\Gestion Etablissement\EtablissementService.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\Gestion Etablissement\GestionEtablissementModule.js" />
     <Content Include="Scripts\APP\ConnectionAPI\GestionPrime\GestionPrimeModule.js" />
     <Content Include="Scripts\APP\ConnectionAPI\GestionPrime\PrimsControllor.js" />
     <Content Include="Scripts\APP\ConnectionAPI\GestionPrime\PrimsFactories.js" />
