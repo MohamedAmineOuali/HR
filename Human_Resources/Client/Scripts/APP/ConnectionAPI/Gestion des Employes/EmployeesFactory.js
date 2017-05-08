@@ -77,6 +77,12 @@ angular.module('myApp.GestionEmploye')
             })
         }
 
+        fac.AssociateCompte= function (data, dep)
+        {
+            return $http.post(serviceBasePath + '/api/Employee/AssociateEmployee/' + dep, data).then(function (response) {
+                 return response;
+            })
+        }
 
         return fac;
 }]);
