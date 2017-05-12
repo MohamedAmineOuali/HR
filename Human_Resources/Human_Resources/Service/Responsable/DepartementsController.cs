@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Human_Resources.Metier.Model;
+using Human_Resources.Model;
+using System.Security.Claims;
 
 namespace Human_Resources.Service.Responsable
 {
@@ -23,7 +25,29 @@ namespace Human_Resources.Service.Responsable
         [HttpGet]
         public IQueryable<Departement> GetDepartements()
         {
-            return db.Departements;
+            var curUser = new UserCompte((ClaimsIdentity)User.Identity);
+
+            if (curUser.Role == "admin")
+                return db.Departements;
+            else
+            {
+                var e = (from c in db.Comptes where c.Id == curUser.Id select c.Etablissement.Id).FirstOrDefault();
+                return db.Departements.Where(d => d.FK_Etablissement == e);
+            }
+        }
+
+        [Route("empbydep")]
+        public List<EmpByDep> GetEmpByDep()
+        {
+            var curUser = new UserCompte((ClaimsIdentity)User.Identity);
+            var e = (from c in db.Comptes where c.Id == curUser.Id select c.Etablissement.Id).FirstOrDefault();
+
+            var list = from r in db.Employes
+                       where r.Departement.FK_Etablissement ==e
+                       group r by r.Departement.Libelle into g
+                       select new EmpByDep { dep = g.Key, nbEmp = g.Count() };
+
+            return list.ToList<EmpByDep>();
         }
 
         // GET: api/Departements/5

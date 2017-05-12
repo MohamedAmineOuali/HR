@@ -133,6 +133,8 @@
     <Content Include="Scripts\APP\ConnectionAPI\GestionPrime\PrimsFactories.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Congé\CongesController.js" />
     <Content Include="Scripts\APP\ConnectionAPI\Gestion Congé\CongesService.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\Statistique\Admin\AdminStatiqtiqueService.js" />
+    <Content Include="Scripts\APP\ConnectionAPI\Statistique\StatistiqueModule.js" />
     <Content Include="Scripts\APP\ocLazyLoad.js" />
     <Content Include="Scripts\APP\routes.js" />
     <Content Include="Scripts\Vendor\angularjs\version.json" />

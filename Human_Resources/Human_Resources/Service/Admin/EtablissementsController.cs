@@ -34,6 +34,17 @@ namespace Human_Resources.Service.Admin
             }
             return etablissements;
         }
+        [Route("empbyetab")]
+        [HttpGet]
+        public List<EmpByEtab> GetEmpByEtab()
+        {
+
+            var list = from r in db.Employes
+                       group r by r.Departement.Etablissement.Label into g
+                       select new EmpByEtab { etab = g.Key, nbEmp = g.Count() }; 
+                       
+            return list.ToList<EmpByEtab>();
+        }
 
         // GET: api/Etablissements/5
         //[Authorize]

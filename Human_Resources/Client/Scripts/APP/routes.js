@@ -41,22 +41,12 @@ route.config(['$locationProvider', function ($locationProvider) {
       .state('admin', {
           url: '/admin',
           templateUrl: 'public/views/Templates/Admin.html',
-          controller: 'TemplateControllor',
-          resolve: {
-              security: ['$location', 'userService', function ($location, userService) {
-                  var user = userService.GetCurrentUser();
-
-                  if (user == null || user.role == null)
-                      $location.path('/login');
-                  else if(user.role!="admin")
-                      $location.path('/unauthorized');
-        }]
-    }
+          controller: 'TemplateControllor'
       })
       .state('admin.Dashbord', {
           url: '/main',
           templateUrl: 'public/views/Admin/Home.html',
-          controller: 'DashbordControllor'
+          controller: 'AdminDashbordControllor'
       })
         .state('admin.config', {
             url: '/config',
@@ -89,7 +79,7 @@ route.config(['$locationProvider', function ($locationProvider) {
       .state('responsable.Dashbord', {
           url: '/main',
           templateUrl: 'public/views/Responsable/Home.html',
-          controller: 'DashbordControllor'
+          controller: 'ResponsableDashbordControllor'
       })
     .state('responsable.addEmployee', {
         url: '/addemployee',

@@ -1,0 +1,1 @@
+﻿var module = angular.module('myApp.Statistique', ['myApp.GestionEmploye','myApp.GestionCompte']); 

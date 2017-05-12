@@ -79,10 +79,11 @@ namespace Human_Resources.Service.Responsable
             db.SaveChanges();
             return Ok();
         }
-
+        [Authorize]
         [Route("GetAll")]
         [HttpGet]
         public IHttpActionResult GetAllEmployees()
+
         {
             var emp = db.Employes.ToList();
             

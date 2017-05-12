@@ -14,7 +14,6 @@ namespace Human_Resources.Metier.Traitement
             {
                 Compte compte=db.Comptes.Include("Role").Include("Employe").FirstOrDefault(u => u.Login == login
                      && u.Password == password);
-                
                 return compte;
             }
 

@@ -6,6 +6,15 @@
 angular.module('myApp.GestionConge').
 factory('Conges', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSerializer', function ($http, $q, serviceBasePath, userService, $httpParamSerializer) {
     var fac = {};
+    fac.ActiveConge = function () {
+
+        return $http.get(serviceBasePath + '/api/Conges/active').then(function (result) {
+            return result.data;
+
+
+
+        })
+    }
     fac.GetAllConge = function () {
         return $http.get(serviceBasePath + '/api/Conges').then(function (result) {
             return result.data;

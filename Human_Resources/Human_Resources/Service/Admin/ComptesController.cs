@@ -38,7 +38,17 @@ namespace Human_Resources.Service.Admin
             return comptesDetails;
 
         }
+        [Authorize(Roles = "admin")]
+        [Route("responsable")]
+        public List<Compte> GetComptesResponsable()
+        {
+            List<Compte> comptes = db.Comptes.Where(c => c.Role.Libelle == "responsable").Include("Employe").Include("Etablissement").ToList();
 
+         
+
+           return comptes;
+
+        }
         // GET: api/Comptes/5
         [Authorize]
         [Route("{id:int}")]
