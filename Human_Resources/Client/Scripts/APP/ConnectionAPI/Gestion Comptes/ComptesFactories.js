@@ -11,6 +11,15 @@ factory('Comptes', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSeria
             return response.data;
         })
     }
+
+    fac.Add = function (data) {
+        return $http.post(serviceBasePath + '/api/Comptes', data).then(function (response) {
+            return response;
+        })
+
+
+    }
+
     fac.GetAllComptesResponsable=function()
     {
         return $http.get(serviceBasePath + '/api/comptes/responsable').then(function (response) {

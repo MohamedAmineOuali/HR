@@ -125,6 +125,11 @@ angular.module('myApp.controllers', [])
       $scope.message = "";
       $scope.login = function () {
           accountService.login($scope.account).then(function (data) {
+              if (data.nom == "" && data.role != "admin")
+              {
+                  $location.path('/responsable/associateEmployee');
+                  return;
+              }
               $location.path('/');
           }, function (error) {
               $scope.message = error.error_description;

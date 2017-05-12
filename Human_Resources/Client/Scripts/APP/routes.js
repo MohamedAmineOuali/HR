@@ -86,6 +86,11 @@ route.config(['$locationProvider', function ($locationProvider) {
         templateUrl: 'public/views/Employes/AddEmp.html',
         controller: 'AddEmployee'
     })
+     .state('responsable.associcateEmployee', {
+        url: '/associateEmployee',
+        templateUrl: 'public/views/Employes/AddEmp.html',
+        controller: 'AssociateEmployee'
+    })   
     .state('responsable.employees', {
         url: '/employees',
         templateUrl: 'public/views/Employes/Employes.html',

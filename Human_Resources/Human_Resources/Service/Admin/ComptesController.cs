@@ -11,6 +11,8 @@ using System.Web.Http.Description;
 using Human_Resources.Metier.Model;
 using System.Security.Claims;
 using Human_Resources.Model;
+using System.Collections.Specialized;
+
 namespace Human_Resources.Service.Admin
 {
 
@@ -72,21 +74,28 @@ namespace Human_Resources.Service.Admin
                 return Request.CreateResponse(HttpStatusCode.Unauthorized, err);
             }
             else
-                return Request.CreateResponse(HttpStatusCode.OK, compte);
+                return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         // POST: api/Comptes
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [Route("")]
         [HttpPost]
-        [ResponseType(typeof(Compte))]
-        public HttpResponseMessage PostCompte(Compte compte)
+        public HttpResponseMessage PostCompte([FromBody]dynamic request)
         {
-            if (!ModelState.IsValid)
+            var role = (string)request["Role"];
+            var etablissement = (int?)request["Etablissement"];
+            var compte = new Compte { Login= request["Login"], Password= request["Password"] };
+            compte.Role= (from r in db.Roles
+                          where (r.Libelle == role)
+                          select r
+                          ).FirstOrDefault();
+            compte.FK_Etablissement = etablissement;
+            if (compte.Role==null || compte.FK_Etablissement==null)
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                HttpError err = new HttpError(string.Format("Se role n'existe pas"));
+                return Request.CreateResponse(HttpStatusCode.Conflict, err);
             }
-
             db.Comptes.Add(compte);
 
             try
@@ -98,11 +107,11 @@ namespace Human_Resources.Service.Admin
                 if (CompteExists(compte.Id))
                 {
                     HttpError err = new HttpError(string.Format("Le compte existe déja"));
-                    return Request.CreateResponse(HttpStatusCode.Unauthorized, err);
+                    return Request.CreateResponse(HttpStatusCode.Conflict, err);
                 }
                 else
                 {
-                    HttpError msg = new HttpError(string.Format("Le compte ne peut pas eter crée voire fichier log"));
+                    HttpError msg = new HttpError(string.Format("Le compte ne peut pas etre crée voire fichier log"));
                     return Request.CreateResponse(HttpStatusCode.ExpectationFailed, msg);
                 }
             }

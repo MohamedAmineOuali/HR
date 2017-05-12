@@ -3,7 +3,7 @@
 /* Controllers */
 //var myModule = angular.module('myApp.controllers', ['myApp.factories']);
 angular.module('myApp.GestionCompte')
-  .controller('Main.Comptes', ['$scope', '$ocLazyLoad', 'Comptes', 'Etablissements', function ($scope, $ocLazyLoad, Comptes,Etablissements) {
+  .controller('Main.Comptes', ['$scope', '$state', '$ocLazyLoad', 'Comptes', 'Etablissements', function ($scope, $state, $ocLazyLoad, Comptes, Etablissements) {
 
       $ocLazyLoad.load({
 
@@ -43,7 +43,13 @@ angular.module('myApp.GestionCompte')
       }
 
       $scope.postdata = function () {
-          $scope.formdata;
+
+          Comptes.Add($scope.formdata).then(function (response) {
+              if (response.status != 200)
+                  $scope.errorInsertion = true;
+              else
+                  window.location.reload();
+          });
       }
 
   }]);
