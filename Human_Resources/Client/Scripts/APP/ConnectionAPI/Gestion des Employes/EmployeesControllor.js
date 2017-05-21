@@ -212,10 +212,13 @@ myModule
       }
 
   }])
-  .controller('Get.Employees', ['$scope', 'Employees', function ($scope, Employees) {
-      $scope.Emp = [];
-      Employees.GetEmployeeById().then(function (data) {
-          $scope.Emp = data;
+  .controller('Get.Employees', ['$scope', '$location','Employees', function ($scope, $location ,Employees) {
+      $scope.emp = {};
+      var id = $location.search().id;
+      Employees.GetEmployeeById(id).then(function (data) {
+          $scope.emp = data;
       });
+
+      console.log(data);
 
   }]);

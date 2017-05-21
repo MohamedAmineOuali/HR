@@ -12,7 +12,7 @@ angular.module('myApp.GestionEmploye')
             })
         }
         fac.GetEmployeeById = function (id) {
-            return $http.post(serviceBasePath + '/api/Employee/GetEmployeeByID/'+id).then(function (response) {
+            return $http.get(serviceBasePath + '/api/Employee/GetEmployeeByID/'+id).then(function (response) {
                 return response.data;
             })
         }

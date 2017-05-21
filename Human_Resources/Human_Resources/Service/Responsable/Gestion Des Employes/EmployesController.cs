@@ -144,7 +144,7 @@ namespace Human_Resources.Service.Responsable
         }
 
         [Route("GetEmployeeByID/{id:int}")]
-        [HttpPost]
+        [HttpGet]
         public IHttpActionResult GetEmployeeByID(int id)
         {
             Employe employe = db.Employes.Where(e => e.Id == id).FirstOrDefault();
