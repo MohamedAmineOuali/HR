@@ -257,6 +257,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Metier\Traitement\Salaire\FicheDePaieGenerator.cs" />
     <Compile Include="Metier\Model\Avance.cs">
       <DependentUpon>HR_Model.tt</DependentUpon>
     </Compile>
@@ -341,6 +342,7 @@
     <Compile Include="Metier\Traitement\Authentification.cs" />
     <Compile Include="Metier\Traitement\EmployeesManager.cs" />
     <Compile Include="Metier\Model\autres\EmployeeAllInfo.cs" />
+    <Compile Include="Metier\Traitement\Salaire\IFicheDePaieGeneretor.cs" />
     <Compile Include="Model\CompteDetail.cs" />
     <Compile Include="Model\FileUpload\ExcelFile.cs" />
     <Compile Include="Model\FileUpload\FileUploadData.cs" />
