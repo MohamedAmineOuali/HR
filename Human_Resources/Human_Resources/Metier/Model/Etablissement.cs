@@ -18,6 +18,7 @@ namespace Human_Resources.Metier.Model
         public Etablissement()
         {
             this.Departements = new HashSet<Departement>();
+            this.Comptes = new HashSet<Compte>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,7 @@ namespace Human_Resources.Metier.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Departement> Departements { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Compte> Comptes { get; set; }
     }
 }

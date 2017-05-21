@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('myApp.EmployeesFactory', [])
+angular.module('myApp.GestionEmploye')
     .factory('Employees', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSerializer', function ($http, $q, serviceBasePath, userService, $httpParamSerializer) {
         var fac = {};
         fac.GetAllEmployees = function () {
@@ -77,6 +77,12 @@ angular.module('myApp.EmployeesFactory', [])
             })
         }
 
+        fac.AssociateCompte= function (data, dep)
+        {
+            return $http.post(serviceBasePath + '/api/Employee/AssociateEmployee/' + dep, data).then(function (response) {
+                 return response;
+            })
+        }
 
         return fac;
 }]);

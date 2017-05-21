@@ -12,6 +12,8 @@ using Human_Resources.Metier.Model;
 using Human_Resources.Service.Responsable.Gestion_Des_Employes;
 using System.IO;
 using System.Runtime.Serialization.Json;
+using System.Security.Claims;
+using Human_Resources.Model;
 
 namespace Human_Resources.Service.Responsable
 {
@@ -41,12 +43,12 @@ namespace Human_Resources.Service.Responsable
 
             return Ok();
         }
+
+
         [Route("GetConfig")]
         [HttpGet]
         public IHttpActionResult GetConfig()
         {
-            // var d = Directory.GetCurrentDirectory();
-            // var config = File.ReadAllText(@"./configEmp.json");
             string path = System.Web.Hosting.HostingEnvironment.MapPath(@"~/UploadedFile/employee/configEmp.json" );
             if (File.Exists(path))
             {
@@ -61,12 +63,7 @@ namespace Human_Resources.Service.Responsable
             }
             else
                 return NotFound(); 
-
-
-
-
         }
-
 
 
         [Route("AddEmployee/{departement}")]
@@ -85,10 +82,11 @@ namespace Human_Resources.Service.Responsable
             db.SaveChanges();
             return Ok();
         }
-
+        [Authorize]
         [Route("GetAll")]
         [HttpGet]
         public IHttpActionResult GetAllEmployees()
+
         {
             var emp = db.Employes.ToList();
             
@@ -234,8 +232,45 @@ namespace Human_Resources.Service.Responsable
 
 
 
+        [Authorize]
+        [Route("AssociateEmployee/{departement}")]
+        [HttpPost]
+        public HttpResponseMessage AssociateEmployeeToCompte(Employe e,string departement)
+        {
+            var curUser = new UserCompte((ClaimsIdentity)User.Identity);
 
+            Compte compte = db.Comptes.Find(curUser.Id);
 
+            if(compte.Employe!=null)
+            {
+                var message = string.Format("Un employee est deja associer à ce compte");
+                HttpError err = new HttpError(message);
+                return Request.CreateResponse(HttpStatusCode.Conflict, err);
+            }
+
+            //Departement Foreign Key
+            int? fk_dep = (from d in db.Departements
+                           where (d.Libelle == departement)
+                           select d.Id).FirstOrDefault();
+
+            e.FK_Departement = fk_dep;
+            db.Employes.Add(e);
+
+            compte.Employe = e;
+
+            db.Entry(compte).State = EntityState.Modified;
+            db.SaveChanges();
+
+            var data= new Dictionary<string, string>
+                    {
+                        {  "nom", compte.Employe.Nom},
+                        { "prenom", compte.Employe.Prenom },
+                        { "role", compte.Role.Libelle},
+                         { "login", compte.Login}
+                    };
+
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
 
 
 

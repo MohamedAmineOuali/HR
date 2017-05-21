@@ -18,6 +18,7 @@ angular.module('myApp.factories', []).
       }
       return fac;
   })
+    //user service ysejel el user fel session  token 
 .factory('accountService', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSerializer', function ($http, $q, serviceBasePath, userService,$httpParamSerializer) {
     var fac = {};
     fac.login = function (user) {
@@ -51,3 +52,4 @@ angular.module('myApp.factories', []).
     }
     return fac;
 }]);
+// permet de faire le login + logout 

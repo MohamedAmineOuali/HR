@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('myApp.Contrat', []).
+angular.module('myApp.GestionEmploye').
 factory('Contrat', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSerializer', function ($http, $q, serviceBasePath, userService, $httpParamSerializer) {
     var fac = {};
     /*fac.GetAllContrat = function () {
@@ -17,6 +17,21 @@ factory('Contrat', ['$http', '$q', 'ServiceURL', 'userService', '$httpParamSeria
             return response.data;
         })
 
+
+    }
+    fac.GetTypeContrat=function()
+    {
+
+        return $http.get(serviceBasePath + '/api/TypeContrats').then(function (response) {
+            return response.data;
+        });
+
+    }
+    fac.GetCategories = function () {
+
+        return $http.get(serviceBasePath + '/api/Categories').then(function (response) {
+            return response.data;
+        });
 
     }
     return fac;

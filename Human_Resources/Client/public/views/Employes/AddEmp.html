@@ -8,6 +8,7 @@
     </div>
 </div>
 <div id="main-wrapper">
+  
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-white">
@@ -114,13 +115,13 @@
                                                 <div class="form-group col-md-12">
                                                     <label>Type Contrat</label>
                                                     <select class="form-control m-b-sm" ng-model="contrat.Fk_TypeContrat">
-                                                        <option ng-repeat="type in types track by $index " value="{{type.id}}">{{dep.Type}}</option>
+                                                        <option ng-repeat="type in types track by $index " value="{{type.Id}}">{{ type.Type }}</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     <label>Categorie</label>
                                                     <select class="form-control m-b-sm" ng-model="contrat.FK_Categorie">
-                                                        <option ng-repeat="cat in categories track by $index " value="{{cat.id}}">{{cat.Libelle}}</option>
+                                                        <option ng-repeat="cat in categories track by $index " value="{{cat.Id}}">{{cat.Libelle}}</option>
                                                     </select>
                                                 </div>
 
@@ -187,4 +188,5 @@
             </div>
         </div>
     </div>
+   
 </div><!-- Row -->

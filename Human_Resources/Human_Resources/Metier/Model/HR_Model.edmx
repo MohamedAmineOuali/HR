@@ -92,6 +92,10 @@
       <End Role="PrimeFixes" EntitySet="PrimeFixes" />
       <End Role="Prime_Categorie" EntitySet="Prime_Categorie" />
     </AssociationSet>
+    <AssociationSet Name="FK_Etablissement_Comptes" Association="HumanResourcesModel.Store.FK_Etablissement_Comptes">
+      <End Role="Etablissement" EntitySet="Etablissements" />
+      <End Role="Compte" EntitySet="Comptes" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Avances">
     <Key>
@@ -175,6 +179,7 @@
     <Property Name="Password" Type="nvarchar(max)" Nullable="true" />
     <Property Name="FK_Employe" Type="int" Nullable="true" />
     <Property Name="FK_Role" Type="int" Nullable="true" />
+    <Property Name="FK_Etablissement" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Conges">
     <Key>
@@ -242,7 +247,7 @@
     <Property Name="Localite" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="MaxEmploye" Type="int" Nullable="true" />
     <Property Name="Type" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="label" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Label" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="IGRs">
     <Key>
@@ -521,6 +526,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Etablissement_Comptes">
+    <End Role="Etablissement" Type="HumanResourcesModel.Store.Etablissements" Multiplicity="0..1" />
+    <End Role="Compte" Type="HumanResourcesModel.Store.Comptes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etablissement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Compte">
+        <PropertyRef Name="FK_Etablissement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -613,6 +630,8 @@
           <Property Name="FK_Role" Type="Int32" />
           <NavigationProperty Name="Employe" Relationship="Self.FK_CompteEmploye" FromRole="Comptes" ToRole="Employes" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Role" FromRole="Comptes" ToRole="Roles" />
+          <Property Name="FK_Etablissement" Type="Int32" />
+          <NavigationProperty Name="Etablissement" Relationship="HumanResourcesModel.FK_Etablissement_Comptes" FromRole="Compte" ToRole="Etablissement" />
         </EntityType>
         <EntityType Name="Conge">
           <Key>
@@ -698,7 +717,8 @@
           <Property Name="MaxEmploye" Type="Int32" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Departements" Relationship="Self.FK_Etablissement" FromRole="Etablissements" ToRole="Departements" />
-          <Property Name="Label" Type="String" Nullable="false" />
+          <Property Name="Label" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Comptes" Relationship="HumanResourcesModel.FK_Etablissement_Comptes" FromRole="Etablissement" ToRole="Compte" />
         </EntityType>
         <EntityType Name="IGR">
           <Key>
@@ -1072,7 +1092,23 @@
             <End Role="PrimeFixes" EntitySet="PrimeFixes" />
             <End Role="Prime_Categorie" EntitySet="Prime_Categorie" />
           </AssociationSet>
+          <AssociationSet Name="FK_Etablissement_Comptes" Association="HumanResourcesModel.FK_Etablissement_Comptes">
+            <End Role="Etablissement" EntitySet="Etablissements" />
+            <End Role="Compte" EntitySet="Comptes" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Etablissement_Comptes">
+          <End Type="HumanResourcesModel.Etablissement" Role="Etablissement" Multiplicity="0..1" />
+          <End Type="HumanResourcesModel.Compte" Role="Compte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etablissement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Compte">
+              <PropertyRef Name="FK_Etablissement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1167,6 +1203,7 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
           <ScalarProperty Name="FK_Role" ColumnName="FK_Role" />
+          <ScalarProperty Name="FK_Etablissement" ColumnName="FK_Etablissement" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1239,7 +1276,7 @@
           <ScalarProperty Name="Localite" ColumnName="Localite" />
           <ScalarProperty Name="MaxEmploye" ColumnName="MaxEmploye" />
           <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Label" ColumnName="label" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

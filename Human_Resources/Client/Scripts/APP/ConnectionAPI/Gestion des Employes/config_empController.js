@@ -1,8 +1,8 @@
 ﻿//'use strict';
 
 /* Controllers */
-var myModule = angular.module('myApp.controllers', ['myApp.factories']);
-angular.module('myApp.config_empControllor', [])
+var myModule = angular.module('myApp.GestionEmploye');
+myModule
   .controller('Main.config_emp', ['ServiceURL', '$http', '$scope', '$location','Employees', function (serviceBasePath, $http, $scope,$location, emp) {
 
       

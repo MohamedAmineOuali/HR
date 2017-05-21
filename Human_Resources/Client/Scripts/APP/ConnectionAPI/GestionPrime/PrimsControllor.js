@@ -2,7 +2,7 @@
 
 /* Controllers */
 //var myModule = angular.module('myApp.controllers', ['myApp.factories']);
-angular.module('myApp.PrimsContollor', [])
+angular.module('myApp.GestionPrime')
   .controller('Main.Prims', ['$scope', 'Prims', function ($scope, Prims) {
       $scope.data = "";
       Comptes.GetAllComptes().then(function (data) {

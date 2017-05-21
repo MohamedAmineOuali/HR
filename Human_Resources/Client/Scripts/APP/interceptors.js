@@ -12,7 +12,7 @@ angular.module('myApp.interceptor', []).config(['$httpProvider', function ($http
             },
             responseError: function (rejection) {
                 if (rejection.status === 401) {
-                    $location.path('/login');
+                   // $location.path('/login');
                     return $q.reject(rejection);
                 }
                 if (rejection.status === 403) {

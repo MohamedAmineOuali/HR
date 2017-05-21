@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 /* Controllers */
-angular.module('myApp.CongesController', [])
+angular.module('myApp.GestionConge')
   .controller('Conges.Main', ['$scope', 'Conges',"Employees",'$location', function ($scope, conges,emp,$location) {
       console.log('enter');
       var resolveReferences = function resolveReferences(json) {
@@ -72,7 +72,6 @@ angular.module('myApp.CongesController', [])
                   $scope.error = false;
                   $scope.data.FK_TypeConge = $scope.types[$scope.type].Id;
                   $scope.data.FK_Employe = data.data.Id;
-
                   conges.AddConge($scope.data);
                   $location.path('/conges');
 
