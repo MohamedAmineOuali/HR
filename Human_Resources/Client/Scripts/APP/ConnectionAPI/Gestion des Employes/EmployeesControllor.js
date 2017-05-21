@@ -211,4 +211,11 @@ myModule
           })
       }
 
+  }])
+  .controller('Get.Employees', ['$scope', 'Employees', function ($scope, Employees) {
+      $scope.Emp = [];
+      Employees.GetEmployeeById().then(function (data) {
+          $scope.Emp = data;
+      });
+
   }]);

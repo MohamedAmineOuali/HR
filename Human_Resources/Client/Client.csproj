@@ -98,6 +98,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="public\views\Employes\EmployeeDetail.html" />
     <Content Include="public\views\Errors\403.html" />
     <Content Include="public\views\Errors\404.html" />
     <Content Include="public\views\Admin\Home.html" />

@@ -11,7 +11,12 @@ angular.module('myApp.GestionEmploye')
                 return response.data;
             })
         }
-
+        fac.GetEmployeeById = function (id) {
+            return $http.post(serviceBasePath + '/api/Employee/GetEmployeeByID/'+id).then(function (response) {
+                return response.data;
+            })
+        }
+       
         fac.uploadFile = function (data) {
             var obj = {
                 "filesize": data.filesize,

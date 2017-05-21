@@ -110,8 +110,12 @@ route.config(['$locationProvider', function ($locationProvider) {
         url: '/conges',
         templateUrl: 'public/views/Conges/Conges.html',
         controller: 'Conges.Main'
+    })
+    .state('responsable.EmployeeDetail', {
+        url: '/detailEmployee',
+        templateUrl: 'public/views/Employes/EmployeeDetail.html',
+        controller: 'Get.Employees'
     });
-
     $urlRouterProvider.when('', '/');
 
     $urlRouterProvider.otherwise('/notfound');

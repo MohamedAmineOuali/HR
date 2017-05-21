@@ -82,7 +82,7 @@ namespace Human_Resources.Service.Responsable
             db.SaveChanges();
             return Ok();
         }
-        [Authorize]
+     //   [Authorize]
         [Route("GetAll")]
         [HttpGet]
         public IHttpActionResult GetAllEmployees()
@@ -156,7 +156,7 @@ namespace Human_Resources.Service.Responsable
            return Ok(employe);
         }
 
-
+        
 
 
         [Route("GetEmployeeByMat/{mat:int}")]
