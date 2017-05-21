@@ -37,7 +37,7 @@ namespace Human_Resources
                 {
                     props = new AuthenticationProperties(new Dictionary<string, string>
                     {
-                        {  "name", compte.Employe.Nom},
+                        {  "nom", compte.Employe.Nom},
                         { "prenom", compte.Employe.Prenom },
                         { "role", compte.Role.Libelle},
                          { "login", compte.Login}
@@ -47,7 +47,7 @@ namespace Human_Resources
                 {
                     props = new AuthenticationProperties(new Dictionary<string, string>
                     {
-                        { "name", ""},
+                        { "nom", ""},
                         { "prenom", "" },
                         { "role", compte.Role.Libelle},
                         { "login", compte.Login}

@@ -11,7 +11,12 @@ angular.module('myApp.GestionDepartement')
                 return response.data;
             })
         }
-
+        fac.GetEmpByDep = function () {
+            return $http.get(serviceBasePath + '/api/Departements/empbydep').then(function (response) {
+                return response.data;
+            })
+        }
+        
         
         return fac;
     }]);

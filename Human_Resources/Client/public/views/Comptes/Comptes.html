@@ -13,39 +13,38 @@
         <div class="col-md-12">
             <div class="panel panel-white">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Add rows</h4>
+                    <h4 class="panel-title">Gestion des Comptes</h4>
                 </div>
                 <div class="panel-body">
-                    <button type="button" class="btn btn-success m-b-sm" data-toggle="modal" data-target="#myModal">Add New Row</button>
+                    <button type="button" ng-click="Add()" class="btn btn-success m-b-sm" data-toggle="modal" data-target="#myModal">Ajouter un nouveau comptes</button>
                     <!-- Modal -->
-                    <form id="add-row-form" action="javascript:void(0);">
+                    <form id="add-row-form" ng-submit="postdata()">
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Ajouter un compte</h4>
                                     </div>
                                     <div class="modal-body">
+
                                         <div class="form-group">
-                                            <input type="text" id="name-input" class="form-control" placeholder="Name" required>
+                                            <input type="text" class="form-control" ng-model="formdata.Login" placeholder="Login" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" id="position-input" class="form-control" placeholder="Position" required>
+                                            <input type="password" class="form-control" ng-model="formdata.Password" placeholder="Password" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="number" id="age-input" class="form-control" placeholder="Age" required>
+                                            <input type="text"class="form-control" ng-model="formdata.Role" placeholder="Role" required>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" id="date-input" class="form-control date-picker" placeholder="Start Date" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" id="salary-input" class="form-control" placeholder="Salary" required>
-                                        </div>
+                                        <select class="form-control" ng-model="formdata.Etablissement" required>
+                                            <option value="" disabled selected>Select un Etablissement</option>
+                                            <option ng-repeat="e in etablissements" ng-value="e.Id">{{e.Label}}</option>
+                                        </select>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                        <button type="submit" id="add-row" class="btn btn-success">Add</button>
+                                        <input type="submit" id="add-row" class="btn btn-success"/>
                                     </div>
                                 </div>
                             </div>
@@ -54,18 +53,18 @@
                     <div class="table-responsive">
                         <div id="example3_wrapper" class="dataTables_wrapper">
                             <div class="dataTables_length" id="example3_length">
-                                <label>Show 
+                                <label>Montrer 
                                     <select name="example3_length" aria-controls="example3" class="">
                                         <option value="10">10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
                                         <option value="100">100</option>
                                     </select> 
-                                 entries</label>                           
+                                    Entités</label>                           
                             </div>
                             
                             <div id="example3_filter" class="dataTables_filter">
-                                <label>Search:<input type="search" class="" placeholder="Search" ng-model="search"></label>
+                                <label>Recherche:<input type="search" class="" placeholder="Recherche" ng-model="search"></label>
                             </div>
                             
 
@@ -91,15 +90,19 @@
                                 </tfoot>
                                 <tbody>
                                     <tr role="row" ng-repeat="c in data | orderBy:sortType:sortReverse | filter:search ">
-                                        <td>{{ c.Nom }}</td>
+                                        <td>
+                                            {{ c.Nom }}
+                                            <span ng-show="c.Nom==null" class="label label-danger">Non active</span>
+                                        </td>
                                         <td>{{ c.Login }}</td>
+
                                         <td>{{ c.Etablissement }}</td>
                                         <td>{{ c.Role }}</td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <div class="dataTables_info" id="example3_info" role="status" aria-live="polite">Showing 1 to 1 of 1 entries</div>
+                            <div class="dataTables_info" id="example3_info" role="status" aria-live="polite">il y a {{data.length}} comptes</div>
                             <div class="dataTables_paginate paging_simple_numbers" id="example3_paginate">
                                 <a class="paginate_button previous disabled" aria-controls="example3" data-dt-idx="0" tabindex="0" id="example3_previous">Previous</a>
                                 <span><a class="paginate_button current" aria-controls="example3" data-dt-idx="1" tabindex="0">1</a></span>

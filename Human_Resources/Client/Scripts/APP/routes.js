@@ -6,7 +6,20 @@ route.config(['$locationProvider', function ($locationProvider) {
     $stateProvider
         .state('main', {
             url: '/',
-            controller: 'MainControllor'
+            resolve: {
+                security: ['$location','userService', function ($location,userService) {
+                    var user = userService.GetCurrentUser();
+                    //  redirection des liens lors d'une authentification 
+                    if (user == null || user.role == null)
+                        $location.path('/login');
+                    else if (user.role === "admin")
+                        $location.path('/admin/main');
+                    else if (user.role === "responsable")
+                        $location.path('/responsable/main');
+                    else
+                        $location.path('/login');
+                }]
+            }
         })
       .state('login', {
           url: '/login',
@@ -33,7 +46,7 @@ route.config(['$locationProvider', function ($locationProvider) {
       .state('admin.Dashbord', {
           url: '/main',
           templateUrl: 'public/views/Admin/Home.html',
-          controller: 'DashbordControllor'
+          controller: 'AdminDashbordControllor'
       })
         .state('admin.config', {
             url: '/config',
@@ -53,18 +66,31 @@ route.config(['$locationProvider', function ($locationProvider) {
       .state('responsable', {
           url: '/responsable',
           templateUrl: 'public/views/Templates/Responsable.html',
-          controller: 'TemplateControllor'
+          controller: 'TemplateControllor',
+          resolve: {
+              security: ['$location', 'userService', function ($location, userService) {
+                  var user = userService.GetCurrentUser();
+
+                  if (user == null || user.role == null)
+                      $location.path('/login');
+              }]
+          }
       })
       .state('responsable.Dashbord', {
           url: '/main',
           templateUrl: 'public/views/Responsable/Home.html',
-          controller: 'DashbordControllor'
+          controller: 'ResponsableDashbordControllor'
       })
     .state('responsable.addEmployee', {
         url: '/addemployee',
         templateUrl: 'public/views/Employes/AddEmp.html',
         controller: 'AddEmployee'
     })
+     .state('responsable.associcateEmployee', {
+        url: '/associateEmployee',
+        templateUrl: 'public/views/Employes/AddEmp.html',
+        controller: 'AssociateEmployee'
+    })   
     .state('responsable.employees', {
         url: '/employees',
         templateUrl: 'public/views/Employes/Employes.html',

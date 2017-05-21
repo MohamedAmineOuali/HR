@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Human_Resources.Metier.Model;
+using Human_Resources.Model;
+using System.Security.Claims;
 
 namespace Human_Resources.Service.Responsable
 {
@@ -22,7 +24,17 @@ namespace Human_Resources.Service.Responsable
             var result = db.Conges.ToList<Conge>() ;
             return result; 
         }
-        
+        [Route("api/Conges/active")]
+        [HttpGet]
+        public List<Conge> GetActiveConge()
+        {
+            var curUser = new UserCompte((ClaimsIdentity)User.Identity);
+            var e = (from c in db.Comptes where c.Id == curUser.Id select c.Etablissement.Id).FirstOrDefault();
+            var result = (from c in db.Conges where c.Etat=="active" && c.Employe.Departement.FK_Etablissement==e select c  ).ToList<Conge>();
+            return result;
+        }
+
+
 
         // GET: api/Conges/5
         [ResponseType(typeof(Conge))]
