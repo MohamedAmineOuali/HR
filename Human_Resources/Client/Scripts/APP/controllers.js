@@ -16,7 +16,7 @@ angular.module('myApp.controllers', [])
             $location.path('/login');
     }])
     .controller('TemplateControllor', ['$scope', '$ocLazyLoad', 'accountService', function ($scope, $ocLazyLoad, accountService) {
-        $scope.nom = "Imen";
+        $scope.nom = "Admin";
         $scope.$on('$viewContentLoaded', function () {
             $ocLazyLoad.load({
                 
