@@ -8,134 +8,150 @@ namespace Human_Resources.Metier.Traitement.Salaire
 {
     public class FicheDePaieGenerator : IFicheDePaieGeneretor
     {
+        Employe e;
+        public FicheDePaieGenerator(Employe e)
+        {
+            this.e = e;
+        }
+
         public string GetDateDebut()
         {
-            throw new NotImplementedException();
+            return "01/11/2016";
         }
 
         public string GetDateFin()
         {
-            throw new NotImplementedException();
+            return "30/11/2017";
         }
 
         public Employe GetEmploye()
         {
-            throw new NotImplementedException();
+            return e;
         }
 
         public decimal HeureSupplementaire()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal HeureSupplementaireMontant()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal heureSupplementaireTaux()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal MontantCNAMPatrenale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal MontantCNAMSalariale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal MontantCNRPSPatrenale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal MontantCNRPSSalariale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal MontantCNSSPatrenale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal MontantCNSSSalariale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal MontantIGR()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal Prime()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal SalaireBase()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal SalaireBaseHeure()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal SalaireBrute()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal SalaireNet()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal TauxCNAMPatrenale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal TauxCNAMSalairale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal TauxCNRPSPatrenale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal TauxCNRPSSalairale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal TauxCNSSPatrenale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal TauxCNSSSalairale()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal TauxHoraireSalaireBase()
         {
-            throw new NotImplementedException();
+            return 10;
         }
 
         public decimal TauxIGR()
         {
-            throw new NotImplementedException();
+            return 10;
+        }
+
+        public decimal TotalePatrenal()
+        {
+            return 10;
+        }
+
+        public decimal TotaleSalariale()
+        {
+            return 10;
         }
     }
 }

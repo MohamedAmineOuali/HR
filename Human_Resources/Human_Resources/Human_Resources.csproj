@@ -55,6 +55,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.11\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.11\lib\itextsharp.xmlworker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="LinqToExcel, Version=1.11.0.0, Culture=neutral, PublicKeyToken=9c8ea65a58f03f1f, processorArchitecture=MSIL">
       <HintPath>..\packages\LinqToExcel.1.11.0\lib\LinqToExcel.dll</HintPath>
       <Private>True</Private>
@@ -343,6 +351,7 @@
     <Compile Include="Metier\Traitement\EmployeesManager.cs" />
     <Compile Include="Metier\Model\autres\EmployeeAllInfo.cs" />
     <Compile Include="Metier\Traitement\Salaire\IFicheDePaieGeneretor.cs" />
+    <Compile Include="Metier\Traitement\Salaire\SalaireManagment.cs" />
     <Compile Include="Model\CompteDetail.cs" />
     <Compile Include="Model\FileUpload\ExcelFile.cs" />
     <Compile Include="Model\FileUpload\FileUploadData.cs" />
@@ -365,6 +374,7 @@
     <Compile Include="Service\Responsable\Gestion Des Employes\ContratsController.cs" />
     <Compile Include="Service\Responsable\Gestion Des Employes\EmployeeConfig.cs" />
     <Compile Include="Service\Responsable\Gestion Des Employes\EmployesController.cs" />
+    <Compile Include="Service\Responsable\Gestion Des Employes\Gestion Salaire\SalaireController.cs" />
     <Compile Include="Service\Responsable\Gestion Des Employes\InfosBanquesController.cs" />
     <Compile Include="Service\Responsable\Gestion Des Employes\UploadController.cs" />
     <Compile Include="Service\Responsable\PrimesVariablesController.cs" />

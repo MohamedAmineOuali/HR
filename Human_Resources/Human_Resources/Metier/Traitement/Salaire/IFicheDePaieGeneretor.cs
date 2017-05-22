@@ -4,7 +4,7 @@ using Human_Resources.Metier.Model;
 
 namespace Human_Resources.Metier.Traitement.Salaire
 {
-    interface IFicheDePaieGeneretor
+     public interface IFicheDePaieGeneretor
     {
         string GetDateDebut();
         string GetDateFin();
@@ -35,6 +35,8 @@ namespace Human_Resources.Metier.Traitement.Salaire
         decimal TauxCNAMPatrenale();
         decimal MontantCNAMPatrenale();
 
+        decimal TotalePatrenal();
+        decimal TotaleSalariale();
 
         decimal TauxIGR();
         decimal MontantIGR();
