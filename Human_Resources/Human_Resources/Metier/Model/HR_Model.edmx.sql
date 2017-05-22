@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/22/2017 13:45:39
--- Generated from EDMX file: C:\Users\USER\Source\Repos\PPP\Human_Resources\Human_Resources\Metier\Model\HR_Model.edmx
+-- Date Created: 05/23/2017 00:23:31
+-- Generated from EDMX file: D:\Windows Files\Phenix\Documents\ppp\Project\Human_Resources\Human_Resources\Metier\Model\HR_Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -67,6 +67,18 @@ IF OBJECT_ID(N'[dbo].[FK_PrimeFixe]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_Etablissement_Comptes]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Comptes] DROP CONSTRAINT [FK_Etablissement_Comptes];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CategorieCNAM]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Categories] DROP CONSTRAINT [FK_CategorieCNAM];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CNSSCategorie]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CNSSes] DROP CONSTRAINT [FK_CNSSCategorie];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CNRPCategorie]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CNRPS] DROP CONSTRAINT [FK_CNRPCategorie];
+GO
+IF OBJECT_ID(N'[dbo].[FK_IGRCategorie]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Categories] DROP CONSTRAINT [FK_IGRCategorie];
 GO
 
 -- --------------------------------------------------
