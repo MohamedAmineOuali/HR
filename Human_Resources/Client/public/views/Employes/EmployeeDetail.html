@@ -12,13 +12,14 @@
 <div id="main-wrapper">
     <div class="row">
         <div class="col-md-3 user-profile">
-            <h2 class="text-center">Amily Lee</h2>
-            <p class="text-center">UI/UX Designer</p>
+            <h2 class="text-center">{{emp.Nom}} {{emp.Prenom}}</h2>
+            <p class="text-center">{{emp.Grade}}</p>
             <hr>
             <ul class="list-unstyled text-center">
-                <li><p><i class="fa fa-map-marker m-r-xs"></i>Melbourne, Australia</p></li>
-                <li><p><i class="fa fa-phone m-r-xs"></i><a href="#">example@mail.com</a></p></li>
-                <li><p><i class="fa fa-address-card m-r-xs"></i><a href="#">www.themeforest.net</a></p></li>
+                <li><p><i class="fa fa-map-marker m-r-xs"></i>{{emp.Addresse}}</p></li>
+                <li><p><i class="fa fa-phone m-r-xs"></i><a href="#">{{emp.Telephone}}</a></p></li>
+                <li><p><i class="fa fa-briefcase m-r-xs"></i>{{emp.Matricule}}</p></li>
+
             </ul>
             <hr>
             <button class="btn btn-primary btn-block"><i class="fa fa-folder m-r-xs"></i>Bultain de paie</button>
@@ -31,17 +32,65 @@
                         <div class="panel panel-white">
                             <div class="panel-body">
                                 <table  class="table">
-                                    
                                     <tr>
-                                        
-                                        <td><i class="fa fa-map-marker m-r-xs"></i>Smith</td>
-                                        <td>50</td>
+                                        <td><i class="fa fa-user m-r-xs"></i>Nom et prenom</td>
+                                        <td> {{emp.Nom}} {{emp.Prenom}} </td>
+                                    </tr>
+                                     <tr>
+                                        <td><i class="fa fa-info  m-r-xs"></i>CIN</td>
+                                        <td>{{emp.CIN}}</td>
                                     </tr>
                                     <tr>
-                                        
-                                        <td>Jackson</td>
-                                        <td>94</td>
+                                        <td><i class="fa fa-venus-mars  m-r-xs"></i>Genre</td>
+                                        <td>{{emp.Genre}}</td>
                                     </tr>
+                                    <tr>
+                                        <td><i class="fa fa-info m-r-xs"></i>Maricule</td>
+                                        <td>{{emp.Matricule}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-info m-r-xs"></i>CNSS</td>
+                                        <td>{{emp.Num_SecuriteSociale}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-building m-r-xs"></i>Departement</td>
+                                        <td>{{emp.Departement.Libelle}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-briefcase m-r-xs"></i>Grade</td>
+                                        <td>{{emp.Grade}}</td>
+                                    </tr>
+                                  
+                                    <tr>
+                                        <td><i class="fa fa-pencil m-r-xs"></i>Numero de contrat</td>
+                                        <td>{{emp.Contrat.Numero}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-calendar m-r-xs"></i>Date et lieu de naissance</td>
+                                        <td>{{emp.DateDeNaissance}} {{emp.LieuDeNaissance}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-globe m-r-xs"></i>Nationalite</td>
+                                        <td>{{emp.Natonalite}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-info m-r-xs"></i>Etat civil</td>
+                                        <td>{{emp.Etat}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-users m-r-xs"></i>Nombre d'enfant</td>
+                                        <td>{{emp.NbreEnfants}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-bank m-r-xs"></i>Numero compte bancaire</td>
+                                        <td>{{emp.InfosBanque.NumeroCompte}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-bank m-r-xs"></i>tel banque</td>
+                                        <td>{{emp.InfosBanque.TelBanque}}</td>
+                                    </tr>
+
+
                                 </table> 
                             </div>
                         </div>
@@ -60,7 +109,7 @@
                     <div class="panel-title">Plus d'information</div>
                 </div>
                 <div class="panel-body">
-                    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                    <p>{{emp.Nom}} {{emp.Prenom}} Est autonome. Il prend des initiatives, s’informe au besoin et démontre de la débrouillardise afin d’assurer le meilleur rendement possible.</p>
                 </div>
             </div>
             

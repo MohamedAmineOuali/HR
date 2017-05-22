@@ -217,8 +217,9 @@ myModule
       var id = $location.search().id;
       Employees.GetEmployeeById(id).then(function (data) {
           $scope.emp = data;
+          console.log(data);
       });
 
-      console.log(data);
+     
 
   }]);
