@@ -53,7 +53,7 @@ namespace Human_Resources.Metier.Traitement.Salaire
 				</tr>
 
 				<tr>
-					<th>Position:</th> <td> Categorie</td>
+					<th>Position:</th> <td> {e.Contrat.Categorie.Libelle}</td>
 				</tr>
 				<tr>
 					<th> Adresse: </th>
@@ -72,7 +72,7 @@ namespace Human_Resources.Metier.Traitement.Salaire
 			            <th class='t l'>Salaire de base</th><td>{g.SalaireBaseHeure()}</td><td>{g.TauxHoraireSalaireBase()}</td><td class='r'>{g.SalaireBase()}</td>
 		            </tr>
 		            <tr>
-			            <th class='l'>H.S</th><td>{g.heureSupplementaireTaux()}</td><td>{g.heureSupplementaireTaux()}</td><td class='r'>{g.HeureSupplementaire()}</td>
+			            <th class='l'>H.S</th><td>{g.HeureSupplementaire()}</td><td>{g.heureSupplementaireTaux()}</td><td class='r'>{g.HeureSupplementaireMontant()}</td>
 		            </tr>
 		            <tr>
 			            <th class='b l'>Primes</th><td colspan='2'></td><td class='r'>{g.Prime()}</td>
@@ -97,11 +97,11 @@ namespace Human_Resources.Metier.Traitement.Salaire
 			<th class='t l'>Sécurité Sociale</th><td>{g.SalaireBrute()}</td><td>{g.TauxCNSSSalairale()}</td><td>{g.MontantCNSSSalariale()}</td><td>{g.TauxCNSSPatrenale()}</td><td class='r'>{g.MontantCNSSPatrenale()}</td>
 		</tr>
 		<tr>
-			<th class='l'>Cotisations non plafonnées</th><td>{g.SalaireBrute()}</td><td>{g.TauxCNRPSSalairale()}</td><td>{g.TauxCNRPSSalairale()}</td><td>{g.TauxCNRPSSalairale()}</td><td class='r'>{g.TauxCNRPSSalairale()}</td>
+			<th class='l'>Cotisations non plafonnées</th><td>{g.SalaireBrute()}</td><td>{g.TauxCNRPSSalairale()}</td><td>{g.MontantCNRPSSalariale()}</td><td>{g.TauxCNRPSPatrenale()}</td><td class='r'>{g.MontantCNRPSPatrenale()}</td>
 		</tr>
 		<tr>
-			<th class='l b'>Retraite complémentaire</th><td class='b'>{g.SalaireBrute()}</td><td>{g.TauxCNRPSSalairale()}</td><td>{g.TauxCNRPSSalairale()}</td><td>{g.TauxCNRPSSalairale()}</td><td class='r'>{g.TauxCNRPSSalairale()}</td>
-		</tr>
+			<th class='l b'>Retraite complémentaire</th><td class='b'>{g.SalaireBrute()}</td><td>{g.TauxCNAMSalairale()}</td><td>{g.MontantCNAMSalariale()}</td><td>{g.TauxCNAMPatrenale()}</td><td class='r'>{g.MontantCNAMPatrenale()}</td>
+		</tr>M
 		<tr>
 			<td class='noborder'></td><td class='noborder'></td><th class='l b'>Total</th><td class='b'>{g.TotaleSalariale()}</td><th class='b'>total</th><td class='r b'>{g.TotalePatrenal()}</td>
 		</tr>

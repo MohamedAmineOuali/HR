@@ -67,32 +67,32 @@ namespace Human_Resources.Metier.Traitement.Salaire
 
         public decimal MontantCNAMPatrenale()
         {
-            return SalaireBrute() * TauxCNAMPatrenale();
+            return SalaireBrute() * TauxCNAMPatrenale()/100;
         }
 
         public decimal MontantCNAMSalariale()
         {
-            return SalaireBrute() * TauxCNAMSalairale();
+            return SalaireBrute() * TauxCNAMSalairale() / 100;
         }
 
         public decimal MontantCNRPSPatrenale()
         {
-            return SalaireBrute() * TauxCNRPSPatrenale();
+            return SalaireBrute() * TauxCNRPSPatrenale() / 100;
         }
 
         public decimal MontantCNRPSSalariale()
         {
-            return SalaireBrute() * TauxCNRPSSalairale();
+            return SalaireBrute() * TauxCNRPSSalairale() / 100;
         }
 
         public decimal MontantCNSSPatrenale()
         {
-            return SalaireBrute() * TauxCNSSPatrenale();
+            return SalaireBrute() * TauxCNSSPatrenale() / 100;
         }
 
         public decimal MontantCNSSSalariale()
         {
-            return SalaireBrute()* TauxCNSSSalairale();
+            return SalaireBrute()* TauxCNSSSalairale() / 100;
         }
 
         public decimal MontantIGR()
