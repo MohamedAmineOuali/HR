@@ -9,6 +9,7 @@ namespace Human_Resources.Metier.Traitement.Salaire
     public class FicheDePaieGenerator : IFicheDePaieGeneretor
     {
         Employe e;
+        
         public FicheDePaieGenerator(Employe e)
         {
             this.e = e;
@@ -16,13 +17,19 @@ namespace Human_Resources.Metier.Traitement.Salaire
 
         public string GetDateDebut()
         {
-            return "01/11/2016";
+            var month = DateTime.Now.Month;
+            var year = DateTime.Now.Year; 
+
+            return "1/"+month+"/"+year;
         }
 
         public string GetDateFin()
         {
-            return "30/11/2017";
-        }
+            var month = DateTime.Now.Month;
+            var year = DateTime.Now.Year;
+
+            return "30/" + month + "/" + year;   
+                }
 
         public Employe GetEmploye()
         {
@@ -31,47 +38,61 @@ namespace Human_Resources.Metier.Traitement.Salaire
 
         public decimal HeureSupplementaire()
         {
-            return 10;
+            using ( var ctx =new HumanResourcesEntities())
+            {
+                var h =( from c in ctx.BulletinDePaies where c.Employe.Id == e.Id select c).FirstOrDefault();
+                return h.HeureSup; 
+
+
+            }
+
+
         }
 
         public decimal HeureSupplementaireMontant()
         {
-            return 10;
+
+            
+                return HeureSupplementaire()*heureSupplementaireTaux();
+
+
+            
         }
 
         public decimal heureSupplementaireTaux()
         {
-            return 10;
+            var montant = e.Contrat.Categorie.TauxH;
+            return montant;
         }
 
         public decimal MontantCNAMPatrenale()
         {
-            return 10;
+            return SalaireBrute() * TauxCNAMPatrenale();
         }
 
         public decimal MontantCNAMSalariale()
         {
-            return 10;
+            return SalaireBrute() * TauxCNAMSalairale();
         }
 
         public decimal MontantCNRPSPatrenale()
         {
-            return 10;
+            return SalaireBrute() * TauxCNRPSPatrenale();
         }
 
         public decimal MontantCNRPSSalariale()
         {
-            return 10;
+            return SalaireBrute() * TauxCNRPSSalairale();
         }
 
         public decimal MontantCNSSPatrenale()
         {
-            return 10;
+            return SalaireBrute() * TauxCNSSPatrenale();
         }
 
         public decimal MontantCNSSSalariale()
         {
-            return 10;
+            return SalaireBrute()* TauxCNSSSalairale();
         }
 
         public decimal MontantIGR()
@@ -81,62 +102,81 @@ namespace Human_Resources.Metier.Traitement.Salaire
 
         public decimal Prime()
         {
-            return 10;
+            using (var ctx = new HumanResourcesEntities())
+            {
+                var pf = from p in ctx.Prime_Categorie where p.FK_Categorie == e.Contrat.FK_Categorie select p.PrimeFix;
+                var primeFixe = 0M; 
+                foreach ( var p in pf)
+                {
+
+                    primeFixe +=(decimal) p.Valeur; 
+
+                }
+                var primeVar = 0M; 
+                foreach ( var p in e.PrimesVariables )
+                {
+                    primeVar += (decimal) p.Valeur; 
+                }
+                return primeVar + primeFixe; 
+
+            }
         }
 
         public decimal SalaireBase()
         {
-            return 10;
+            return e.Contrat.Categorie.SalaireDeBase;
         }
 
         public decimal SalaireBaseHeure()
         {
-            return 10;
+            return SalaireBase() / TauxHoraireSalaireBase();
         }
 
         public decimal SalaireBrute()
         {
-            return 10;
+            return SalaireBase() + Prime() + HeureSupplementaireMontant();
         }
 
         public decimal SalaireNet()
         {
-            return 10;
+            return SalaireBrute() - TotaleSalariale();
         }
 
         public decimal TauxCNAMPatrenale()
         {
-            return 10;
+            return e.Contrat.Categorie.CNAM.TauxPatronal.Value; 
         }
 
         public decimal TauxCNAMSalairale()
         {
-            return 10;
+
+            return   e.Contrat.Categorie.CNAM.TauxSalarial.Value; 
+            
         }
 
         public decimal TauxCNRPSPatrenale()
         {
-            return 10;
+            return e.Contrat.Categorie.CNRP.TauxPatronal.Value;
         }
 
         public decimal TauxCNRPSSalairale()
         {
-            return 10;
+            return e.Contrat.Categorie.CNRP.TauxSalarial.Value;
         }
 
         public decimal TauxCNSSPatrenale()
         {
-            return 10;
+            return e.Contrat.Categorie.CNSS.TauxPatronal.Value;
         }
 
         public decimal TauxCNSSSalairale()
         {
-            return 10;
+            return e.Contrat.Categorie.CNSS.TauxSalarial.Value;
         }
 
         public decimal TauxHoraireSalaireBase()
         {
-            return 10;
+            return e.Contrat.Categorie.TauxH;
         }
 
         public decimal TauxIGR()
@@ -146,12 +186,12 @@ namespace Human_Resources.Metier.Traitement.Salaire
 
         public decimal TotalePatrenal()
         {
-            return 10;
+            return MontantCNAMPatrenale() + MontantCNRPSPatrenale() + MontantCNSSPatrenale();
         }
 
         public decimal TotaleSalariale()
         {
-            return 10;
+            return MontantCNAMSalariale() + MontantCNRPSSalariale() + MontantCNSSSalariale();
         }
     }
 }

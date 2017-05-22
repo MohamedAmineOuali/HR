@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e28b3801fb6f46d8b15bc4d538afadac" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="e28b3801fb6f46d8b15bc4d538afadac" Name="Diagram1" ZoomLevel="47">
         <EntityTypeShape EntityType="HumanResourcesModel.Avance" Width="1.5" PointX="10.125" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.BulletinDePay" Width="1.5" PointX="10.5" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.Categorie" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.Categorie" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.ChargePatronale" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.CNAM" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.CNRP" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
@@ -26,7 +26,7 @@
         <EntityTypeShape EntityType="HumanResourcesModel.PrimesVariable" Width="1.5" PointX="10.5" PointY="25.875" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.Role" Width="1.5" PointX="11.25" PointY="20.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HumanResourcesModel.TypeConge" Width="1.5" PointX="8.25" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HumanResourcesModel.TypeContrat" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesModel.TypeContrat" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
         <AssociationConnector Association="HumanResourcesModel.FK_EmployeCat" ManuallyRouted="false" />
         <AssociationConnector Association="HumanResourcesModel.FK_EmployeBDP" ManuallyRouted="false" />
         <AssociationConnector Association="HumanResourcesModel.FK__Contrat__FK_Cate__30F848ED" ManuallyRouted="false" />
@@ -44,6 +44,10 @@
         <AssociationConnector Association="HumanResourcesModel.FK_InfosBanque" ManuallyRouted="false" />
         <AssociationConnector Association="HumanResourcesModel.FK_PrimeFixe" ManuallyRouted="false" />
         <AssociationConnector Association="HumanResourcesModel.FK_Etablissement_Comptes" />
+        <AssociationConnector Association="HumanResourcesModel.CategorieCNAM" />
+        <AssociationConnector Association="HumanResourcesModel.CNSSCategorie" />
+        <AssociationConnector Association="HumanResourcesModel.CNRPCategorie" />
+        <AssociationConnector Association="HumanResourcesModel.IGRCategorie" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

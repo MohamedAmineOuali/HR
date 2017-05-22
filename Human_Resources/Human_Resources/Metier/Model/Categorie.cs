@@ -24,10 +24,18 @@ namespace Human_Resources.Metier.Model
         public int Id { get; set; }
         public string Informations { get; set; }
         public string Libelle { get; set; }
+        public int IGRId { get; set; }
+        public decimal TauxH { get; set; }
+        public decimal TauxHS { get; set; }
+        public decimal SalaireDeBase { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrat> Contrats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Prime_Categorie> Prime_Categorie { get; set; }
+        public virtual CNAM CNAM { get; set; }
+        public virtual CNSS CNSS { get; set; }
+        public virtual CNRP CNRP { get; set; }
+        public virtual IGR IGR { get; set; }
     }
 }

@@ -27,6 +27,7 @@ namespace Human_Resources.Metier.Model
         public Nullable<decimal> Salaire_Brute { get; set; }
         public string Statut { get; set; }
         public Nullable<int> FK_Employe { get; set; }
+        public decimal HeureSup { get; set; }
     
         public virtual Employe Employe { get; set; }
     }

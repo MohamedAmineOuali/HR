@@ -96,6 +96,22 @@
       <End Role="Etablissement" EntitySet="Etablissements" />
       <End Role="Compte" EntitySet="Comptes" />
     </AssociationSet>
+    <AssociationSet Name="CategorieCNAM" Association="HumanResourcesModel.Store.CategorieCNAM">
+      <End Role="Categorie" EntitySet="Categories" />
+      <End Role="CNAM" EntitySet="CNAMs" />
+    </AssociationSet>
+    <AssociationSet Name="CNSSCategorie" Association="HumanResourcesModel.Store.CNSSCategorie">
+      <End Role="CNSS" EntitySet="CNSSes" />
+      <End Role="Categorie" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="CNRPCategorie" Association="HumanResourcesModel.Store.CNRPCategorie">
+      <End Role="CNRP" EntitySet="CNRPS" />
+      <End Role="Categorie" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="IGRCategorie" Association="HumanResourcesModel.Store.IGRCategorie">
+      <End Role="IGR" EntitySet="IGRs" />
+      <End Role="Categorie" EntitySet="Categories" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Avances">
     <Key>
@@ -124,6 +140,7 @@
     <Property Name="Salaire_Brute" Type="decimal" Nullable="true" Precision="18" Scale="0" />
     <Property Name="Statut" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="FK_Employe" Type="int" Nullable="true" />
+    <Property Name="HeureSup" Type="decimal" Nullable="false" />
   </EntityType>
   <EntityType Name="Categories">
     <Key>
@@ -132,6 +149,11 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Informations" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="Libelle" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="IGRId" Type="int" Nullable="false" />
+    <Property Name="TauxH" Type="decimal" Nullable="false" />
+    <Property Name="TauxHS" Type="decimal" Nullable="false" />
+    <Property Name="SalaireDeBase" Type="decimal" Nullable="false" />
+    <Property Name="CNAM_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ChargePatronales">
     <Key>
@@ -160,6 +182,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TauxPatronal" Type="decimal" Nullable="true" Precision="18" Scale="0" />
     <Property Name="TauxSalarial" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Categorie_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CNSSes">
     <Key>
@@ -169,6 +192,7 @@
     <Property Name="PlafondSalarial" Type="decimal" Nullable="true" Precision="18" Scale="0" />
     <Property Name="TauxPatronal" Type="decimal" Nullable="true" Precision="18" Scale="0" />
     <Property Name="TauxSalarial" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Categorie_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Comptes">
     <Key>
@@ -538,6 +562,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="CategorieCNAM">
+    <End Role="Categorie" Type="HumanResourcesModel.Store.Categories" Multiplicity="*" />
+    <End Role="CNAM" Type="HumanResourcesModel.Store.CNAMs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CNAM">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categorie">
+        <PropertyRef Name="CNAM_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CNSSCategorie">
+    <End Role="CNSS" Type="HumanResourcesModel.Store.CNSSes" Multiplicity="*" />
+    <End Role="Categorie" Type="HumanResourcesModel.Store.Categories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CNSS">
+        <PropertyRef Name="Categorie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CNRPCategorie">
+    <End Role="CNRP" Type="HumanResourcesModel.Store.CNRPS" Multiplicity="*" />
+    <End Role="Categorie" Type="HumanResourcesModel.Store.Categories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CNRP">
+        <PropertyRef Name="Categorie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IGRCategorie">
+    <End Role="IGR" Type="HumanResourcesModel.Store.IGRs" Multiplicity="1" />
+    <End Role="Categorie" Type="HumanResourcesModel.Store.Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IGR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categorie">
+        <PropertyRef Name="IGRId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -571,6 +643,7 @@
           <Property Name="Statut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FK_Employe" Type="Int32" />
           <NavigationProperty Name="Employe" Relationship="Self.FK_EmployeBDP" FromRole="BulletinDePaies" ToRole="Employes" />
+          <Property Name="HeureSup" Type="Decimal" Nullable="false" />
         </EntityType>
         <EntityType Name="Categorie">
           <Key>
@@ -581,6 +654,14 @@
           <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Contrats" Relationship="Self.FK__Contrat__FK_Cate__30F848ED" FromRole="Categories" ToRole="Contrats" />
           <NavigationProperty Name="Prime_Categorie" Relationship="Self.FK_Categorie" FromRole="Categories" ToRole="Prime_Categorie" />
+          <NavigationProperty Name="CNAM" Relationship="HumanResourcesModel.CategorieCNAM" FromRole="Categorie" ToRole="CNAM" />
+          <NavigationProperty Name="CNSS" Relationship="HumanResourcesModel.CNSSCategorie" FromRole="Categorie" ToRole="CNSS" />
+          <NavigationProperty Name="CNRP" Relationship="HumanResourcesModel.CNRPCategorie" FromRole="Categorie" ToRole="CNRP" />
+          <NavigationProperty Name="IGR" Relationship="HumanResourcesModel.IGRCategorie" FromRole="Categorie" ToRole="IGR" />
+          <Property Name="IGRId" Type="Int32" Nullable="false" />
+          <Property Name="TauxH" Type="Decimal" Nullable="false" />
+          <Property Name="TauxHS" Type="Decimal" Nullable="false" />
+          <Property Name="SalaireDeBase" Type="Decimal" Nullable="false" />
         </EntityType>
         <EntityType Name="ChargePatronale">
           <Key>
@@ -601,6 +682,7 @@
           <Property Name="TauxPatronal" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="TauxSalarial" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categorie" Relationship="HumanResourcesModel.CategorieCNAM" FromRole="CNAM" ToRole="Categorie" />
         </EntityType>
         <EntityType Name="CNRP">
           <Key>
@@ -609,6 +691,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TauxPatronal" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="TauxSalarial" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Categorie" Relationship="HumanResourcesModel.CNRPCategorie" FromRole="CNRP" ToRole="Categorie" />
         </EntityType>
         <EntityType Name="CNSS">
           <Key>
@@ -618,6 +701,7 @@
           <Property Name="PlafondSalarial" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="TauxPatronal" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="TauxSalarial" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Categorie" Relationship="HumanResourcesModel.CNSSCategorie" FromRole="CNSS" ToRole="Categorie" />
         </EntityType>
         <EntityType Name="Compte">
           <Key>
@@ -728,6 +812,7 @@
           <Property Name="SalaireMax" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="SalaireMin" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Taux" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Categories" Relationship="HumanResourcesModel.IGRCategorie" FromRole="IGR" ToRole="Categorie" />
         </EntityType>
         <EntityType Name="InfosBanque">
           <Key>
@@ -1096,6 +1181,22 @@
             <End Role="Etablissement" EntitySet="Etablissements" />
             <End Role="Compte" EntitySet="Comptes" />
           </AssociationSet>
+          <AssociationSet Name="CategorieCNAM" Association="HumanResourcesModel.CategorieCNAM">
+            <End Role="Categorie" EntitySet="Categories" />
+            <End Role="CNAM" EntitySet="CNAMs" />
+          </AssociationSet>
+          <AssociationSet Name="CNSSCategorie" Association="HumanResourcesModel.CNSSCategorie">
+            <End Role="CNSS" EntitySet="CNSSes" />
+            <End Role="Categorie" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="CNRPCategorie" Association="HumanResourcesModel.CNRPCategorie">
+            <End Role="CNRP" EntitySet="CNRPS" />
+            <End Role="Categorie" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="IGRCategorie" Association="HumanResourcesModel.IGRCategorie">
+            <End Role="IGR" EntitySet="IGRs" />
+            <End Role="Categorie" EntitySet="Categories" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_Etablissement_Comptes">
           <End Type="HumanResourcesModel.Etablissement" Role="Etablissement" Multiplicity="0..1" />
@@ -1106,6 +1207,30 @@
             </Principal>
             <Dependent Role="Compte">
               <PropertyRef Name="FK_Etablissement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CategorieCNAM">
+          <End Type="HumanResourcesModel.Categorie" Role="Categorie" Multiplicity="1" />
+          <End Type="HumanResourcesModel.CNAM" Role="CNAM" Multiplicity="1" />
+        </Association>
+        <Association Name="CNSSCategorie">
+          <End Type="HumanResourcesModel.CNSS" Role="CNSS" Multiplicity="1" />
+          <End Type="HumanResourcesModel.Categorie" Role="Categorie" Multiplicity="1" />
+        </Association>
+        <Association Name="CNRPCategorie">
+          <End Type="HumanResourcesModel.CNRP" Role="CNRP" Multiplicity="1" />
+          <End Type="HumanResourcesModel.Categorie" Role="Categorie" Multiplicity="1" />
+        </Association>
+        <Association Name="IGRCategorie">
+          <End Type="HumanResourcesModel.IGR" Role="IGR" Multiplicity="1" />
+          <End Type="HumanResourcesModel.Categorie" Role="Categorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IGR">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categorie">
+              <PropertyRef Name="IGRId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1142,6 +1267,7 @@
           <ScalarProperty Name="Salaire_Brute" ColumnName="Salaire_Brute" />
           <ScalarProperty Name="Statut" ColumnName="Statut" />
           <ScalarProperty Name="FK_Employe" ColumnName="FK_Employe" />
+          <ScalarProperty Name="HeureSup" ColumnName="HeureSup" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1151,6 +1277,10 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Informations" ColumnName="Informations" />
           <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="IGRId" ColumnName="IGRId" />
+          <ScalarProperty Name="TauxH" ColumnName="TauxH" />
+          <ScalarProperty Name="TauxHS" ColumnName="TauxHS" />
+          <ScalarProperty Name="SalaireDeBase" ColumnName="SalaireDeBase" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1374,6 +1504,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="CategorieCNAM" TypeName="HumanResourcesModel.CategorieCNAM" StoreEntitySet="Categories">
+      <EndProperty Name="CNAM">
+        <ScalarProperty Name="Id" ColumnName="CNAM_Id" />
+      </EndProperty>
+      <EndProperty Name="Categorie">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CNSSCategorie" TypeName="HumanResourcesModel.CNSSCategorie" StoreEntitySet="CNSSes">
+      <EndProperty Name="Categorie">
+        <ScalarProperty Name="Id" ColumnName="Categorie_Id" />
+      </EndProperty>
+      <EndProperty Name="CNSS">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CNRPCategorie" TypeName="HumanResourcesModel.CNRPCategorie" StoreEntitySet="CNRPS">
+      <EndProperty Name="Categorie">
+        <ScalarProperty Name="Id" ColumnName="Categorie_Id" />
+      </EndProperty>
+      <EndProperty Name="CNRP">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

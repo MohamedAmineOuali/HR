@@ -14,9 +14,18 @@ namespace Human_Resources.Metier.Model
     
     public partial class IGR
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public IGR()
+        {
+            this.Categories = new HashSet<Categorie>();
+        }
+    
         public int Id { get; set; }
         public Nullable<decimal> SalaireMax { get; set; }
         public Nullable<decimal> SalaireMin { get; set; }
         public Nullable<decimal> Taux { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Categorie> Categories { get; set; }
     }
 }

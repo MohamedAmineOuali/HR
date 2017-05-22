@@ -17,5 +17,7 @@ namespace Human_Resources.Metier.Model
         public int Id { get; set; }
         public Nullable<decimal> TauxPatronal { get; set; }
         public Nullable<decimal> TauxSalarial { get; set; }
+    
+        public virtual Categorie Categorie { get; set; }
     }
 }

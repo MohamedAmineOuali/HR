@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/22/2017 14:52:01
--- Generated from EDMX file: C:\Users\Phenix\Documents\Visual Studio 2015\Projects\PPP\Human_Resources\Human_Resources\Metier\Model\HR_Model.edmx
+-- Date Created: 05/22/2017 13:45:39
+-- Generated from EDMX file: C:\Users\USER\Source\Repos\PPP\Human_Resources\Human_Resources\Metier\Model\HR_Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [HumanResources];
+USE [ModelFirstDataBase];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -17,47 +17,47 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK__Conge__FK_TypeCo__35BCFE0A]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Conges] DROP CONSTRAINT [FK__Conge__FK_TypeCo__35BCFE0A];
-GO
-IF OBJECT_ID(N'[dbo].[FK__Contrat__FK_Cate__30F848ED]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Contrats] DROP CONSTRAINT [FK__Contrat__FK_Cate__30F848ED];
-GO
-IF OBJECT_ID(N'[dbo].[FK__Contrat__FK_Type__300424B4]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Contrats] DROP CONSTRAINT [FK__Contrat__FK_Type__300424B4];
-GO
-IF OBJECT_ID(N'[dbo].[FK__PrimesVar__FK_Em__48CFD27E]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PrimesVariables] DROP CONSTRAINT [FK__PrimesVar__FK_Em__48CFD27E];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Categorie]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Prime_Categorie] DROP CONSTRAINT [FK_Categorie];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Chef]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Departements] DROP CONSTRAINT [FK_Chef];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CompteEmploye]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Comptes] DROP CONSTRAINT [FK_CompteEmploye];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Contrat]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employes] DROP CONSTRAINT [FK_Contrat];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Departement]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employes] DROP CONSTRAINT [FK_Departement];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Employe]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Conges] DROP CONSTRAINT [FK_Employe];
+IF OBJECT_ID(N'[dbo].[FK_EmployeCat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Avances] DROP CONSTRAINT [FK_EmployeCat];
 GO
 IF OBJECT_ID(N'[dbo].[FK_EmployeBDP]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[BulletinDePaies] DROP CONSTRAINT [FK_EmployeBDP];
 GO
-IF OBJECT_ID(N'[dbo].[FK_EmployeCat]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Avances] DROP CONSTRAINT [FK_EmployeCat];
+IF OBJECT_ID(N'[dbo].[FK__Contrat__FK_Cate__30F848ED]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Contrats] DROP CONSTRAINT [FK__Contrat__FK_Cate__30F848ED];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Categorie]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Prime_Categorie] DROP CONSTRAINT [FK_Categorie];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompteEmploye]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Comptes] DROP CONSTRAINT [FK_CompteEmploye];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Role]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Comptes] DROP CONSTRAINT [FK_Role];
+GO
+IF OBJECT_ID(N'[dbo].[FK__Conge__FK_TypeCo__35BCFE0A]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Conges] DROP CONSTRAINT [FK__Conge__FK_TypeCo__35BCFE0A];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Employe]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Conges] DROP CONSTRAINT [FK_Employe];
+GO
+IF OBJECT_ID(N'[dbo].[FK__Contrat__FK_Type__300424B4]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Contrats] DROP CONSTRAINT [FK__Contrat__FK_Type__300424B4];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Contrat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employes] DROP CONSTRAINT [FK_Contrat];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Chef]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Departements] DROP CONSTRAINT [FK_Chef];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Departement]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employes] DROP CONSTRAINT [FK_Departement];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Etablissement]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Departements] DROP CONSTRAINT [FK_Etablissement];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Etablissement_Comptes]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Comptes] DROP CONSTRAINT [FK_Etablissement_Comptes];
+IF OBJECT_ID(N'[dbo].[FK__PrimesVar__FK_Em__48CFD27E]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PrimesVariables] DROP CONSTRAINT [FK__PrimesVar__FK_Em__48CFD27E];
 GO
 IF OBJECT_ID(N'[dbo].[FK_InfosBanque]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Employes] DROP CONSTRAINT [FK_InfosBanque];
@@ -65,8 +65,8 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_PrimeFixe]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Prime_Categorie] DROP CONSTRAINT [FK_PrimeFixe];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Role]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Comptes] DROP CONSTRAINT [FK_Role];
+IF OBJECT_ID(N'[dbo].[FK_Etablissement_Comptes]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Comptes] DROP CONSTRAINT [FK_Etablissement_Comptes];
 GO
 
 -- --------------------------------------------------
@@ -168,7 +168,8 @@ CREATE TABLE [dbo].[BulletinDePaies] (
     [Salaire_Base] decimal(18,0)  NULL,
     [Salaire_Brute] decimal(18,0)  NULL,
     [Statut] nvarchar(50)  NULL,
-    [FK_Employe] int  NULL
+    [FK_Employe] int  NULL,
+    [HeureSup] decimal(18,0)  NOT NULL
 );
 GO
 
@@ -176,7 +177,12 @@ GO
 CREATE TABLE [dbo].[Categories] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Informations] nvarchar(50)  NULL,
-    [Libelle] nvarchar(50)  NULL
+    [Libelle] nvarchar(50)  NULL,
+    [IGRId] int  NOT NULL,
+    [TauxH] decimal(18,0)  NOT NULL,
+    [TauxHS] decimal(18,0)  NOT NULL,
+    [SalaireDeBase] decimal(18,0)  NOT NULL,
+    [CNAM_Id] int  NOT NULL
 );
 GO
 
@@ -204,7 +210,8 @@ GO
 CREATE TABLE [dbo].[CNRPS] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [TauxPatronal] decimal(18,0)  NULL,
-    [TauxSalarial] decimal(18,0)  NULL
+    [TauxSalarial] decimal(18,0)  NULL,
+    [Categorie_Id] int  NOT NULL
 );
 GO
 
@@ -213,7 +220,8 @@ CREATE TABLE [dbo].[CNSSes] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [PlafondSalarial] decimal(18,0)  NULL,
     [TauxPatronal] decimal(18,0)  NULL,
-    [TauxSalarial] decimal(18,0)  NULL
+    [TauxSalarial] decimal(18,0)  NULL,
+    [Categorie_Id] int  NOT NULL
 );
 GO
 
@@ -774,6 +782,66 @@ GO
 CREATE INDEX [IX_FK_Etablissement_Comptes]
 ON [dbo].[Comptes]
     ([FK_Etablissement]);
+GO
+
+-- Creating foreign key on [CNAM_Id] in table 'Categories'
+ALTER TABLE [dbo].[Categories]
+ADD CONSTRAINT [FK_CategorieCNAM]
+    FOREIGN KEY ([CNAM_Id])
+    REFERENCES [dbo].[CNAMs]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CategorieCNAM'
+CREATE INDEX [IX_FK_CategorieCNAM]
+ON [dbo].[Categories]
+    ([CNAM_Id]);
+GO
+
+-- Creating foreign key on [Categorie_Id] in table 'CNSSes'
+ALTER TABLE [dbo].[CNSSes]
+ADD CONSTRAINT [FK_CNSSCategorie]
+    FOREIGN KEY ([Categorie_Id])
+    REFERENCES [dbo].[Categories]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CNSSCategorie'
+CREATE INDEX [IX_FK_CNSSCategorie]
+ON [dbo].[CNSSes]
+    ([Categorie_Id]);
+GO
+
+-- Creating foreign key on [Categorie_Id] in table 'CNRPS'
+ALTER TABLE [dbo].[CNRPS]
+ADD CONSTRAINT [FK_CNRPCategorie]
+    FOREIGN KEY ([Categorie_Id])
+    REFERENCES [dbo].[Categories]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CNRPCategorie'
+CREATE INDEX [IX_FK_CNRPCategorie]
+ON [dbo].[CNRPS]
+    ([Categorie_Id]);
+GO
+
+-- Creating foreign key on [IGRId] in table 'Categories'
+ALTER TABLE [dbo].[Categories]
+ADD CONSTRAINT [FK_IGRCategorie]
+    FOREIGN KEY ([IGRId])
+    REFERENCES [dbo].[IGRs]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_IGRCategorie'
+CREATE INDEX [IX_FK_IGRCategorie]
+ON [dbo].[Categories]
+    ([IGRId]);
 GO
 
 -- --------------------------------------------------
