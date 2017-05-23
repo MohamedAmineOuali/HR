@@ -213,12 +213,33 @@ myModule
 
   }])
   .controller('Get.Employees', ['$scope', '$location','Employees', function ($scope, $location ,Employees) {
+      //détails employé
       $scope.emp = {};
       var id = $location.search().id;
       Employees.GetEmployeeById(id).then(function (data) {
           $scope.emp = data;
           console.log(data);
       });
+
+      //impression
+      $scope.pdf = {};
+
+      $scope.imprimer = function () {
+
+          Employees.GeneratePDF(id).then(function (data) {
+              $scope.pdf = data;
+              //console.log(data.file);
+
+              window.open("data:application/pdf;base64," + data.file, "_blank");
+
+            
+              var url = 'data:application/pdf;base64,' + data.file;
+              //document.location.href = url;
+
+
+          });
+
+      };
 
      
 
