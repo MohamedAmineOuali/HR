@@ -35,7 +35,7 @@
 
 
                                 <tr ng-repeat="x in resolveReferences(Emp)" >
-                                 <th scope="row"><a href="#/responsable/detailEmployee?id=1">{{x.Matricule}} </a></th>
+                                 <th scope="row"><a href="#/responsable/detailEmployee?id={{x.Id}}">{{x.Matricule}} </a></th>
                                     <th scope="row">{{x.CIN}} </th>
                                     <td>{{x.Nom + ' ' + x.Prenom}}</td>
                                     <td scope="row">{{x.DateDeNaissance.split('T')[0]+', '+x.LieuDeNaissance}}</td>
