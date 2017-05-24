@@ -11,11 +11,19 @@ angular.module('myApp.GestionEmploye')
                 return response.data;
             })
         }
+
         fac.GetEmployeeById = function (id) {
             return $http.get(serviceBasePath + '/api/Employee/GetEmployeeByID/'+id).then(function (response) {
                 return response.data;
             })
         }
+
+        fac.GeneratePDF = function (id) {
+            return $http.get(serviceBasePath + '/api/Employees/Salaire/fichedepaie/' + id).then(function (response) {
+                return response.data;
+            })
+        }
+
        
         fac.uploadFile = function (data) {
             var obj = {
