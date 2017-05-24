@@ -228,9 +228,9 @@ myModule
 
           Employees.GeneratePDF(id).then(function (data) {
               $scope.pdf = data;
-              //console.log(data.file);
+              console.log(data.file);
 
-              window.open("data:application/pdf;base64," + data.file, "_blank");
+              //window.open("data:application/pdf;base64," + data.file, "_blank");
 
             
               var url = 'data:application/pdf;base64,' + data.file;
