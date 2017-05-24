@@ -23,17 +23,28 @@ namespace Human_Resources.Service.Responsable
         // GET: api/CNAMs
         [Route("")]
         [HttpGet]
-        public IQueryable<Departement> GetDepartements()
+        public List<Departement> GetDepartements()
         {
             var curUser = new UserCompte((ClaimsIdentity)User.Identity);
+            List<Departement> dep;
 
             if (curUser.Role == "admin")
-                return db.Departements;
+                dep=db.Departements.Include("Etablissement").Include("Employe").Include("Employes").ToList();
             else
             {
                 var e = (from c in db.Comptes where c.Id == curUser.Id select c.Etablissement.Id).FirstOrDefault();
-                return db.Departements.Where(d => d.FK_Etablissement == e);
+                dep= db.Departements.Where(d => d.FK_Etablissement == e).Include("Etablissement").Include("Employe").Include("Employes").ToList();
             }
+
+            foreach(Departement e in dep)
+            {
+                e.Employe = null;
+                e.Employes = null;
+                e.Etablissement = null;
+            }
+
+            return dep;
+
         }
 
         [Route("empbydep")]
